@@ -23,7 +23,7 @@ spring:
 
 #mybatis配置
 mybatis:
-  type-aliases-package: com.gxust.edu.rental_room.domain
+  type-aliases-package: com.gxust.edu.rental_room.domain,com.gxust.edu.rental_room.query
   mapper-locations: classpath:/mapper/*Mapper.xml
 
 #分页插件

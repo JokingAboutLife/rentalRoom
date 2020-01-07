@@ -14,11 +14,8 @@
         select <include refid="Base_Column_List" /> from user where loginName = #{loginName} and password = #{password}
     </select>
 
-
-<!--
-
     <select id="findByQuery" resultType="user" parameterType="userQuery">
-        select  <include refid="Base_Column_List" /> from t_user
+        select  <include refid="Base_Column_List" /> from user
         <where>
             <if test="name != null and name!=''">
                 <bind name="likeName" value="'%' + _parameter.name + '%'" />
@@ -31,16 +28,14 @@
         </where>
     </select>
 
-    &lt;!&ndash;根据Id查询&ndash;&gt;
+    <!--根据Id查询-->
     <select id="findById" resultType="user" parameterType="int" >
-      SELECT * from t_user where id = #{id,jdbcType=INTEGER}
+      SELECT * from user where id = #{id,jdbcType=INTEGER}
   </select>
 
-
-
-    &lt;!&ndash;添加&ndash;&gt;
+    <!--添加-->
     <insert id="add" parameterType="user" keyColumn="id" keyProperty="id" useGeneratedKeys="true">
-        insert into t_user
+        insert into user
         <trim prefix="(" suffix=")" suffixOverrides="," >
             name,
             email,
@@ -57,23 +52,22 @@
         </trim>
     </insert>
 
-
-    &lt;!&ndash;删除&ndash;&gt;
+    <!--删除-->
     <delete id="deleteById" parameterType="int" >
-      delete from t_user where id = #{id,jdbcType=INTEGER}
+      delete from user where id = #{id,jdbcType=INTEGER}
   </delete>
 
-    &lt;!&ndash; 批量删除 &ndash;&gt;
+    <!-- 批量删除 -->
     <delete id="deleteByIds">
-        delete from t_user where id in
+        delete from user where id in
         <foreach item="id" collection="array" open="(" separator="," close=")">
             #{id}
         </foreach>
     </delete>
 
-    &lt;!&ndash;更新&ndash;&gt;
+    <!--更新-->
     <update id="update" parameterType="user" >
-        update t_user
+        update user
         <set>
             <if test="name != null and name != ''" >
                 name = #{name,jdbcType=VARCHAR},
@@ -90,7 +84,6 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
--->
 
 
 </mapper>
