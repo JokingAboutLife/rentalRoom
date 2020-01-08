@@ -21,9 +21,9 @@ public class UserController {
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     @ResponseBody
-    public JsonModel login(String loginName,String password){
+    public JsonModel login(String account,String password){
         JsonModel jsonModel = new JsonModel();
-        User user = userService.login(loginName, password);
+        User user = userService.login(account, password);
         if (user != null){
             jsonModel.setSuccess(true);
             jsonModel.setMsg("登陆成功！");

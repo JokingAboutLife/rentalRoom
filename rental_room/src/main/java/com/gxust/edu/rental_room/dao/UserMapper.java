@@ -9,7 +9,7 @@ import java.util.List;
 
 @Mapper
 public interface UserMapper {
-    User login(@Param("loginName") String loginName,@Param("password") String password);
+    User login(@Param("account") String account,@Param("password") String password);
 
     int add(User user);
 
