@@ -1,22 +1,22 @@
 package com.gxust.edu.rental_room.query;
 
 public class UserQuery {
-    private String loginName;
-    private String name;
+    private String account;
+    private String username;
 
-    public String getLoginName() {
-        return loginName;
+    public String getAccount() {
+        return account;
     }
 
-    public void setLoginName(String loginName) {
-        this.loginName = loginName;
+    public void setAccount(String account) {
+        this.account = account;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
