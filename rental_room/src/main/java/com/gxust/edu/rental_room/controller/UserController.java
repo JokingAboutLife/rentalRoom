@@ -105,11 +105,11 @@ public class UserController {
     @ResponseBody
     public JsonModel findByQuery(UserQuery userQuery){
         JsonModel jsonModel = new JsonModel();
-        List<User> user = userService.findByQuery(userQuery);
-        if(user != null){
+        List<User> userList = userService.findByQuery(userQuery);
+        if(userList != null && userList.size() > 0){
             jsonModel.setMsg("根据ID查找成功");
             jsonModel.setSuccess(true);
-            jsonModel.setData(user);
+            jsonModel.setData(userList);
         }else {
             jsonModel.setMsg("根据ID查找失败");
             jsonModel.setSuccess(false);
