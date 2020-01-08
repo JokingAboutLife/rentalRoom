@@ -11,7 +11,7 @@
  Target Server Version : 50722
  File Encoding         : 65001
 
- Date: 08/01/2020 17:21:01
+ Date: 08/01/2020 18:25:38
 */
 
 SET NAMES utf8mb4;
@@ -71,12 +71,12 @@ CREATE TABLE `user`  (
   `email` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0:未激活 1:已激活 2:已删除',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES (1, 'zs', '张三', '123456', NULL, NULL, NULL, 1);
-INSERT INTO `user` VALUES (6, 'ls', 'lisi', '111222', NULL, NULL, 'qewew', 1);
+INSERT INTO `user` VALUES (10, 'ls', '李四', '123456', 'lisi', '广州', '112233@qq.com', 1);
 
 SET FOREIGN_KEY_CHECKS = 1;
