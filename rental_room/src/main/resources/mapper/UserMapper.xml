@@ -4,50 +4,56 @@
 
     <sql id="Base_Column_List" >
       id,
-      name,
+      account,
+      username,
       email,
-      loginName,
+      realname,
+      city,
       status
   </sql>
 
     <select id="login" resultType="user">
-        select <include refid="Base_Column_List" /> from user where loginName = #{loginName} and password = #{password}
+        select <include refid="Base_Column_List" /> from user where account = #{account} and password = #{password}
     </select>
 
     <select id="findByQuery" resultType="user" parameterType="userQuery">
         select  <include refid="Base_Column_List" /> from user
         <where>
-            <if test="name != null and name!=''">
-                <bind name="likeName" value="'%' + _parameter.name + '%'" />
-                and name like #{likeName}
+            <if test="username != null and username!=''">
+                <bind name="likeUsername" value="'%' + _parameter.username + '%'" />
+                and username like #{likeUsername}
             </if>
-            <if test="loginName != null and loginName!=''">
-                <bind name="likeLoginName" value="'%' + _parameter.loginName + '%'" />
-                and loginName like #{likeLoginName}
+            <if test="account != null and account!=''">
+                <bind name="likeAccount" value="'%' + _parameter.account + '%'" />
+                and account like #{likeAccount}
             </if>
         </where>
     </select>
 
     <!--根据Id查询-->
     <select id="findById" resultType="user" parameterType="int" >
-      SELECT * from user where id = #{id,jdbcType=INTEGER}
+      SELECT <include refid="Base_Column_List" /> from user where id = #{id,jdbcType=INTEGER}
   </select>
 
     <!--添加-->
     <insert id="add" parameterType="user" keyColumn="id" keyProperty="id" useGeneratedKeys="true">
         insert into user
         <trim prefix="(" suffix=")" suffixOverrides="," >
-            name,
-            email,
-            loginName,
+            account,
+            username,
             password,
+            realname,
+            city,
+            email,
             status
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides="," >
-            #{name,jdbcType=VARCHAR},
-            #{email,jdbcType=VARCHAR},
-            #{loginName,jdbcType=VARCHAR},
+            #{account,jdbcType=VARCHAR},
+            #{username,jdbcType=VARCHAR},
             #{password,jdbcType=VARCHAR},
+            #{realname,jdbcType=VARCHAR},
+            #{city,jdbcType=VARCHAR},
+            #{email,jdbcType=VARCHAR},
             #{status,jdbcType=TINYINT}
         </trim>
     </insert>
@@ -69,14 +75,20 @@
     <update id="update" parameterType="user" >
         update user
         <set>
-            <if test="name != null and name != ''" >
-                name = #{name,jdbcType=VARCHAR},
-            </if>
-            <if test="email != null and email != ''" >
-                email = #{email,jdbcType=VARCHAR},
+            <if test="username != null and username != ''" >
+                username = #{username,jdbcType=VARCHAR},
             </if>
             <if test="password != null and password != ''" >
                 password = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="realname != null and realname != ''" >
+                realname = #{realname,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null and city != ''" >
+                city = #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null and email != ''" >
+                email = #{email,jdbcType=VARCHAR},
             </if>
             <if test="status != null" >
                 status = #{status,jdbcType=TINYINT}
