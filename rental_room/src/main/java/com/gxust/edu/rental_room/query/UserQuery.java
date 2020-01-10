@@ -1,6 +1,6 @@
 package com.gxust.edu.rental_room.query;
 
-public class UserQuery {
+public class UserQuery extends BaseQuery {
     private String account;
     private String username;
 

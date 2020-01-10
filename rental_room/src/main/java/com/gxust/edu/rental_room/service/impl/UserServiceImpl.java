@@ -7,57 +7,24 @@ import com.gxust.edu.rental_room.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl extends BaseServiceImpl<User, UserQuery> implements UserService {
 
     @Autowired
-    UserMapper userMapper;
+    public void setBookMapper(UserMapper userMapper) {
+        this.baseMapper = userMapper;
+    }
 
     @Override
     public User login(String account, String password) {
-        return userMapper.login(account,password);
+        return ((UserMapper) baseMapper).login(account, password);
     }
 
     @Override
     public boolean add(User user) {
         user.setPassword("123456");
         user.setStatus(new Byte("1"));
-        int result = userMapper.add(user);
-        return result == 1;
+        return baseMapper.add(user) == 1;
     }
 
-    @Override
-    public boolean deleteById(Integer id) {
-        int result = userMapper.deleteById(id);
-        return result == 1;
-    }
-
-    @Override
-    public boolean deleteByIds(int[] id) {
-        int result = userMapper.deleteByIds(id);
-        return result > 0;
-    }
-
-    @Override
-    public boolean update(User user) {
-        int result = userMapper.update(user);
-        return result == 1;
-    }
-
-    @Override
-    public User findById(Integer id) {
-        return userMapper.findById(id);
-    }
-
-    @Override
-    public List<User> findByQuery(UserQuery userQuery) {
-        return userMapper.findByQuery(userQuery);
-    }
-
-    @Override
-    public List<User> query() {
-        return userMapper.query();
-    }
 }

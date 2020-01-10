@@ -1,44 +1,55 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.gxust.edu.rental_room.dao.UserMapper" >
+<mapper namespace="com.gxust.edu.rental_room.dao.UserMapper">
 
-    <sql id="Base_Column_List" >
-      id,
-      account,
-      username,
-      email,
-      realname,
-      city,
-      status
-  </sql>
+    <sql id="Base_Column_List">
+        id,
+        account,
+        username,
+        email,
+        realname,
+        city,
+        status
+    </sql>
 
     <select id="login" resultType="user">
-        select <include refid="Base_Column_List" /> from user where account = #{account} and password = #{password}
+        select
+        <include refid="Base_Column_List"/>
+        from user where account = #{account} and password = #{password}
     </select>
 
     <select id="findByQuery" resultType="user" parameterType="userQuery">
-        select  <include refid="Base_Column_List" /> from user
+        select
+        <include refid="Base_Column_List"/>
+        from user
         <where>
             <if test="username != null and username!=''">
-                <bind name="likeUsername" value="'%' + _parameter.username + '%'" />
+                <bind name="likeUsername" value="'%' + _parameter.username + '%'"/>
                 and username like #{likeUsername}
             </if>
             <if test="account != null and account!=''">
-                <bind name="likeAccount" value="'%' + _parameter.account + '%'" />
+                <bind name="likeAccount" value="'%' + _parameter.account + '%'"/>
                 and account like #{likeAccount}
             </if>
         </where>
     </select>
 
     <!--根据Id查询-->
-    <select id="findById" resultType="user" parameterType="int" >
-      SELECT <include refid="Base_Column_List" /> from user where id = #{id,jdbcType=INTEGER}
-  </select>
+    <select id="findById" resultType="user" parameterType="int">
+        SELECT
+        <include refid="Base_Column_List"/>
+        from user where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <!--查询全部-->
+    <select id="queryAll" resultType="user">
+        SELECT * from user
+    </select>
 
     <!--添加-->
     <insert id="add" parameterType="user" keyColumn="id" keyProperty="id" useGeneratedKeys="true">
         insert into user
-        <trim prefix="(" suffix=")" suffixOverrides="," >
+        <trim prefix="(" suffix=")" suffixOverrides=",">
             account,
             username,
             password,
@@ -47,7 +58,7 @@
             email,
             status
         </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides="," >
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
             #{account,jdbcType=VARCHAR},
             #{username,jdbcType=VARCHAR},
             #{password,jdbcType=VARCHAR},
@@ -59,12 +70,12 @@
     </insert>
 
     <!--删除-->
-    <delete id="deleteById" parameterType="int" >
+    <delete id="deleteById" parameterType="int">
       delete from user where id = #{id,jdbcType=INTEGER}
-  </delete>
+    </delete>
 
     <!-- 批量删除 -->
-    <delete id="deleteByIds">
+    <delete id="deleteByIds" parameterType="int">
         delete from user where id in
         <foreach item="id" collection="array" open="(" separator="," close=")">
             #{id}
@@ -72,30 +83,29 @@
     </delete>
 
     <!--更新-->
-    <update id="update" parameterType="user" >
+    <update id="update" parameterType="user">
         update user
         <set>
-            <if test="username != null and username != ''" >
+            <if test="username != null and username != ''">
                 username = #{username,jdbcType=VARCHAR},
             </if>
-            <if test="password != null and password != ''" >
+            <if test="password != null and password != ''">
                 password = #{password,jdbcType=VARCHAR},
             </if>
-            <if test="realname != null and realname != ''" >
+            <if test="realname != null and realname != ''">
                 realname = #{realname,jdbcType=VARCHAR},
             </if>
-            <if test="city != null and city != ''" >
+            <if test="city != null and city != ''">
                 city = #{city,jdbcType=VARCHAR},
             </if>
-            <if test="email != null and email != ''" >
+            <if test="email != null and email != ''">
                 email = #{email,jdbcType=VARCHAR},
             </if>
-            <if test="status != null" >
+            <if test="status != null">
                 status = #{status,jdbcType=TINYINT}
             </if>
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-
 
 </mapper>

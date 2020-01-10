@@ -1,7 +1,6 @@
 package com.gxust.edu.rental_room.domain;
 
-public class User {
-    private Integer id;
+public class User extends BaseDomain {
     private String account;
     private String username;
     private String password;
@@ -9,14 +8,6 @@ public class User {
     private String city;
     private String email;
     private Byte status;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getAccount() {
         return account;
