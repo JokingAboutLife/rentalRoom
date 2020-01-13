@@ -9,7 +9,6 @@ public class KPException extends RuntimeException {
     public Exception originalException;     //原始异常
     public String originalMessage;          //原始异常消息
 
-
     public KPException(ExceptionKind exceptionKind, String... message) {
         super(exceptionKind.getMessage());
         if (message != null) {

@@ -1,9 +1,9 @@
 package com.gxust.edu.rental_room.controller;
 
 import com.github.pagehelper.PageInfo;
-import com.gxust.edu.rental_room.domain.User;
-import com.gxust.edu.rental_room.query.UserQuery;
-import com.gxust.edu.rental_room.service.impl.UserServiceImpl;
+import com.gxust.edu.rental_room.domain.House;
+import com.gxust.edu.rental_room.query.HouseQuery;
+import com.gxust.edu.rental_room.service.impl.HouseServiceImpl;
 import com.gxust.edu.rental_room.utils.JsonModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,33 +14,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-@RequestMapping("/user")
-public class UserController {
+@RequestMapping("/house")
+public class HouseController {
 
     @Autowired
-    UserServiceImpl userService;
-
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    @ResponseBody
-    public JsonModel login(String account, String password) {
-        JsonModel jsonModel = new JsonModel();
-        User user = userService.login(account, password);
-        if (user != null) {
-            jsonModel.setSuccess(true);
-            jsonModel.setMsg("登陆成功！");
-            jsonModel.setData(user);
-        } else {
-            jsonModel.setSuccess(false);
-            jsonModel.setMsg("登陆失败，请输入正确的账号密码！");
-        }
-        return jsonModel;
-    }
+    HouseServiceImpl houseService;
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public JsonModel addUser(User user) {
+    public JsonModel addHouse(House house) {
         JsonModel jsonModel = new JsonModel();
-        boolean result = userService.add(user);
+        boolean result = houseService.add(house);
         if (result) {
             jsonModel.setMsg("添加成功");
             jsonModel.setSuccess(true);
@@ -53,14 +37,14 @@ public class UserController {
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     @ResponseBody
-    public JsonModel deleteUser(String id) {
+    public JsonModel deleteHouse(String id) {
         JsonModel jsonModel = new JsonModel();
         String[] idsStr = id.split(",");
         int[] ids = new int[idsStr.length];
         for (int i = 0; i < idsStr.length; i++) {
             ids[i] = Integer.parseInt(idsStr[i]);
         }
-        boolean result = userService.deleteByIds(ids);
+        boolean result = houseService.deleteByIds(ids);
         if (result) {
             jsonModel.setMsg("删除成功");
             jsonModel.setSuccess(true);
@@ -73,9 +57,9 @@ public class UserController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public JsonModel update(User user) {
+    public JsonModel update(House house) {
         JsonModel jsonModel = new JsonModel();
-        boolean result = userService.update(user);
+        boolean result = houseService.update(house);
         if (result) {
             jsonModel.setMsg("更新成功");
             jsonModel.setSuccess(true);
@@ -90,11 +74,11 @@ public class UserController {
     @ResponseBody
     public JsonModel findById(Integer id) {
         JsonModel jsonModel = new JsonModel();
-        User user = userService.findById(id);
-        if (user != null) {
+        House house = houseService.findById(id);
+        if (house != null) {
             jsonModel.setMsg("查找ID成功");
             jsonModel.setSuccess(true);
-            jsonModel.setData(user);
+            jsonModel.setData(house);
         } else {
             jsonModel.setMsg("查找ID失败");
             jsonModel.setSuccess(false);
@@ -104,14 +88,14 @@ public class UserController {
 
     @RequestMapping(value = "/findByQuery", method = RequestMethod.GET)
     @ResponseBody
-    public JsonModel findByQuery(UserQuery userQuery) {
+    public JsonModel findByQuery(HouseQuery houseQuery) {
         JsonModel jsonModel = new JsonModel();
-        PageInfo<User> pageInfo = userService.findByQuery(userQuery);
-        List<User> userList = pageInfo.getList();
-        if (userList != null && userList.size() > 0) {
+        PageInfo<House> pageInfo = houseService.findByQuery(houseQuery);
+        List<House> houseList = pageInfo.getList();
+        if (houseList != null && houseList.size() > 0) {
             jsonModel.setMsg("查找成功");
             jsonModel.setSuccess(true);
-            jsonModel.setData(userList);
+            jsonModel.setData(houseList);
         } else {
             jsonModel.setMsg("查找失败");
             jsonModel.setSuccess(false);

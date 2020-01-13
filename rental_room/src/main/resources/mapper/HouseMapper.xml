@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gxust.edu.rental_room.dao.HouseMapper">
+
+    <resultMap id="BaseResultMap" type="com.gxust.edu.rental_room.domain.House">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <id column="userId" jdbcType="INTEGER" property="userId"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+        <result column="title_img" jdbcType="VARCHAR" property="titleImg"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="address" jdbcType="VARCHAR" property="address"/>
+        <result column="rent_way" jdbcType="VARCHAR" property="rentWay"/>
+        <result column="city" jdbcType="VARCHAR" property="city"/>
+        <result column="sex_limit" jdbcType="VARCHAR" property="sexLimit"/>
+        <result column="area" jdbcType="VARCHAR" property="area"/>
+        <result column="storey" jdbcType="VARCHAR" property="storey"/>
+        <result column="storey_sum" jdbcType="VARCHAR" property="storeySum"/>
+        <result column="building_id" jdbcType="VARCHAR" property="buildingId"/>
+        <result column="cell_id" jdbcType="VARCHAR" property="cellId"/>
+        <result column="room_id" jdbcType="VARCHAR" property="roomId"/>
+        <result column="price" jdbcType="INTEGER" property="price"/>
+        <result column="text_img" jdbcType="VARCHAR" property="textImg"/>
+        <result column="contacts" jdbcType="VARCHAR" property="contacts"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="status" jdbcType="TINYINT" property="status"/>
+    </resultMap>
+
+    <select id="findByQuery" resultType="house" parameterType="houseQuery">
+        select * from house
+        <where>
+            <if test="title != null and title!=''">
+                <bind name="likeTitle" value="'%' + _parameter.title + '%'"/>
+                and title like #{likeTitle}
+            </if>
+            <if test="name != null and name!=''">
+                <bind name="likeName" value="'%' + _parameter.name + '%'"/>
+                and name like #{likeName}
+            </if>
+            <if test="type != null and type!=''">
+                and type = #{type}
+            </if>
+            <if test="rentWay != null and rentWay!=''">
+                and rent_way = #{rentWay}
+            </if>
+            <if test="city != null and city!=''">
+                and city = #{city}
+            </if>
+        </where>
+    </select>
+
+    <!--根据Id查询-->
+    <select id="findById" resultType="house" parameterType="int">
+        SELECT * from house where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <!--添加-->
+    <!--<insert id="add" parameterType="house" keyColumn="id" keyProperty="id" useGeneratedKeys="true">
+        insert into house (userId, title, title_img,
+      name, type, address,
+      rent_way, city, sex_limit,
+      area, storey, storey_sum,
+      building_id, cell_id, room_id,
+      price, text_img, contacts,
+      phone, status, text
+      )
+    values (#{userid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{titleImg,jdbcType=VARCHAR},
+      #{name,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR},
+      #{rentWay,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{sexLimit,jdbcType=VARCHAR},
+      #{area,jdbcType=VARCHAR}, #{storey,jdbcType=VARCHAR}, #{storeySum,jdbcType=VARCHAR},
+      #{buildingId,jdbcType=VARCHAR}, #{cellId,jdbcType=VARCHAR}, #{roomId,jdbcType=VARCHAR},
+      #{price,jdbcType=INTEGER}, #{textImg,jdbcType=VARCHAR}, #{contacts,jdbcType=VARCHAR},
+      #{phone,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, #{text,jdbcType=LONGVARCHAR}
+      )
+    </insert>-->
+    <insert id="add" parameterType="house" keyColumn="id" keyProperty="id" useGeneratedKeys="true">
+        insert into house
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                userId,
+            </if>
+            <if test="title != null">
+                title,
+            </if>
+            <if test="titleImg != null">
+                title_img,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="type != null">
+                type,
+            </if>
+            <if test="address != null">
+                address,
+            </if>
+            <if test="rentWay != null">
+                rent_way,
+            </if>
+            <if test="city != null">
+                city,
+            </if>
+            <if test="sexLimit != null">
+                sex_limit,
+            </if>
+            <if test="area != null">
+                area,
+            </if>
+            <if test="storey != null">
+                storey,
+            </if>
+            <if test="storeySum != null">
+                storey_sum,
+            </if>
+            <if test="buildingId != null">
+                building_id,
+            </if>
+            <if test="cellId != null">
+                cell_id,
+            </if>
+            <if test="roomId != null">
+                room_id,
+            </if>
+            <if test="price != null">
+                price,
+            </if>
+            <if test="textImg != null">
+                text_img,
+            </if>
+            <if test="contacts != null">
+                contacts,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="text != null">
+                text,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="title != null">
+                #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="titleImg != null">
+                #{titleImg,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="rentWay != null">
+                #{rentWay,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null">
+                #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="sexLimit != null">
+                #{sexLimit,jdbcType=VARCHAR},
+            </if>
+            <if test="area != null">
+                #{area,jdbcType=VARCHAR},
+            </if>
+            <if test="storey != null">
+                #{storey,jdbcType=VARCHAR},
+            </if>
+            <if test="storeySum != null">
+                #{storeySum,jdbcType=VARCHAR},
+            </if>
+            <if test="buildingId != null">
+                #{buildingId,jdbcType=VARCHAR},
+            </if>
+            <if test="cellId != null">
+                #{cellId,jdbcType=VARCHAR},
+            </if>
+            <if test="roomId != null">
+                #{roomId,jdbcType=VARCHAR},
+            </if>
+            <if test="price != null">
+                #{price,jdbcType=INTEGER},
+            </if>
+            <if test="textImg != null">
+                #{textImg,jdbcType=VARCHAR},
+            </if>
+            <if test="contacts != null">
+                #{contacts,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=TINYINT},
+            </if>
+            <if test="text != null">
+                #{text,jdbcType=LONGVARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <!--删除-->
+    <delete id="deleteById" parameterType="int">
+      delete from house where id = #{id,jdbcType=INTEGER}
+    </delete>
+
+    <!-- 批量删除 -->
+    <delete id="deleteByIds" parameterType="int">
+        delete from house where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <!--更新-->
+    <update id="update" parameterType="house">
+        update house
+        <set>
+            <if test="title != null">
+                title = #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="titleImg != null">
+                title_img = #{titleImg,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                type = #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                address = #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="rentWay != null">
+                rent_way = #{rentWay,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null">
+                city = #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="sexLimit != null">
+                sex_limit = #{sexLimit,jdbcType=VARCHAR},
+            </if>
+            <if test="area != null">
+                area = #{area,jdbcType=VARCHAR},
+            </if>
+            <if test="storey != null">
+                storey = #{storey,jdbcType=VARCHAR},
+            </if>
+            <if test="storeySum != null">
+                storey_sum = #{storeySum,jdbcType=VARCHAR},
+            </if>
+            <if test="buildingId != null">
+                building_id = #{buildingId,jdbcType=VARCHAR},
+            </if>
+            <if test="cellId != null">
+                cell_id = #{cellId,jdbcType=VARCHAR},
+            </if>
+            <if test="roomId != null">
+                room_id = #{roomId,jdbcType=VARCHAR},
+            </if>
+            <if test="price != null">
+                price = #{price,jdbcType=INTEGER},
+            </if>
+            <if test="textImg != null">
+                text_img = #{textImg,jdbcType=VARCHAR},
+            </if>
+            <if test="contacts != null">
+                contacts = #{contacts,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                phone = #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=TINYINT},
+            </if>
+            <if test="text != null">
+                text = #{text,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+        and userId = #{userId,jdbcType=INTEGER}
+    </update>
+
+</mapper>
