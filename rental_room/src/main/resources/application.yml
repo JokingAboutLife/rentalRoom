@@ -44,3 +44,6 @@ pagehelper:
   supportMethodsArguments: true
   params: pageNum=start;pageSize=limit;
   returnPageInfo: check
+logging:
+  level:
+    com.gxust.edu.rental_room.mapper: debug

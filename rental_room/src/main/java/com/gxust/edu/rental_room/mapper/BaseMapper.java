@@ -1,4 +1,4 @@
-package com.gxust.edu.rental_room.dao;
+package com.gxust.edu.rental_room.mapper;
 
 import com.gxust.edu.rental_room.domain.BaseDomain;
 import com.gxust.edu.rental_room.query.BaseQuery;

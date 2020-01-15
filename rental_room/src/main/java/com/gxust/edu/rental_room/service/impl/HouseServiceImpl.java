@@ -1,6 +1,6 @@
 package com.gxust.edu.rental_room.service.impl;
 
-import com.gxust.edu.rental_room.dao.HouseMapper;
+import com.gxust.edu.rental_room.mapper.HouseMapper;
 import com.gxust.edu.rental_room.domain.House;
 import com.gxust.edu.rental_room.query.HouseQuery;
 import com.gxust.edu.rental_room.service.HouseService;

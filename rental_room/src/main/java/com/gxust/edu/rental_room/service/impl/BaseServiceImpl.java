@@ -3,7 +3,7 @@ package com.gxust.edu.rental_room.service.impl;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.gxust.edu.rental_room.dao.BaseMapper;
+import com.gxust.edu.rental_room.mapper.BaseMapper;
 import com.gxust.edu.rental_room.domain.BaseDomain;
 import com.gxust.edu.rental_room.exception.ExceptionKind;
 import com.gxust.edu.rental_room.exception.KPException;

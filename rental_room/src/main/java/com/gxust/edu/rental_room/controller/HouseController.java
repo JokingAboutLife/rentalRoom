@@ -92,7 +92,7 @@ public class HouseController {
         JsonModel jsonModel = new JsonModel();
         PageInfo<House> pageInfo = houseService.findByQuery(houseQuery);
         List<House> houseList = pageInfo.getList();
-        if (houseList != null && houseList.size() > 0) {
+        if (houseList != null && houseList.size() >= 0) {
             jsonModel.setMsg("查找成功");
             jsonModel.setSuccess(true);
             jsonModel.setData(houseList);
