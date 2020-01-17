@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gxust.edu.rental_room.mapper.PermissionMapper">
+
+    <select id="findByQuery" resultType="role" parameterType="roleQuery">
+        select * from t_permission
+        <where>
+            <if test="name != null and name!=''">
+                <bind name="likeName" value="'%' + _parameter.name + '%'"/>
+                and name like #{likeName}
+            </if>
+            <if test="description != null and description!=''">
+                <bind name="likeDescription" value="'%' + _parameter.description + '%'"/>
+                and description like #{likeDescription}
+            </if>
+        </where>
+    </select>
+
+    <!--根据Id查询-->
+    <select id="findById" resultType="permission" parameterType="int">
+        SELECT * from t_user where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <!--添加-->
+    <insert id="add" parameterType="permission" keyColumn="id" keyProperty="id" useGeneratedKeys="true">
+        insert into t_permission
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            name,
+            parent_id,
+            types,
+            url,
+            levels,
+            state,
+            sorts,
+            description,
+            component_name,
+            component_path,
+            icon
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            #{name},
+            #{parent_id},
+            #{types},
+            #{url},
+            #{levels},
+            #{state},
+            #{sorts},
+            #{description},
+            #{component_name},
+            #{component_path},
+            #{icon}
+        </trim>
+    </insert>
+
+    <!--删除-->
+    <delete id="deleteById" parameterType="int">
+      delete from t_permission where id = #{id,jdbcType=INTEGER}
+    </delete>
+
+    <!-- 批量删除 -->
+    <delete id="deleteByIds" parameterType="int">
+        delete from t_permission where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <!--更新-->
+    <update id="update" parameterType="role">
+        update t_permission
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="parentId != null and parentId != ''">
+                parent_id = #{parentId,jdbcType=INTEGER},
+            </if>
+            <if test="types != null and types != ''">
+                types = #{types,jdbcType=INTEGER},
+            </if>
+            <if test="url != null and url != ''">
+                url = #{url,jdbcType=VARCHAR},
+            </if>
+            <if test="levels != null and levels != ''">
+                levels = #{levels,jdbcType=INTEGER},
+            </if>
+            <if test="state != null and state != ''">
+                state = #{state,jdbcType=INTEGER},
+            </if>
+            <if test="sorts != null and sorts != ''">
+                sorts = #{sorts,jdbcType=INTEGER},
+            </if>
+            <if test="description != null and description != ''">
+                description = #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="componentName != null and componentName != ''">
+                component_name = #{componentName,jdbcType=VARCHAR},
+            </if>
+            <if test="componentPath != null and componentPath != ''">
+                component_path = #{componentPath,jdbcType=VARCHAR},
+            </if>
+            <if test="icon != null and icon != ''">
+                icon = #{icon,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+</mapper>
