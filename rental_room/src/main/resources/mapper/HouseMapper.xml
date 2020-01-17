@@ -27,7 +27,7 @@
     </resultMap>
 
     <select id="findByQuery" resultType="house" parameterType="houseQuery">
-        select * from house
+        select * from t_house
         <where>
             <if test="title != null and title!=''">
                 <bind name="likeTitle" value="'%' + _parameter.title + '%'"/>
@@ -51,7 +51,7 @@
 
     <!--根据Id查询-->
     <select id="findById" resultType="house" parameterType="int">
-        SELECT * from house where id = #{id,jdbcType=INTEGER}
+        SELECT * from t_house where id = #{id,jdbcType=INTEGER}
     </select>
 
     <!--添加-->
@@ -209,12 +209,12 @@
 
     <!--删除-->
     <delete id="deleteById" parameterType="int">
-      delete from house where id = #{id,jdbcType=INTEGER}
+      delete from t_house where id = #{id,jdbcType=INTEGER}
     </delete>
 
     <!-- 批量删除 -->
     <delete id="deleteByIds" parameterType="int">
-        delete from house where id in
+        delete from t_house where id in
         <foreach item="id" collection="array" open="(" separator="," close=")">
             #{id}
         </foreach>

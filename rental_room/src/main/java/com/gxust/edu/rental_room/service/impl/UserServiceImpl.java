@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl extends BaseServiceImpl<User, UserQuery> implements UserService {
 
     @Autowired
-    public void setBaseMapper(UserMapper userMapper) {
+    public void setUserMapper(UserMapper userMapper) {
         this.baseMapper = userMapper;
     }
 

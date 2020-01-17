@@ -56,7 +56,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
-
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -86,6 +85,18 @@
             <artifactId>pagehelper-spring-boot-autoconfigure</artifactId>
             <version>1.2.5</version>
         </dependency>
+
+        <!--   shiro权限管理     -->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+      <!--  <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-ehcache</artifactId>
+            <version>1.4.0</version>
+        </dependency>-->
 
         <!--   测试依赖     -->
         <dependency>

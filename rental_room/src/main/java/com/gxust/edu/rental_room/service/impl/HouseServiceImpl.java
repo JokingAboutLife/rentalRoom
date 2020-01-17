@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class HouseServiceImpl extends BaseServiceImpl<House, HouseQuery> implements HouseService {
 
     @Autowired
-    public void setBaseMapper(HouseMapper houseMapper) {
+    public void setHouseMapper(HouseMapper houseMapper) {
         this.baseMapper = houseMapper;
     }
 
