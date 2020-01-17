@@ -2,73 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d66c69a4-6ca4-4568-8619-3fc972060d9c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/0b4f7f7d-0ba2-4f63-81e7-6b07c60572d8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/0b4f7f7d-0ba2-4f63-81e7-6b07c60572d8/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_9_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_3_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_cache_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_config_core_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_config_ogdl_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_core_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_crypto_cipher_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_crypto_core_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_crypto_hash_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_event_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_lang_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_spring_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_web_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_attoparser_attoparser_2_0_5_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_thymeleaf_2_2_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_extras_thymeleaf_extras_java8time_3_0_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_3_0_11_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_spring5_3_0_11_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_unbescape_unbescape_1_1_6_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HELP.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/controller/RoleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/domain/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/mapper/RoleMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/query/RoleQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/RoleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/impl/RoleServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/RoleMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/RentalRoomApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/config/WebMvcConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/controller/HouseController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/controller/RoleController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/controller/UserController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/domain/BaseDomain.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/domain/House.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/domain/Role.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/domain/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/exception/ExceptionKind.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/exception/KPException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/mapper/BaseMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/mapper/HouseMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/mapper/RoleMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/mapper/UserMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/query/BaseQuery.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/query/HouseQuery.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/query/RoleQuery.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/query/UserQuery.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/BaseService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/HouseService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/RoleService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/UserService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/impl/BaseServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/impl/HouseServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/impl/RoleServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/utils/JsonModel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/utils/MD5Util.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/HouseMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/RoleMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/com/gxust/edu/rental_room/RentalRoomApplicationTests.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,7 +186,7 @@
       <workItem from="1579163928929" duration="3588000" />
       <workItem from="1579226388661" duration="1684000" />
       <workItem from="1579242466009" duration="2834000" />
-      <workItem from="1579249592139" duration="2542000" />
+      <workItem from="1579249592139" duration="2600000" />
     </task>
     <task id="LOCAL-00001" summary="用户管理">
       <created>1578495101418</created>
@@ -303,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579249812855</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="角色模块">
+      <created>1579252169606</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1579252169606</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,7 +274,8 @@
     <MESSAGE value="房屋模块" />
     <MESSAGE value="日志打印SQL" />
     <MESSAGE value="修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改" />
+    <MESSAGE value="角色模块" />
+    <option name="LAST_COMMIT_MESSAGE" value="角色模块" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="27" key="#Inspections" timestamp="1578495479480">
@@ -362,11 +304,11 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="402" y="214" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.738@0.0.1366.738" timestamp="1578484896682" />
-    <state x="309" y="0" key="CommitChangelistDialog2" timestamp="1579249810212">
+    <state x="309" y="0" key="CommitChangelistDialog2" timestamp="1579252167034">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="275" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1578713185956" />
-    <state x="309" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1579249810212" />
+    <state x="309" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1579252167034" />
     <state width="500" height="521" key="DebuggerActiveHint" timestamp="1579168904782">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -377,66 +319,66 @@
     </state>
     <state x="463" y="127" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1578484475285" />
     <state x="521" y="142" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1578909613634" />
-    <state width="1493" height="168" key="GridCell.Tab.0.bottom" timestamp="1579250791403">
+    <state width="1493" height="168" key="GridCell.Tab.0.bottom" timestamp="1579252206060">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="155" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1578713388527" />
-    <state width="1493" height="168" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579250791403" />
-    <state width="1493" height="168" key="GridCell.Tab.0.center" timestamp="1579250791403">
+    <state width="1493" height="168" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579252206060" />
+    <state width="1493" height="168" key="GridCell.Tab.0.center" timestamp="1579252206060">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="155" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1578713388527" />
-    <state width="1493" height="168" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1579250791403" />
-    <state width="1493" height="168" key="GridCell.Tab.0.left" timestamp="1579250791402">
+    <state width="1493" height="168" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1579252206060" />
+    <state width="1493" height="168" key="GridCell.Tab.0.left" timestamp="1579252206059">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="155" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1578713388526" />
-    <state width="1493" height="168" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1579250791402" />
-    <state width="1493" height="168" key="GridCell.Tab.0.right" timestamp="1579250791403">
+    <state width="1493" height="168" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1579252206059" />
+    <state width="1493" height="168" key="GridCell.Tab.0.right" timestamp="1579252206060">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="155" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1578713388527" />
-    <state width="1493" height="168" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1579250791403" />
-    <state width="1493" height="168" key="GridCell.Tab.1.bottom" timestamp="1579250791139">
+    <state width="1493" height="168" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1579252206060" />
+    <state width="1493" height="168" key="GridCell.Tab.1.bottom" timestamp="1579252206060">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="194" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1578671344323" />
-    <state width="1493" height="168" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579250791139" />
-    <state width="1493" height="168" key="GridCell.Tab.1.center" timestamp="1579250791139">
+    <state width="1493" height="168" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579252206060" />
+    <state width="1493" height="168" key="GridCell.Tab.1.center" timestamp="1579252206060">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="194" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1578671344323" />
-    <state width="1493" height="168" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1579250791139" />
-    <state width="1493" height="168" key="GridCell.Tab.1.left" timestamp="1579250791139">
+    <state width="1493" height="168" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1579252206060" />
+    <state width="1493" height="168" key="GridCell.Tab.1.left" timestamp="1579252206060">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="194" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1578671344323" />
-    <state width="1493" height="168" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1579250791139" />
-    <state width="1493" height="168" key="GridCell.Tab.1.right" timestamp="1579250791139">
+    <state width="1493" height="168" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1579252206060" />
+    <state width="1493" height="168" key="GridCell.Tab.1.right" timestamp="1579252206060">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="194" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1578671344323" />
-    <state width="1493" height="168" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1579250791139" />
-    <state width="1493" height="168" key="GridCell.Tab.2.bottom" timestamp="1579250791140">
+    <state width="1493" height="168" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1579252206060" />
+    <state width="1493" height="168" key="GridCell.Tab.2.bottom" timestamp="1579252206060">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="194" key="GridCell.Tab.2.bottom/0.0.1366.738@0.0.1366.738" timestamp="1578671344323" />
-    <state width="1493" height="168" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579250791140" />
-    <state width="1493" height="168" key="GridCell.Tab.2.center" timestamp="1579250791139">
+    <state width="1493" height="168" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579252206060" />
+    <state width="1493" height="168" key="GridCell.Tab.2.center" timestamp="1579252206060">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="194" key="GridCell.Tab.2.center/0.0.1366.738@0.0.1366.738" timestamp="1578671344323" />
-    <state width="1493" height="168" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1579250791139" />
-    <state width="1493" height="168" key="GridCell.Tab.2.left" timestamp="1579250791139">
+    <state width="1493" height="168" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1579252206060" />
+    <state width="1493" height="168" key="GridCell.Tab.2.left" timestamp="1579252206060">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="194" key="GridCell.Tab.2.left/0.0.1366.738@0.0.1366.738" timestamp="1578671344323" />
-    <state width="1493" height="168" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1579250791139" />
-    <state width="1493" height="168" key="GridCell.Tab.2.right" timestamp="1579250791139">
+    <state width="1493" height="168" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1579252206060" />
+    <state width="1493" height="168" key="GridCell.Tab.2.right" timestamp="1579252206060">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="194" key="GridCell.Tab.2.right/0.0.1366.738@0.0.1366.738" timestamp="1578671344323" />
-    <state width="1493" height="168" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1579250791139" />
+    <state width="1493" height="168" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1579252206060" />
     <state width="212" height="477" key="HiddenNamespacesPopup" timestamp="1578897995375">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -450,11 +392,11 @@
     </state>
     <state x="98" y="20" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1578713051084" />
     <state x="110" y="22" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1579242596541" />
-    <state x="309" y="114" key="Vcs.Push.Dialog.v2" timestamp="1579054456926">
+    <state x="309" y="114" key="Vcs.Push.Dialog.v2" timestamp="1579252177401">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1578671292186" />
-    <state x="309" y="114" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1579054456926" />
+    <state x="309" y="114" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1579252177401" />
     <state x="770" y="76" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1578898070187">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
