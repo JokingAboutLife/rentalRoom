@@ -3,18 +3,47 @@
 <mapper namespace="com.gxust.edu.rental_room.mapper.PermissionMapper">
 
     <resultMap id="BaseResultMap" type="com.gxust.edu.rental_room.mapper.PermissionMapper">
-        <id column="id" jdbcType="INTEGER" property="id" />
-        <result column="name" jdbcType="VARCHAR" property="name" />
-        <result column="parent_id" jdbcType="INTEGER" property="parentId" />
-        <result column="types" jdbcType="INTEGER" property="types" />
-        <result column="url" jdbcType="VARCHAR" property="url" />
-        <result column="levels" jdbcType="INTEGER" property="levels" />
-        <result column="state" jdbcType="INTEGER" property="state" />
-        <result column="sorts" jdbcType="INTEGER" property="sorts" />
-        <result column="description" jdbcType="VARCHAR" property="description" />
-        <result column="component_name" jdbcType="VARCHAR" property="componentName" />
-        <result column="component_path" jdbcType="VARCHAR" property="componentPath" />
-        <result column="icon" jdbcType="VARCHAR" property="icon" />
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="parent_id" jdbcType="INTEGER" property="parentId"/>
+        <result column="types" jdbcType="INTEGER" property="types"/>
+        <result column="url" jdbcType="VARCHAR" property="url"/>
+        <result column="levels" jdbcType="INTEGER" property="levels"/>
+        <result column="state" jdbcType="INTEGER" property="state"/>
+        <result column="sorts" jdbcType="INTEGER" property="sorts"/>
+        <result column="description" jdbcType="VARCHAR" property="description"/>
+        <result column="component_name" jdbcType="VARCHAR" property="componentName"/>
+        <result column="component_path" jdbcType="VARCHAR" property="componentPath"/>
+        <result column="icon" jdbcType="VARCHAR" property="icon"/>
+    </resultMap>
+
+    <resultMap id="LevelResultMap" type="permission">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="parent_id" jdbcType="INTEGER" property="parentId"/>
+        <result column="types" jdbcType="INTEGER" property="types"/>
+        <result column="url" jdbcType="VARCHAR" property="url"/>
+        <result column="levels" jdbcType="INTEGER" property="levels"/>
+        <result column="state" jdbcType="INTEGER" property="state"/>
+        <result column="sorts" jdbcType="INTEGER" property="sorts"/>
+        <result column="description" jdbcType="VARCHAR" property="description"/>
+        <result column="component_name" jdbcType="VARCHAR" property="componentName"/>
+        <result column="component_path" jdbcType="VARCHAR" property="componentPath"/>
+        <result column="icon" jdbcType="VARCHAR" property="icon"/>
+        <collection property="children" columnPrefix="c_" ofType="permission">
+            <id column="id" jdbcType="INTEGER" property="id"/>
+            <result column="name" jdbcType="VARCHAR" property="name"/>
+            <result column="parent_id" jdbcType="INTEGER" property="parentId"/>
+            <result column="types" jdbcType="INTEGER" property="types"/>
+            <result column="url" jdbcType="VARCHAR" property="url"/>
+            <result column="levels" jdbcType="INTEGER" property="levels"/>
+            <result column="state" jdbcType="INTEGER" property="state"/>
+            <result column="sorts" jdbcType="INTEGER" property="sorts"/>
+            <result column="description" jdbcType="VARCHAR" property="description"/>
+            <result column="component_name" jdbcType="VARCHAR" property="componentName"/>
+            <result column="component_path" jdbcType="VARCHAR" property="componentPath"/>
+            <result column="icon" jdbcType="VARCHAR" property="icon"/>
+        </collection>
     </resultMap>
 
     <select id="findByQuery" resultType="permission" parameterType="roleQuery">
@@ -120,5 +149,36 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
+
+    <select id="findLevelMenu" resultMap="LevelResultMap">
+        SELECT
+            p.*,
+            c.name c_name,
+            c.parent_id c_parent_id,
+            c.types c_types,
+            c.url c_url,
+            c.levels c_levels,
+            c.state c_state,
+            c.sorts c_sorts,
+            c.description c_description,
+            c.component_name c_component_name,
+            c.component_path c_component_path,
+            c.icon c_icon
+        FROM
+            t_permission p
+            JOIN t_permission c ON p.id = c.parent_id
+        WHERE
+            p.types IN ( 0, 1 ) and p.parent_id = 0
+        ORDER BY
+            p.sorts,c.sorts
+    </select>
+
+    <insert id="bind">
+        insert into t_role_permission(role_id, perm_id) values (#{roleId},#{permissionId})
+    </insert>
+
+    <delete id="unBind">
+        delete from t_role_permission where role_id = #{roleId} and perm_id = #{permissionId}
+    </delete>
 
 </mapper>

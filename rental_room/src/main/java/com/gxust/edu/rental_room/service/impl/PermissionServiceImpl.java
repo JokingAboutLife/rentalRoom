@@ -7,6 +7,8 @@ import com.gxust.edu.rental_room.service.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PermissionServiceImpl extends BaseServiceImpl<Permission, PermissionQuery> implements PermissionService {
 
@@ -21,5 +23,20 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission, Permissio
             permission.setParentId(0);
         }
         return super.add(permission);
+    }
+
+    @Override
+    public List<Permission> findLevelMenu() {
+        return ((PermissionMapper)baseMapper).findLevelMenu();
+    }
+
+    @Override
+    public boolean bind(int roleId, int permissionId) {
+        return ((PermissionMapper)baseMapper).bind(roleId,permissionId) == 1;
+    }
+
+    @Override
+    public boolean unBind(int roleId, int permissionId) {
+        return ((PermissionMapper)baseMapper).unBind(roleId,permissionId) == 1;
     }
 }

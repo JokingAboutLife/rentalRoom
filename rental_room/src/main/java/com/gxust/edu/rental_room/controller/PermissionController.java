@@ -102,4 +102,20 @@ public class PermissionController {
         }
         return jsonModel;
     }
+
+    @RequestMapping(value = "findLevelMenu",method = RequestMethod.GET)
+    @ResponseBody
+    public JsonModel findLevelMenu(){
+        JsonModel jsonModel = new JsonModel();
+        List<Permission> levelMenu = permissionService.findLevelMenu();
+        if(levelMenu != null && levelMenu.size()>=0){
+            jsonModel.setSuccess(true);
+            jsonModel.setMsg("菜单查询成功");
+            jsonModel.setData(levelMenu);
+        }else {
+            jsonModel.setSuccess(false);
+            jsonModel.setMsg("菜单查询失败");
+        }
+        return jsonModel;
+    }
 }

@@ -1,5 +1,8 @@
 package com.gxust.edu.rental_room.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Permission extends BaseDomain {
     private String name;
     private Integer parentId;
@@ -12,6 +15,8 @@ public class Permission extends BaseDomain {
     private String componentPath;
     private String icon;
     private Integer types;
+
+    private List<Permission> children = new ArrayList<>();
 
     public String getName() {
         return name;
@@ -99,5 +104,13 @@ public class Permission extends BaseDomain {
 
     public void setTypes(Integer types) {
         this.types = types;
+    }
+
+    public List<Permission> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<Permission> children) {
+        this.children = children;
     }
 }
