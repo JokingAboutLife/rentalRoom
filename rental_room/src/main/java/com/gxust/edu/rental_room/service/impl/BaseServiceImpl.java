@@ -27,7 +27,7 @@ public class BaseServiceImpl<T extends BaseDomain, Q extends BaseQuery> implemen
     public PageInfo<T> findByQuery(Q q) {
         PageInfo<T> pageInfo = null;
         if (q.isPaging()) {
-            PageHelper.startPage(q.getCurrentPageNum(), q.getPageSize());
+            PageHelper.startPage(q.getCurrentPage(), q.getPageSize());
             Page<T> page = (Page<T>) baseMapper.findByQuery(q);
             pageInfo = page.toPageInfo();
         } else {

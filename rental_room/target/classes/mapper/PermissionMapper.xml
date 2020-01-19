@@ -2,7 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.gxust.edu.rental_room.mapper.PermissionMapper">
 
-    <select id="findByQuery" resultType="role" parameterType="roleQuery">
+    <resultMap id="BaseResultMap" type="com.gxust.edu.rental_room.mapper.PermissionMapper">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="parent_id" jdbcType="INTEGER" property="parentId" />
+        <result column="types" jdbcType="INTEGER" property="types" />
+        <result column="url" jdbcType="VARCHAR" property="url" />
+        <result column="levels" jdbcType="INTEGER" property="levels" />
+        <result column="state" jdbcType="INTEGER" property="state" />
+        <result column="sorts" jdbcType="INTEGER" property="sorts" />
+        <result column="description" jdbcType="VARCHAR" property="description" />
+        <result column="component_name" jdbcType="VARCHAR" property="componentName" />
+        <result column="component_path" jdbcType="VARCHAR" property="componentPath" />
+        <result column="icon" jdbcType="VARCHAR" property="icon" />
+    </resultMap>
+
+    <select id="findByQuery" resultType="permission" parameterType="roleQuery">
         select * from t_permission
         <where>
             <if test="name != null and name!=''">
@@ -18,7 +33,7 @@
 
     <!--根据Id查询-->
     <select id="findById" resultType="permission" parameterType="int">
-        SELECT * from t_user where id = #{id,jdbcType=INTEGER}
+        SELECT * from t_permission where id = #{id,jdbcType=INTEGER}
     </select>
 
     <!--添加-->
@@ -39,15 +54,15 @@
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             #{name},
-            #{parent_id},
+            #{parentId},
             #{types},
             #{url},
             #{levels},
             #{state},
             #{sorts},
             #{description},
-            #{component_name},
-            #{component_path},
+            #{componentName},
+            #{componentPath},
             #{icon}
         </trim>
     </insert>

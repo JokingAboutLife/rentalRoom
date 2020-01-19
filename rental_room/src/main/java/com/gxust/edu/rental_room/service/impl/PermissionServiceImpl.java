@@ -15,4 +15,11 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission, Permissio
         this.baseMapper = permissionMapper;
     }
 
+    @Override
+    public boolean add(Permission permission) {
+        if(permission.getParentId()==null){
+            permission.setParentId(0);
+        }
+        return super.add(permission);
+    }
 }

@@ -18,7 +18,7 @@
 
     <!--根据Id查询-->
     <select id="findById" resultType="role" parameterType="int">
-        SELECT * from t_user where id = #{id,jdbcType=INTEGER}
+        SELECT * from t_role where id = #{id,jdbcType=INTEGER}
     </select>
 
     <!--添加-->
