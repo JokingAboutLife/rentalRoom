@@ -26,17 +26,17 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission, Permissio
     }
 
     @Override
-    public List<Permission> findLevelMenu() {
-        return ((PermissionMapper)baseMapper).findLevelMenu();
+    public List<Permission> findLevelMenu(int userId) {
+        return ((PermissionMapper)baseMapper).findLevelMenu(userId);
     }
 
     @Override
-    public boolean bind(int roleId, int permissionId) {
-        return ((PermissionMapper)baseMapper).bind(roleId,permissionId) == 1;
+    public int bind(int roleId, int permissionId) {
+        return ((PermissionMapper)baseMapper).bind(roleId,permissionId);
     }
 
     @Override
-    public boolean unBind(int roleId, int permissionId) {
-        return ((PermissionMapper)baseMapper).unBind(roleId,permissionId) == 1;
+    public int unBind(int roleId, int permissionId) {
+        return ((PermissionMapper)baseMapper).unBind(roleId,permissionId);
     }
 }

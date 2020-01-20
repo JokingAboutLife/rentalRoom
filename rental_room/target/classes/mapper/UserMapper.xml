@@ -2,22 +2,35 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.gxust.edu.rental_room.mapper.UserMapper">
 
+    <resultMap id="BaseResultMap" type="user">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="loginName" jdbcType="VARCHAR" property="loginName" />
+        <result column="username" jdbcType="VARCHAR" property="username" />
+        <result column="password" jdbcType="VARCHAR" property="password" />
+        <result column="realName" jdbcType="VARCHAR" property="realName" />
+        <result column="city" jdbcType="VARCHAR" property="city" />
+        <result column="email" jdbcType="VARCHAR" property="email" />
+        <result column="status" jdbcType="TINYINT" property="status" />
+    </resultMap>
+
     <sql id="Base_Column_List">
         id,
-        account,
+        loginName,
         username,
         email,
-        realname,
+        realName,
         city,
         status
     </sql>
 
+    <!--登陆查询-->
     <select id="login" resultType="user">
         select
         <include refid="Base_Column_List"/>
-        from t_user where account = #{account} and password = #{password}
+        from t_user where loginName = #{loginName} and password = #{password} and status = 1
     </select>
 
+    <!--根据查询条件查询-->
     <select id="findByQuery" resultType="user" parameterType="userQuery">
         select
         <include refid="Base_Column_List"/>
@@ -27,9 +40,9 @@
                 <bind name="likeUsername" value="'%' + _parameter.username + '%'"/>
                 and username like #{likeUsername}
             </if>
-            <if test="account != null and account!=''">
-                <bind name="likeAccount" value="'%' + _parameter.account + '%'"/>
-                and account like #{likeAccount}
+            <if test="loginName != null and loginName!=''">
+                <bind name="likeAccount" value="'%' + _parameter.loginName + '%'"/>
+                and loginName like #{likeAccount}
             </if>
         </where>
     </select>
@@ -45,19 +58,19 @@
     <insert id="add" parameterType="user" keyColumn="id" keyProperty="id" useGeneratedKeys="true">
         insert into t_user
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            account,
+            loginName,
             username,
             password,
-            realname,
+            realName,
             city,
             email,
             status
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            #{account,jdbcType=VARCHAR},
+            #{loginName,jdbcType=VARCHAR},
             #{username,jdbcType=VARCHAR},
             #{password,jdbcType=VARCHAR},
-            #{realname,jdbcType=VARCHAR},
+            #{realName,jdbcType=VARCHAR},
             #{city,jdbcType=VARCHAR},
             #{email,jdbcType=VARCHAR},
             #{status,jdbcType=TINYINT}
@@ -87,8 +100,8 @@
             <if test="password != null and password != ''">
                 password = #{password,jdbcType=VARCHAR},
             </if>
-            <if test="realname != null and realname != ''">
-                realname = #{realname,jdbcType=VARCHAR},
+            <if test="realName != null and realName != ''">
+                realName = #{realName,jdbcType=VARCHAR},
             </if>
             <if test="city != null and city != ''">
                 city = #{city,jdbcType=VARCHAR},
@@ -102,5 +115,13 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
+
+    <!--根据loginName查询数量-->
+    <select id="findCountByLoginName" resultType="int">
+        select count(id) from t_user where loginName = #{loginName}
+        <if test="id != null">
+            and id != #{id}
+        </if>
+    </select>
 
 </mapper>

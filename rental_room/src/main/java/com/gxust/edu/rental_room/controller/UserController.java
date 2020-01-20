@@ -1,6 +1,7 @@
 package com.gxust.edu.rental_room.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.github.pagehelper.util.StringUtil;
 import com.gxust.edu.rental_room.domain.User;
 import com.gxust.edu.rental_room.query.UserQuery;
 import com.gxust.edu.rental_room.service.impl.UserServiceImpl;
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/user")
@@ -22,16 +25,16 @@ public class UserController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
-    public JsonModel login(String account, String password) {
+    public JsonModel login(String loginName, String password) {
         JsonModel jsonModel = new JsonModel();
-        User user = userService.login(account, password);
+        User user = userService.login(loginName, password);
         if (user != null) {
             jsonModel.setSuccess(true);
             jsonModel.setMsg("登陆成功！");
             jsonModel.setData(user);
         } else {
             jsonModel.setSuccess(false);
-            jsonModel.setMsg("登陆失败，请输入正确的账号密码！");
+            jsonModel.setMsg("用户不存在，请输入正确的账号密码！");
         }
         return jsonModel;
     }
@@ -118,4 +121,23 @@ public class UserController {
         }
         return jsonModel;
     }
+
+    @RequestMapping(value = "/check/loginName",method = RequestMethod.GET)
+    @ResponseBody
+    public Map<String,Boolean> checkLoginName(String loginName,Integer id){
+        Map<String,Boolean> result = new HashMap<>();
+        if(StringUtil.isEmpty(loginName)){
+            result.put("valid",false);
+            return result;
+        }
+        int count = userService.findCountByLoginName(loginName,id);
+        if(count>0){
+            result.put("valid",false);
+        }else{
+            result.put("valid",true);
+        }
+        return result;
+    }
+
+
 }

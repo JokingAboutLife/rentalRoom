@@ -10,9 +10,10 @@ import java.util.List;
 @Mapper
 public interface PermissionMapper extends BaseMapper<Permission, PermissionQuery> {
 
-    List<Permission> findLevelMenu();
+    List<Permission> findLevelMenu(int userId);
 
     int bind(@Param("roleId") int roleId,@Param("permissionId") int permissionId);
 
     int unBind(@Param("roleId") int roleId,@Param("permissionId") int permissionId);
+
 }

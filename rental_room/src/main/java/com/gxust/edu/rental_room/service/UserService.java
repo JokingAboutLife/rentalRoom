@@ -5,4 +5,6 @@ import com.gxust.edu.rental_room.query.UserQuery;
 
 public interface UserService extends BaseService<User, UserQuery> {
     User login(String loginName, String password);
+
+    int findCountByLoginName(String loginName,Integer id);
 }

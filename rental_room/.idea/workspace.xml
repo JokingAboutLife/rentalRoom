@@ -4,16 +4,36 @@
     <list default="true" id="d66c69a4-6ca4-4568-8619-3fc972060d9c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/controller/PermissionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/controller/PermissionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/domain/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/domain/Permission.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/domain/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/mapper/PermissionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/mapper/PermissionMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/mapper/RoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/mapper/RoleMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/query/UserQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/query/UserQuery.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/PermissionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/PermissionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/RoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/impl/PermissionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/impl/PermissionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/impl/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/impl/RoleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/PermissionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/PermissionMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/domain/Permission.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/domain/Permission.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/RoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/RoleMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/domain/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/mapper/PermissionMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/mapper/PermissionMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/mapper/RoleMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/mapper/RoleMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/mapper/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/mapper/UserMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/query/UserQuery.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/query/UserQuery.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/PermissionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/PermissionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/RoleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/RoleService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/UserService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/impl/PermissionServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/impl/PermissionServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/impl/RoleServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/impl/RoleServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/impl/UserServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mapper/PermissionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/PermissionMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/RoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/RoleMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +223,8 @@
       <workItem from="1579397004777" duration="119000" />
       <workItem from="1579397522542" duration="2706000" />
       <workItem from="1579402563269" duration="2976000" />
-      <workItem from="1579415342946" duration="4151000" />
+      <workItem from="1579415342946" duration="4248000" />
+      <workItem from="1579502596288" duration="7480000" />
     </task>
     <task id="LOCAL-00001" summary="用户管理">
       <created>1578495101418</created>
@@ -282,7 +303,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579400147077</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="权限模块部分修改">
+      <created>1579423672262</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1579423672262</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -315,7 +343,8 @@
     <MESSAGE value="角色模块" />
     <MESSAGE value="权限模块" />
     <MESSAGE value="部分修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="部分修改" />
+    <MESSAGE value="权限模块部分修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="权限模块部分修改" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="27" key="#Inspections" timestamp="1578495479480">
@@ -326,11 +355,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1578904291576" />
-    <state x="549" y="87" key="#com.intellij.ide.util.MemberChooser" timestamp="1579423583881">
+    <state x="549" y="87" key="#com.intellij.ide.util.MemberChooser" timestamp="1579508388797">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1578669088259" />
-    <state x="549" y="87" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1579423583881" />
+    <state x="549" y="87" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1579508388797" />
     <state x="521" y="84" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1578132535478">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -344,11 +373,11 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="402" y="214" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.738@0.0.1366.738" timestamp="1578484896682" />
-    <state x="309" y="0" key="CommitChangelistDialog2" timestamp="1579400144713">
+    <state x="309" y="0" key="CommitChangelistDialog2" timestamp="1579508858566">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="275" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1578713185956" />
-    <state x="309" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1579400144713" />
+    <state x="309" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1579508858566" />
     <state width="500" height="521" key="DebuggerActiveHint" timestamp="1579415524518">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -359,66 +388,66 @@
     </state>
     <state x="463" y="127" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1578484475285" />
     <state x="521" y="142" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1578909613634" />
-    <state width="1493" height="168" key="GridCell.Tab.0.bottom" timestamp="1579416398595">
+    <state width="1493" height="168" key="GridCell.Tab.0.bottom" timestamp="1579504046342">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="155" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1578713388527" />
-    <state width="1493" height="168" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579416398595" />
-    <state width="1493" height="168" key="GridCell.Tab.0.center" timestamp="1579416398594">
+    <state width="1493" height="168" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579504046342" />
+    <state width="1493" height="168" key="GridCell.Tab.0.center" timestamp="1579504046342">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="155" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1578713388527" />
-    <state width="1493" height="168" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1579416398594" />
-    <state width="1493" height="168" key="GridCell.Tab.0.left" timestamp="1579416398594">
+    <state width="1493" height="168" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1579504046342" />
+    <state width="1493" height="168" key="GridCell.Tab.0.left" timestamp="1579504046342">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="155" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1578713388526" />
-    <state width="1493" height="168" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1579416398594" />
-    <state width="1493" height="168" key="GridCell.Tab.0.right" timestamp="1579416398594">
+    <state width="1493" height="168" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1579504046342" />
+    <state width="1493" height="168" key="GridCell.Tab.0.right" timestamp="1579504046342">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="155" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1578713388527" />
-    <state width="1493" height="168" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1579416398594" />
-    <state width="1493" height="168" key="GridCell.Tab.1.bottom" timestamp="1579416397626">
+    <state width="1493" height="168" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1579504046342" />
+    <state width="1493" height="168" key="GridCell.Tab.1.bottom" timestamp="1579423729247">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="194" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1578671344323" />
-    <state width="1493" height="168" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579416397626" />
-    <state width="1493" height="168" key="GridCell.Tab.1.center" timestamp="1579416397625">
+    <state width="1493" height="168" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579423729247" />
+    <state width="1493" height="168" key="GridCell.Tab.1.center" timestamp="1579423729247">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="194" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1578671344323" />
-    <state width="1493" height="168" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1579416397625" />
-    <state width="1493" height="168" key="GridCell.Tab.1.left" timestamp="1579416397625">
+    <state width="1493" height="168" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1579423729247" />
+    <state width="1493" height="168" key="GridCell.Tab.1.left" timestamp="1579423729247">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="194" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1578671344323" />
-    <state width="1493" height="168" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1579416397625" />
-    <state width="1493" height="168" key="GridCell.Tab.1.right" timestamp="1579416397625">
+    <state width="1493" height="168" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1579423729247" />
+    <state width="1493" height="168" key="GridCell.Tab.1.right" timestamp="1579423729247">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="194" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1578671344323" />
-    <state width="1493" height="168" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1579416397625" />
-    <state width="1493" height="168" key="GridCell.Tab.2.bottom" timestamp="1579405687634">
+    <state width="1493" height="168" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1579423729247" />
+    <state width="1493" height="168" key="GridCell.Tab.2.bottom" timestamp="1579423729248">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="194" key="GridCell.Tab.2.bottom/0.0.1366.738@0.0.1366.738" timestamp="1578671344323" />
-    <state width="1493" height="168" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579405687634" />
-    <state width="1493" height="168" key="GridCell.Tab.2.center" timestamp="1579405687634">
+    <state width="1493" height="168" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579423729248" />
+    <state width="1493" height="168" key="GridCell.Tab.2.center" timestamp="1579423729247">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="194" key="GridCell.Tab.2.center/0.0.1366.738@0.0.1366.738" timestamp="1578671344323" />
-    <state width="1493" height="168" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1579405687634" />
-    <state width="1493" height="168" key="GridCell.Tab.2.left" timestamp="1579405687634">
+    <state width="1493" height="168" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1579423729247" />
+    <state width="1493" height="168" key="GridCell.Tab.2.left" timestamp="1579423729247">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="194" key="GridCell.Tab.2.left/0.0.1366.738@0.0.1366.738" timestamp="1578671344323" />
-    <state width="1493" height="168" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1579405687634" />
-    <state width="1493" height="168" key="GridCell.Tab.2.right" timestamp="1579405687634">
+    <state width="1493" height="168" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1579423729247" />
+    <state width="1493" height="168" key="GridCell.Tab.2.right" timestamp="1579423729247">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="194" key="GridCell.Tab.2.right/0.0.1366.738@0.0.1366.738" timestamp="1578671344323" />
-    <state width="1493" height="168" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1579405687634" />
+    <state width="1493" height="168" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1579423729247" />
     <state width="212" height="477" key="HiddenNamespacesPopup" timestamp="1578897995375">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -467,11 +496,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="447" y="203" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1578909250217" />
-    <state x="389" y="66" width="672" height="678" key="search.everywhere.popup" timestamp="1579399705656">
+    <state x="389" y="66" width="672" height="678" key="search.everywhere.popup" timestamp="1579508542567">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="346" y="59" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1578495240498" />
-    <state x="389" y="66" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1579399705656" />
+    <state x="389" y="66" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1579508542567" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

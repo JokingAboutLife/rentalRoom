@@ -153,7 +153,7 @@
     <select id="findLevelMenu" resultMap="LevelResultMap">
         SELECT
             p.*,
-            c.name c_name,
+            c.NAME c_name,
             c.parent_id c_parent_id,
             c.types c_types,
             c.url c_url,
@@ -166,11 +166,17 @@
             c.icon c_icon
         FROM
             t_permission p
-            JOIN t_permission c ON p.id = c.parent_id
+            LEFT JOIN t_permission c ON p.id = c.parent_id
         WHERE
-            p.types IN ( 0, 1 ) and p.parent_id = 0
-        ORDER BY
-            p.sorts,c.sorts
+            p.id IN (
+            SELECT
+                perm_id
+            FROM
+                t_role_permission
+            WHERE
+            role_id = ( SELECT role_id FROM t_user_role WHERE user_id = #{userId} ))
+            AND p.parent_id = 0
+            ORDER BY p.sorts
     </select>
 
     <insert id="bind">

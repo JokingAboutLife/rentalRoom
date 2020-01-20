@@ -15,4 +15,13 @@ public class RoleServiceImpl extends BaseServiceImpl<Role, RoleQuery> implements
         this.baseMapper = roleMapper;
     }
 
+    @Override
+    public int bind(int roleId, int permissionId) {
+        return ((RoleMapper)baseMapper).bind(roleId,permissionId);
+    }
+
+    @Override
+    public int unBind(int roleId, int permissionId) {
+        return ((RoleMapper)baseMapper).unBind(roleId,permissionId);
+    }
 }

@@ -61,4 +61,12 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
 
+    <insert id="bind">
+        insert into t_user_role (user_id, role_id) values (#{userId},#{roleId})
+    </insert>
+
+    <delete id="unBind">
+        delete from t_user_role where user_id = #{userId} and role_id = #{roleId}
+    </delete>
+
 </mapper>

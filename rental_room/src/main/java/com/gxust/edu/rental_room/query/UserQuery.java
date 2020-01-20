@@ -1,15 +1,15 @@
 package com.gxust.edu.rental_room.query;
 
 public class UserQuery extends BaseQuery {
-    private String account;
+    private String loginName;
     private String username;
 
-    public String getAccount() {
-        return account;
+    public String getLoginName() {
+        return loginName;
     }
 
-    public void setAccount(String account) {
-        this.account = account;
+    public void setLoginName(String loginName) {
+        this.loginName = loginName;
     }
 
     public String getUsername() {

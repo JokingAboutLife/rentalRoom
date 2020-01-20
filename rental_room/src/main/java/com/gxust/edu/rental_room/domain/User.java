@@ -1,20 +1,20 @@
 package com.gxust.edu.rental_room.domain;
 
 public class User extends BaseDomain {
-    private String account;
+    private String loginName;
     private String username;
     private String password;
-    private String realname;
+    private String realName;
     private String city;
     private String email;
     private Byte status;
 
-    public String getAccount() {
-        return account;
+    public String getLoginName() {
+        return loginName;
     }
 
-    public void setAccount(String account) {
-        this.account = account;
+    public void setLoginName(String loginName) {
+        this.loginName = loginName;
     }
 
     public String getUsername() {
@@ -33,12 +33,12 @@ public class User extends BaseDomain {
         this.password = password;
     }
 
-    public String getRealname() {
-        return realname;
+    public String getRealName() {
+        return realName;
     }
 
-    public void setRealname(String realname) {
-        this.realname = realname;
+    public void setRealName(String realName) {
+        this.realName = realName;
     }
 
     public String getCity() {

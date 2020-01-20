@@ -7,5 +7,8 @@ import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface UserMapper extends BaseMapper<User, UserQuery> {
-    User login(@Param("account") String account, @Param("password") String password);
+    User login(@Param("loginName") String loginName, @Param("password") String password);
+
+    int findCountByLoginName(@Param("loginName") String loginName,@Param("id") Integer id);
+
 }

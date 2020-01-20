@@ -16,8 +16,13 @@ public class UserServiceImpl extends BaseServiceImpl<User, UserQuery> implements
     }
 
     @Override
-    public User login(String account, String password) {
-        return ((UserMapper) baseMapper).login(account, password);
+    public User login(String loginName, String password) {
+        return ((UserMapper) baseMapper).login(loginName, password);
+    }
+
+    @Override
+    public int findCountByLoginName(String loginName, Integer id) {
+        return ((UserMapper) baseMapper).findCountByLoginName(loginName,id);
     }
 
     @Override

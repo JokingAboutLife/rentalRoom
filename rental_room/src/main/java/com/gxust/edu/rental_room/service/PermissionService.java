@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface PermissionService extends BaseService<Permission, PermissionQuery> {
 
-    List<Permission> findLevelMenu();
+    List<Permission> findLevelMenu(int userId);
 
-    boolean bind(int roleId,int permissionId);
+    int bind(int roleId,int permissionId);
 
-    boolean unBind(int roleId,int permissionId);
+    int unBind(int roleId,int permissionId);
 }
