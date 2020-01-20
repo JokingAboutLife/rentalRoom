@@ -176,7 +176,7 @@
             WHERE
             role_id = ( SELECT role_id FROM t_user_role WHERE user_id = #{userId} ))
             AND p.parent_id = 0
-            ORDER BY p.sorts
+            ORDER BY p.sorts,c.sorts
     </select>
 
     <insert id="bind">

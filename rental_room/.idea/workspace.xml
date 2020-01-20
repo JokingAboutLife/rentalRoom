@@ -3,37 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d66c69a4-6ca4-4568-8619-3fc972060d9c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/controller/PermissionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/controller/PermissionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/mapper/PermissionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/mapper/PermissionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/mapper/RoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/mapper/RoleMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/query/UserQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/query/UserQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/PermissionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/PermissionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/RoleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/impl/PermissionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/impl/PermissionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/impl/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/impl/RoleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/PermissionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/PermissionMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/RoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/RoleMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/domain/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/mapper/PermissionMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/mapper/PermissionMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/mapper/RoleMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/mapper/RoleMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/mapper/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/mapper/UserMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/query/UserQuery.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/query/UserQuery.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/PermissionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/PermissionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/RoleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/RoleService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/impl/PermissionServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/impl/PermissionServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/impl/RoleServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/impl/RoleServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/PermissionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/PermissionMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/RoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/RoleMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +193,7 @@
       <workItem from="1579397522542" duration="2706000" />
       <workItem from="1579402563269" duration="2976000" />
       <workItem from="1579415342946" duration="4248000" />
-      <workItem from="1579502596288" duration="7480000" />
+      <workItem from="1579502596288" duration="9367000" />
     </task>
     <task id="LOCAL-00001" summary="用户管理">
       <created>1578495101418</created>
@@ -310,7 +279,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579423672262</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="部分修改">
+      <created>1579512192961</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1579512192961</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -342,9 +318,9 @@
     <MESSAGE value="修改" />
     <MESSAGE value="角色模块" />
     <MESSAGE value="权限模块" />
-    <MESSAGE value="部分修改" />
     <MESSAGE value="权限模块部分修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="权限模块部分修改" />
+    <MESSAGE value="部分修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="部分修改" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="27" key="#Inspections" timestamp="1578495479480">
@@ -373,11 +349,11 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="402" y="214" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.738@0.0.1366.738" timestamp="1578484896682" />
-    <state x="309" y="0" key="CommitChangelistDialog2" timestamp="1579508858566">
+    <state x="309" y="0" key="CommitChangelistDialog2" timestamp="1579512187728">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="275" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1578713185956" />
-    <state x="309" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1579508858566" />
+    <state x="309" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1579512187728" />
     <state width="500" height="521" key="DebuggerActiveHint" timestamp="1579415524518">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -461,11 +437,11 @@
     </state>
     <state x="98" y="20" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1578713051084" />
     <state x="110" y="22" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1579242596541" />
-    <state x="309" y="114" key="Vcs.Push.Dialog.v2" timestamp="1579400158570">
+    <state x="309" y="114" key="Vcs.Push.Dialog.v2" timestamp="1579512212497">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1578671292186" />
-    <state x="309" y="114" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1579400158570" />
+    <state x="309" y="114" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1579512212497" />
     <state x="646" y="292" width="340" height="240" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1579253118926">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
