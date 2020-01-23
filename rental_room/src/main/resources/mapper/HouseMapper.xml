@@ -44,7 +44,8 @@
                 and rent_way = #{rentWay}
             </if>
             <if test="city != null and city!=''">
-                and city = #{city}
+                <bind name="likeCity" value="'%' + _parameter.city + '%'"/>
+                and city like #{likeCity}
             </if>
         </where>
     </select>
@@ -74,7 +75,7 @@
       )
     </insert>-->
     <insert id="add" parameterType="house" keyColumn="id" keyProperty="id" useGeneratedKeys="true">
-        insert into house
+        insert into t_house
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="userId != null">
                 userId,
@@ -222,7 +223,7 @@
 
     <!--更新-->
     <update id="update" parameterType="house">
-        update house
+        update t_house
         <set>
             <if test="title != null">
                 title = #{title,jdbcType=VARCHAR},
