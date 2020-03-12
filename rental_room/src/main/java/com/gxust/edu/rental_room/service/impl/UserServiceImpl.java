@@ -28,7 +28,7 @@ public class UserServiceImpl extends BaseServiceImpl<User, UserQuery> implements
     @Override
     public boolean add(User user) {
         user.setPassword("123456");
-        user.setStatus(new Byte("1"));
+        user.setStatus(true);
         return baseMapper.add(user) == 1;
     }
 

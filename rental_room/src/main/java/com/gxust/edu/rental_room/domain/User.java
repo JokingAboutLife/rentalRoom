@@ -7,7 +7,7 @@ public class User extends BaseDomain {
     private String realName;
     private String city;
     private String email;
-    private Byte status;
+    private boolean status;
 
     public String getLoginName() {
         return loginName;
@@ -57,11 +57,11 @@ public class User extends BaseDomain {
         this.email = email;
     }
 
-    public Byte getStatus() {
+    public boolean isStatus() {
         return status;
     }
 
-    public void setStatus(Byte status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 }

@@ -10,7 +10,7 @@
         <result column="realName" jdbcType="VARCHAR" property="realName" />
         <result column="city" jdbcType="VARCHAR" property="city" />
         <result column="email" jdbcType="VARCHAR" property="email" />
-        <result column="status" jdbcType="TINYINT" property="status" />
+        <result column="status" property="status" />
     </resultMap>
 
     <sql id="Base_Column_List">

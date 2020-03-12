@@ -6,7 +6,7 @@ public class BaseQuery {
     //每页显示条数
     private Integer pageSize = 10;
     //排序方式
-    private String sortOrder;
+    private Integer total;
     //是否分页
     private boolean paging = true;
 
@@ -26,12 +26,12 @@ public class BaseQuery {
         this.pageSize = pageSize;
     }
 
-    public String getSortOrder() {
-        return sortOrder;
+    public Integer getTotal() {
+        return total;
     }
 
-    public void setSortOrder(String sortOrder) {
-        this.sortOrder = sortOrder;
+    public void setTotal(Integer total) {
+        this.total = total;
     }
 
     public boolean isPaging() {

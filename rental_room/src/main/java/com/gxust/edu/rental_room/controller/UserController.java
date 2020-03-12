@@ -114,7 +114,7 @@ public class UserController {
         if (userList != null && userList.size() > 0) {
             jsonModel.setMsg("查找成功");
             jsonModel.setSuccess(true);
-            jsonModel.setData(userList);
+            jsonModel.setData(pageInfo);
         } else {
             jsonModel.setMsg("查找失败");
             jsonModel.setSuccess(false);
