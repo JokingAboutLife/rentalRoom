@@ -89,6 +89,21 @@ public class UserController {
         return jsonModel;
     }
 
+    @RequestMapping(value = "/update/status", method = RequestMethod.POST)
+    @ResponseBody
+    public JsonModel updateStatus(Boolean status,Integer id) {
+        JsonModel jsonModel = new JsonModel();
+        boolean result = userService.updateStatus(status,id);
+        if (result) {
+            jsonModel.setMsg("更新用户状态成功");
+            jsonModel.setSuccess(true);
+        } else {
+            jsonModel.setMsg("更新用户状态失败");
+            jsonModel.setSuccess(false);
+        }
+        return jsonModel;
+    }
+
     @RequestMapping(value = "/findById", method = RequestMethod.GET)
     @ResponseBody
     public JsonModel findById(Integer id) {

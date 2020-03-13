@@ -26,6 +26,12 @@ public class UserServiceImpl extends BaseServiceImpl<User, UserQuery> implements
     }
 
     @Override
+    public boolean updateStatus(Boolean status, Integer id) {
+        Integer sta = status ? 1: 0;
+        return ((UserMapper) baseMapper).updateStatus(sta,id) == 1;
+    }
+
+    @Override
     public boolean add(User user) {
         user.setPassword("123456");
         user.setStatus(true);

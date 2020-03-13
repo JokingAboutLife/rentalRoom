@@ -7,4 +7,6 @@ public interface UserService extends BaseService<User, UserQuery> {
     User login(String loginName, String password);
 
     int findCountByLoginName(String loginName,Integer id);
+
+    boolean updateStatus(Boolean status, Integer id);
 }

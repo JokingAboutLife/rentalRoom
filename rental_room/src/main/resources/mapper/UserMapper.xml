@@ -49,9 +49,7 @@
 
     <!--根据Id查询-->
     <select id="findById" resultType="user" parameterType="int">
-        SELECT
-        <include refid="Base_Column_List"/>
-        from t_user where id = #{id,jdbcType=INTEGER}
+        SELECT * from t_user where id = #{id,jdbcType=INTEGER}
     </select>
 
     <!--添加-->
@@ -109,11 +107,12 @@
             <if test="email != null and email != ''">
                 email = #{email,jdbcType=VARCHAR},
             </if>
-            <if test="status != null">
-                status = #{status,jdbcType=TINYINT}
-            </if>
         </set>
         where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <update id="updateStatus" parameterType="int">
+        update t_user set status = #{status} where id = #{id}
     </update>
 
     <!--根据loginName查询数量-->
