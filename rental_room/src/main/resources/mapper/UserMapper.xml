@@ -27,7 +27,7 @@
     <select id="login" resultType="user">
         select
         <include refid="Base_Column_List"/>
-        from t_user where loginName = #{loginName} and password = #{password} and status = 1
+        from t_user where loginName = #{loginName} and password = #{password}
     </select>
 
     <!--根据查询条件查询-->

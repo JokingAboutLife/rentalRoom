@@ -95,7 +95,7 @@ public class RoleController {
         if (roleList != null && roleList.size() >= 0) {
             jsonModel.setMsg("查找成功");
             jsonModel.setSuccess(true);
-            jsonModel.setData(roleList);
+            jsonModel.setData(pageInfo);
         } else {
             jsonModel.setMsg("查找失败");
             jsonModel.setSuccess(false);

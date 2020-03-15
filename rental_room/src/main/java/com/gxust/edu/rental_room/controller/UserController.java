@@ -29,9 +29,15 @@ public class UserController {
         JsonModel jsonModel = new JsonModel();
         User user = userService.login(loginName, password);
         if (user != null) {
-            jsonModel.setSuccess(true);
-            jsonModel.setMsg("登陆成功！");
-            jsonModel.setData(user);
+            boolean status = user.isStatus();
+            if (status) {
+                jsonModel.setSuccess(true);
+                jsonModel.setMsg("登陆成功！");
+                jsonModel.setData(user);
+            } else {
+                jsonModel.setSuccess(false);
+                jsonModel.setMsg("该账号已冻结，请联系管理员");
+            }
         } else {
             jsonModel.setSuccess(false);
             jsonModel.setMsg("用户不存在，请输入正确的账号密码！");
@@ -91,9 +97,9 @@ public class UserController {
 
     @RequestMapping(value = "/update/status", method = RequestMethod.POST)
     @ResponseBody
-    public JsonModel updateStatus(Boolean status,Integer id) {
+    public JsonModel updateStatus(Boolean status, Integer id) {
         JsonModel jsonModel = new JsonModel();
-        boolean result = userService.updateStatus(status,id);
+        boolean result = userService.updateStatus(status, id);
         if (result) {
             jsonModel.setMsg("更新用户状态成功");
             jsonModel.setSuccess(true);
@@ -137,19 +143,19 @@ public class UserController {
         return jsonModel;
     }
 
-    @RequestMapping(value = "/check/loginName",method = RequestMethod.GET)
+    @RequestMapping(value = "/check/loginName", method = RequestMethod.GET)
     @ResponseBody
-    public Map<String,Boolean> checkLoginName(String loginName,Integer id){
-        Map<String,Boolean> result = new HashMap<>();
-        if(StringUtil.isEmpty(loginName)){
-            result.put("valid",false);
+    public Map<String, Boolean> checkLoginName(String loginName, Integer id) {
+        Map<String, Boolean> result = new HashMap<>();
+        if (StringUtil.isEmpty(loginName)) {
+            result.put("valid", false);
             return result;
         }
-        int count = userService.findCountByLoginName(loginName,id);
-        if(count>0){
-            result.put("valid",false);
-        }else{
-            result.put("valid",true);
+        int count = userService.findCountByLoginName(loginName, id);
+        if (count > 0) {
+            result.put("valid", false);
+        } else {
+            result.put("valid", true);
         }
         return result;
     }
