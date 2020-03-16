@@ -9,6 +9,7 @@
         <result column="password" jdbcType="VARCHAR" property="password" />
         <result column="realName" jdbcType="VARCHAR" property="realName" />
         <result column="city" jdbcType="VARCHAR" property="city" />
+        <result column="phone" jdbcType="VARCHAR" property="phone" />
         <result column="email" jdbcType="VARCHAR" property="email" />
         <result column="status" property="status" />
     </resultMap>
@@ -17,6 +18,7 @@
         id,
         loginName,
         username,
+        phone,
         email,
         realName,
         city,
@@ -103,6 +105,9 @@
             </if>
             <if test="city != null and city != ''">
                 city = #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null and phone != ''">
+                city = #{phone,jdbcType=VARCHAR},
             </if>
             <if test="email != null and email != ''">
                 email = #{email,jdbcType=VARCHAR},

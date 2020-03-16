@@ -6,6 +6,7 @@ public class User extends BaseDomain {
     private String password;
     private String realName;
     private String city;
+    private String phone;
     private String email;
     private boolean status;
 
@@ -47,6 +48,14 @@ public class User extends BaseDomain {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getEmail() {
