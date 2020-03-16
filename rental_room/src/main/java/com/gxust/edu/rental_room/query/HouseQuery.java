@@ -4,7 +4,6 @@ public class HouseQuery extends BaseQuery {
     private String title;
     private String name;
     private String type;
-    private String rentWay;
     private String city;
 
     public String getTitle() {
@@ -29,14 +28,6 @@ public class HouseQuery extends BaseQuery {
 
     public void setType(String type) {
         this.type = type;
-    }
-
-    public String getRentWay() {
-        return rentWay;
-    }
-
-    public void setRentWay(String rentWay) {
-        this.rentWay = rentWay;
     }
 
     public String getCity() {

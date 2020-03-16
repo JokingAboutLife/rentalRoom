@@ -14,11 +14,6 @@
         <result column="city" jdbcType="VARCHAR" property="city"/>
         <result column="sex_limit" jdbcType="VARCHAR" property="sexLimit"/>
         <result column="area" jdbcType="VARCHAR" property="area"/>
-        <result column="storey" jdbcType="VARCHAR" property="storey"/>
-        <result column="storey_sum" jdbcType="VARCHAR" property="storeySum"/>
-        <result column="building_id" jdbcType="VARCHAR" property="buildingId"/>
-        <result column="cell_id" jdbcType="VARCHAR" property="cellId"/>
-        <result column="room_id" jdbcType="VARCHAR" property="roomId"/>
         <result column="price" jdbcType="INTEGER" property="price"/>
         <result column="text_img" jdbcType="VARCHAR" property="textImg"/>
         <result column="contacts" jdbcType="VARCHAR" property="contacts"/>
@@ -39,9 +34,6 @@
             </if>
             <if test="type != null and type!=''">
                 and type = #{type}
-            </if>
-            <if test="rentWay != null and rentWay!=''">
-                and rent_way = #{rentWay}
             </if>
             <if test="city != null and city!=''">
                 <bind name="likeCity" value="'%' + _parameter.city + '%'"/>
@@ -107,21 +99,6 @@
             <if test="area != null">
                 area,
             </if>
-            <if test="storey != null">
-                storey,
-            </if>
-            <if test="storeySum != null">
-                storey_sum,
-            </if>
-            <if test="buildingId != null">
-                building_id,
-            </if>
-            <if test="cellId != null">
-                cell_id,
-            </if>
-            <if test="roomId != null">
-                room_id,
-            </if>
             <if test="price != null">
                 price,
             </if>
@@ -171,21 +148,6 @@
             </if>
             <if test="area != null">
                 #{area,jdbcType=VARCHAR},
-            </if>
-            <if test="storey != null">
-                #{storey,jdbcType=VARCHAR},
-            </if>
-            <if test="storeySum != null">
-                #{storeySum,jdbcType=VARCHAR},
-            </if>
-            <if test="buildingId != null">
-                #{buildingId,jdbcType=VARCHAR},
-            </if>
-            <if test="cellId != null">
-                #{cellId,jdbcType=VARCHAR},
-            </if>
-            <if test="roomId != null">
-                #{roomId,jdbcType=VARCHAR},
             </if>
             <if test="price != null">
                 #{price,jdbcType=INTEGER},
@@ -251,21 +213,6 @@
             </if>
             <if test="area != null">
                 area = #{area,jdbcType=VARCHAR},
-            </if>
-            <if test="storey != null">
-                storey = #{storey,jdbcType=VARCHAR},
-            </if>
-            <if test="storeySum != null">
-                storey_sum = #{storeySum,jdbcType=VARCHAR},
-            </if>
-            <if test="buildingId != null">
-                building_id = #{buildingId,jdbcType=VARCHAR},
-            </if>
-            <if test="cellId != null">
-                cell_id = #{cellId,jdbcType=VARCHAR},
-            </if>
-            <if test="roomId != null">
-                room_id = #{roomId,jdbcType=VARCHAR},
             </if>
             <if test="price != null">
                 price = #{price,jdbcType=INTEGER},

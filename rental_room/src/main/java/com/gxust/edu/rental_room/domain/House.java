@@ -54,31 +54,6 @@ public class House extends BaseDomain implements Serializable {
     private String area;
 
     /**
-     * 所在楼层
-     */
-    private String storey;
-
-    /**
-     * 楼层总数
-     */
-    private String storeySum;
-
-    /**
-     * 楼栋号
-     */
-    private String buildingId;
-
-    /**
-     * 单元号
-     */
-    private String cellId;
-
-    /**
-     * 房间号
-     */
-    private String roomId;
-
-    /**
      * 租金
      */
     private Integer price;
@@ -185,46 +160,6 @@ public class House extends BaseDomain implements Serializable {
 
     public void setArea(String area) {
         this.area = area;
-    }
-
-    public String getStorey() {
-        return storey;
-    }
-
-    public void setStorey(String storey) {
-        this.storey = storey;
-    }
-
-    public String getStoreySum() {
-        return storeySum;
-    }
-
-    public void setStoreySum(String storeySum) {
-        this.storeySum = storeySum;
-    }
-
-    public String getBuildingId() {
-        return buildingId;
-    }
-
-    public void setBuildingId(String buildingId) {
-        this.buildingId = buildingId;
-    }
-
-    public String getCellId() {
-        return cellId;
-    }
-
-    public void setCellId(String cellId) {
-        this.cellId = cellId;
-    }
-
-    public String getRoomId() {
-        return roomId;
-    }
-
-    public void setRoomId(String roomId) {
-        this.roomId = roomId;
     }
 
     public Integer getPrice() {
