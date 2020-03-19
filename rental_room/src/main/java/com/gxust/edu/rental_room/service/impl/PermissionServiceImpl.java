@@ -26,8 +26,8 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission, Permissio
     }
 
     @Override
-    public List<Permission> findLevelMenu(int userId) {
-        return ((PermissionMapper)baseMapper).findLevelMenu(userId);
+    public List<Permission> findAllPermission(Integer userId,Integer roleId) {
+        return ((PermissionMapper)baseMapper).findAllPermission(userId, roleId);
     }
 
     @Override

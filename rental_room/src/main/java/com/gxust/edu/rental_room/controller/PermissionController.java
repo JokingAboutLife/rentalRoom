@@ -103,11 +103,11 @@ public class PermissionController {
         return jsonModel;
     }
 
-    @RequestMapping(value = "findLevelMenu", method = RequestMethod.GET)
+    @RequestMapping(value = "/findLevelMenu", method = RequestMethod.GET)
     @ResponseBody
     public JsonModel findLevelMenu(Integer userId) {
         JsonModel jsonModel = new JsonModel();
-        List<Permission> levelMenu = permissionService.findLevelMenu(userId);
+        List<Permission> levelMenu = permissionService.findAllPermission(userId,null);
         if (levelMenu != null && levelMenu.size() >= 0) {
             jsonModel.setSuccess(true);
             jsonModel.setMsg("菜单查询成功");
@@ -115,6 +115,38 @@ public class PermissionController {
         } else {
             jsonModel.setSuccess(false);
             jsonModel.setMsg("菜单查询失败");
+        }
+        return jsonModel;
+    }
+
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    @ResponseBody
+    public JsonModel findAllPermission() {
+        JsonModel jsonModel = new JsonModel();
+        List<Permission> allPermission = permissionService.findAllPermission(null,null);
+        if (allPermission != null && allPermission.size() >= 0) {
+            jsonModel.setSuccess(true);
+            jsonModel.setMsg("权限查找成功！");
+            jsonModel.setData(allPermission);
+        } else {
+            jsonModel.setSuccess(false);
+            jsonModel.setMsg("权限查询失败！");
+        }
+        return jsonModel;
+    }
+
+    @RequestMapping(value = "/findByRole",method = RequestMethod.GET)
+    @ResponseBody
+    public JsonModel findPermissionByRoleId(Integer roleId){
+        JsonModel jsonModel = new JsonModel();
+        List<Permission> roleOfPermission = permissionService.findAllPermission(null, roleId);
+        if(roleOfPermission != null && roleOfPermission.size() >= 0){
+            jsonModel.setSuccess(true);
+            jsonModel.setMsg("根据角色查找权限成功！");
+            jsonModel.setData(roleOfPermission);
+        }else {
+            jsonModel.setSuccess(false);
+            jsonModel.setMsg("根据角色查找权限失败！");
         }
         return jsonModel;
     }
