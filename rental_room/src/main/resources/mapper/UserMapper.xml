@@ -8,7 +8,7 @@
         <result column="username" jdbcType="VARCHAR" property="username" />
         <result column="password" jdbcType="VARCHAR" property="password" />
         <result column="realName" jdbcType="VARCHAR" property="realName" />
-        <result column="city" jdbcType="VARCHAR" property="city" />
+        <result column="idcard" jdbcType="VARCHAR" property="idcard" />
         <result column="phone" jdbcType="VARCHAR" property="phone" />
         <result column="email" jdbcType="VARCHAR" property="email" />
         <result column="status" property="status" />
@@ -21,7 +21,6 @@
         phone,
         email,
         realName,
-        city,
         status
     </sql>
 
@@ -62,7 +61,7 @@
             username,
             password,
             realName,
-            city,
+            idcard,
             email,
             status
         </trim>
@@ -71,7 +70,7 @@
             #{username,jdbcType=VARCHAR},
             #{password,jdbcType=VARCHAR},
             #{realName,jdbcType=VARCHAR},
-            #{city,jdbcType=VARCHAR},
+            #{idcard,jdbcType=VARCHAR},
             #{email,jdbcType=VARCHAR},
             #{status,jdbcType=TINYINT}
         </trim>
@@ -79,7 +78,7 @@
 
     <!--删除-->
     <delete id="deleteById" parameterType="int">
-      delete from t_user where id = #{id,jdbcType=INTEGER}
+        delete from t_user where id = #{id,jdbcType=INTEGER}
     </delete>
 
     <!-- 批量删除 -->
@@ -94,6 +93,9 @@
     <update id="update" parameterType="user">
         update t_user
         <set>
+            <if test="loginName != null and loginName != ''">
+                loginName = #{username,jdbcType=VARCHAR},
+            </if>
             <if test="username != null and username != ''">
                 username = #{username,jdbcType=VARCHAR},
             </if>
@@ -103,11 +105,11 @@
             <if test="realName != null and realName != ''">
                 realName = #{realName,jdbcType=VARCHAR},
             </if>
-            <if test="city != null and city != ''">
-                city = #{city,jdbcType=VARCHAR},
+            <if test="idcard != null and idcard != ''">
+                idcard = #{idcard,jdbcType=VARCHAR},
             </if>
             <if test="phone != null and phone != ''">
-                city = #{phone,jdbcType=VARCHAR},
+                phone = #{phone,jdbcType=VARCHAR},
             </if>
             <if test="email != null and email != ''">
                 email = #{email,jdbcType=VARCHAR},

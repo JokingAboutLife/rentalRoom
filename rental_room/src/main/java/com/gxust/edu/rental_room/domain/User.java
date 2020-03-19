@@ -5,7 +5,7 @@ public class User extends BaseDomain {
     private String username;
     private String password;
     private String realName;
-    private String city;
+    private String idcard;
     private String phone;
     private String email;
     private boolean status;
@@ -42,12 +42,12 @@ public class User extends BaseDomain {
         this.realName = realName;
     }
 
-    public String getCity() {
-        return city;
+    public String getIdcard() {
+        return idcard;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setIdcard(String idcard) {
+        this.idcard = idcard;
     }
 
     public String getPhone() {

@@ -2,11 +2,6 @@ package com.gxust.edu.rental_room.domain;
 
 import java.io.Serializable;
 
-/**
- * @author tools.49db.cn
- * @version 1.0
- * @date 2020-01-13
- */
 public class House extends BaseDomain implements Serializable {
     /**
      * 标题
@@ -77,6 +72,11 @@ public class House extends BaseDomain implements Serializable {
      * 房主ID
      */
     private Integer userId;
+
+    /**
+     * 审核状态
+     */
+    private Byte rentalStatus;
 
     /**
      * 审核状态
@@ -200,6 +200,14 @@ public class House extends BaseDomain implements Serializable {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    public Byte getRentalStatus() {
+        return rentalStatus;
+    }
+
+    public void setRentalStatus(Byte rentalStatus) {
+        this.rentalStatus = rentalStatus;
     }
 
     public Byte getStatus() {

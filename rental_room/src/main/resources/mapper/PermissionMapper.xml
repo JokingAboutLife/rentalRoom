@@ -46,6 +46,33 @@
         </collection>
     </resultMap>
 
+
+    <resultMap id="menuAndPermission" type="permission">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="parent_id" jdbcType="INTEGER" property="parentId"/>
+        <result column="types" jdbcType="INTEGER" property="types"/>
+        <result column="url" jdbcType="VARCHAR" property="url"/>
+        <result column="levels" jdbcType="INTEGER" property="levels"/>
+        <result column="state" jdbcType="INTEGER" property="state"/>
+        <result column="sorts" jdbcType="INTEGER" property="sorts"/>
+        <result column="description" jdbcType="VARCHAR" property="description"/>
+        <result column="component_name" jdbcType="VARCHAR" property="componentName"/>
+        <result column="component_path" jdbcType="VARCHAR" property="componentPath"/>
+        <result column="icon" jdbcType="VARCHAR" property="icon"/>
+        <collection property="children" ofType="com.gxust.edu.rental_room.domain.Permission" column="id"
+                    select="findPermission"></collection>
+    </resultMap>
+
+
+    <!--查找菜单和权限-->
+    <select id="findLevelMenu" resultMap="menuAndPermission">
+        select * from t_permission where parent_id = 0 order by sorts;
+    </select>
+    <select id="findPermission" resultMap="menuAndPermission">
+        select * from t_permission where parent_id = #{id} order by sorts;
+    </select>
+
     <select id="findByQuery" resultType="permission" parameterType="roleQuery">
         select * from t_permission
         <where>
@@ -150,34 +177,46 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
 
-    <select id="findLevelMenu" resultMap="LevelResultMap">
-        SELECT
-            p.*,
-            c.NAME c_name,
-            c.parent_id c_parent_id,
-            c.types c_types,
-            c.url c_url,
-            c.levels c_levels,
-            c.state c_state,
-            c.sorts c_sorts,
-            c.description c_description,
-            c.component_name c_component_name,
-            c.component_path c_component_path,
-            c.icon c_icon
-        FROM
-            t_permission p
-            LEFT JOIN t_permission c ON p.id = c.parent_id
-        WHERE
-            p.id IN (
-            SELECT
-                perm_id
-            FROM
-                t_role_permission
-            WHERE
-            role_id = ( SELECT role_id FROM t_user_role WHERE user_id = #{userId} ))
-            AND p.parent_id = 0
-            ORDER BY p.sorts,c.sorts
-    </select>
+    <!-- <select id="findLevelMenu2" resultMap="LevelResultMap">
+         SELECT
+             p.*,
+             c.NAME c_name,
+             c.parent_id c_parent_id,
+             c.types c_types,
+             c.url c_url,
+             c.levels c_levels,
+             c.state c_state,
+             c.sorts c_sorts,
+             c.description c_description,
+             c.component_name c_component_name,
+             c.component_path c_component_path,
+             c.icon c_icon,
+             d.NAME d_name,
+             d.parent_id d_parent_id,
+             d.types d_types,
+             d.url d_url,
+             d.levels d_levels,
+             d.state d_state,
+             d.sorts d_sorts,
+             d.description d_description,
+             d.component_name d_component_name,
+             d.component_path d_component_path,
+             d.icon d_icon
+         FROM
+             t_permission p
+             LEFT JOIN t_permission c ON p.id = c.parent_id
+             LEFT JOIN t_permission d ON c.id = d.parent_id
+         WHERE
+             p.id IN (
+             SELECT
+                 perm_id
+             FROM
+                 t_role_permission
+             WHERE
+             role_id = ( SELECT role_id FROM t_user_role WHERE user_id = #{userId} ))
+             AND p.parent_id = 0
+             ORDER BY p.sorts,c.sorts,d.sorts
+     </select>-->
 
     <insert id="bind">
         insert into t_role_permission(role_id, perm_id) values (#{roleId},#{permissionId})

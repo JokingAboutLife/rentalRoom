@@ -10,7 +10,6 @@
         <result column="name" jdbcType="VARCHAR" property="name"/>
         <result column="type" jdbcType="VARCHAR" property="type"/>
         <result column="address" jdbcType="VARCHAR" property="address"/>
-        <result column="rent_way" jdbcType="VARCHAR" property="rentWay"/>
         <result column="city" jdbcType="VARCHAR" property="city"/>
         <result column="sex_limit" jdbcType="VARCHAR" property="sexLimit"/>
         <result column="area" jdbcType="VARCHAR" property="area"/>
@@ -18,6 +17,7 @@
         <result column="text_img" jdbcType="VARCHAR" property="textImg"/>
         <result column="contacts" jdbcType="VARCHAR" property="contacts"/>
         <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="retal_status" jdbcType="TINYINT" property="rentalStatus"/>
         <result column="status" jdbcType="TINYINT" property="status"/>
     </resultMap>
 
@@ -111,6 +111,9 @@
             <if test="phone != null">
                 phone,
             </if>
+            <if test="rentalStatus != null">
+                rental_status,
+            </if>
             <if test="status != null">
                 status,
             </if>
@@ -160,6 +163,9 @@
             </if>
             <if test="phone != null">
                 #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="rentalStatus != null">
+                #{rentalStatus,jdbcType=TINYINT},
             </if>
             <if test="status != null">
                 #{status,jdbcType=TINYINT},
@@ -225,6 +231,9 @@
             </if>
             <if test="phone != null">
                 phone = #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="rentalStatus != null">
+                rental_status = #{rentalStatus,jdbcType=TINYINT},
             </if>
             <if test="status != null">
                 status = #{status,jdbcType=TINYINT},
