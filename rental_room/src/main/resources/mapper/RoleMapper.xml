@@ -41,7 +41,9 @@
 
     <!-- 批量删除 -->
     <delete id="deleteByIds" parameterType="int">
-        delete from t_role where id in
+        delete from t_role
+        where id
+        in
         <foreach item="id" collection="array" open="(" separator="," close=")">
             #{id}
         </foreach>
@@ -62,11 +64,21 @@
     </update>
 
     <insert id="bind">
-        insert into t_user_role (user_id, role_id) values (#{userId},#{roleId})
+        insert into t_user_role (user_id, role_id)
+        values (#{userId},#{roleId})
     </insert>
 
     <delete id="unBind">
-        delete from t_user_role where user_id = #{userId} and role_id = #{roleId}
+        delete from t_user_role
+        where user_id = #{userId}
+        and role_id = #{roleId}
     </delete>
+
+    <select id="findRoleByUserId" resultType="role">
+        select r.* from t_role r,t_user_role ur,t_user u
+        where r.id = ur.role_id
+        and u.id = ur.user_id
+        and u.id = #{userId}
+    </select>
 
 </mapper>

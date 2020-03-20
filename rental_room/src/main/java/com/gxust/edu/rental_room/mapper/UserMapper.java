@@ -12,4 +12,7 @@ public interface UserMapper extends BaseMapper<User, UserQuery> {
     int findCountByLoginName(@Param("loginName") String loginName,@Param("id") Integer id);
 
     int updateStatus(@Param("status")Integer status,@Param("id") Integer id);
+
+    int setRole(@Param("userId") Integer userId,@Param("roleId") Integer roleId);
+
 }

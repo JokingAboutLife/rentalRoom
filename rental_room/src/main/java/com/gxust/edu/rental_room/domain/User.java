@@ -73,4 +73,5 @@ public class User extends BaseDomain {
     public void setStatus(boolean status) {
         this.status = status;
     }
+
 }

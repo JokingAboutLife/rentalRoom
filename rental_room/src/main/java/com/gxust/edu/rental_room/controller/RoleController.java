@@ -102,4 +102,20 @@ public class RoleController {
         }
         return jsonModel;
     }
+
+    @RequestMapping(value = "/findRoleByUserId",method = RequestMethod.GET)
+    @ResponseBody
+    public JsonModel findRoleByUserId(Integer userId){
+        JsonModel jsonModel = new JsonModel();
+        List<Role> roleList = roleService.findRoleByUserId(userId);
+        if (roleList != null && roleList.size() == 1) {
+            jsonModel.setMsg("查找角色成功");
+            jsonModel.setSuccess(true);
+            jsonModel.setData(roleList);
+        } else {
+            jsonModel.setMsg("查找角色失败");
+            jsonModel.setSuccess(false);
+        }
+        return jsonModel;
+    }
 }

@@ -33,8 +33,7 @@
 
     <!--根据查询条件查询-->
     <select id="findByQuery" resultType="user" parameterType="userQuery">
-        select
-        <include refid="Base_Column_List"/>
+        select *
         from t_user
         <where>
             <if test="username != null and username!=''">
@@ -42,8 +41,8 @@
                 and username like #{likeUsername}
             </if>
             <if test="loginName != null and loginName!=''">
-                <bind name="likeAccount" value="'%' + _parameter.loginName + '%'"/>
-                and loginName like #{likeAccount}
+                <bind name="likeLoginName" value="'%' + _parameter.loginName + '%'"/>
+                and loginName like #{likeLoginName}
             </if>
         </where>
     </select>
@@ -94,7 +93,7 @@
         update t_user
         <set>
             <if test="loginName != null and loginName != ''">
-                loginName = #{username,jdbcType=VARCHAR},
+                loginName = #{loginName,jdbcType=VARCHAR},
             </if>
             <if test="username != null and username != ''">
                 username = #{username,jdbcType=VARCHAR},
@@ -129,5 +128,10 @@
             and id != #{id}
         </if>
     </select>
+
+    <!--更新用户角色-->
+    <update id="setRole">
+        update t_user_role set role_id = #{roleId} where user_id = #{userId}
+    </update>
 
 </mapper>

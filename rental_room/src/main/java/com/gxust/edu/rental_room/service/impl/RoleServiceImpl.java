@@ -7,6 +7,8 @@ import com.gxust.edu.rental_room.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class RoleServiceImpl extends BaseServiceImpl<Role, RoleQuery> implements RoleService {
 
@@ -23,5 +25,9 @@ public class RoleServiceImpl extends BaseServiceImpl<Role, RoleQuery> implements
     @Override
     public int unBind(int roleId, int permissionId) {
         return ((RoleMapper)baseMapper).unBind(roleId,permissionId);
+    }
+
+    public List<Role> findRoleByUserId(Integer userId) {
+        return ((RoleMapper)baseMapper).findRoleByUserId(userId);
     }
 }

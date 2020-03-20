@@ -10,4 +10,5 @@ public class BaseDomain {
     public void setId(Integer id) {
         this.id = id;
     }
+
 }
