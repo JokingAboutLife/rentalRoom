@@ -13,6 +13,9 @@ public interface UserMapper extends BaseMapper<User, UserQuery> {
 
     int updateStatus(@Param("status")Integer status,@Param("id") Integer id);
 
-    int setRole(@Param("userId") Integer userId,@Param("roleId") Integer roleId);
+    int updateRole(@Param("userId") Integer userId,@Param("roleId") Integer roleId);
 
+    int bind(@Param("userId") int userId,@Param("roleId") int roleId);
+
+    int unBind(@Param("userId") int userId,@Param("roleId") int roleId);
 }

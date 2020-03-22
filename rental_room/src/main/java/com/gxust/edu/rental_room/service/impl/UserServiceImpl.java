@@ -37,17 +37,23 @@ public class UserServiceImpl extends BaseServiceImpl<User, UserQuery> implements
     }
 
     @Override
-    public boolean setRole(Integer userId, Integer roleId) {
-        return ((UserMapper) baseMapper).setRole(userId, roleId) == 1;
+    public boolean setRole(Integer userId, Integer roleId, boolean isNew) {
+        boolean result;
+        if (isNew) {
+            result = ((UserMapper) baseMapper).bind(userId, roleId) == 1;
+        } else {
+            result = ((UserMapper) baseMapper).updateRole(userId, roleId) == 1;
+        }
+        return result;
     }
 
     @Transactional
     @Override
-    public boolean addUser(User user,Integer roleId) {
+    public boolean addUser(User user, Integer roleId) {
         user.setPassword("123456");
         user.setStatus(true);
         boolean result = baseMapper.add(user) == 1;
-        roleMapper.bind(user.getId(),roleId);
+        ((UserMapper) baseMapper).bind(user.getId(), roleId);
         return result;
     }
 

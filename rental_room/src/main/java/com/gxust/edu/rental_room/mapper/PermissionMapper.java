@@ -12,8 +12,16 @@ public interface PermissionMapper extends BaseMapper<Permission, PermissionQuery
 
     List<Permission> findAllPermission(@Param("userId") Integer userId, @Param("roleId") Integer roleId);
 
-    int bind(@Param("roleId") int roleId,@Param("permissionId") int permissionId);
+    /**
+     * 根据用户id或角色id查询子类菜单
+     * @param
+     * @return
+     */
+    List<Permission> selectFirstMenuByUserIdOrRoleId(@Param("roleId") Integer roleId,@Param("userId") Integer userId);
 
-    int unBind(@Param("roleId") int roleId,@Param("permissionId") int permissionId);
-
+    /**
+     * 根据用户id或角色id查询除了一级菜单以外的菜单
+     * @return
+     */
+    List<Permission> selectLeafByUserIdOrRoleId(@Param("roleId") Integer roleId,@Param("userId") Integer userId);
 }

@@ -12,5 +12,6 @@ public interface UserService extends BaseService<User, UserQuery> {
 
     boolean updateStatus(Boolean status, Integer id);
 
-    boolean setRole(Integer userId,Integer roleId);
+    boolean setRole(Integer userId,Integer roleId,boolean isNew);
+
 }

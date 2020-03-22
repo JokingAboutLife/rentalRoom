@@ -5,7 +5,6 @@ import com.gxust.edu.rental_room.query.RoleQuery;
 
 public interface RoleService extends BaseService<Role, RoleQuery> {
 
-    int bind(int roleId,int permissionId);
+    void setPermissions(int roleId,String permissionIdsStr);
 
-    int unBind(int roleId,int permissionId);
 }

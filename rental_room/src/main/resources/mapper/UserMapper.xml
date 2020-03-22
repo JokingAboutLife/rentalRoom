@@ -130,8 +130,19 @@
     </select>
 
     <!--更新用户角色-->
-    <update id="setRole">
+    <update id="updateRole">
         update t_user_role set role_id = #{roleId} where user_id = #{userId}
     </update>
+
+    <insert id="bind">
+        insert into t_user_role (user_id, role_id)
+        values (#{userId},#{roleId})
+    </insert>
+
+    <delete id="unBind">
+        delete from t_user_role
+        where user_id = #{userId}
+        and role_id = #{roleId}
+    </delete>
 
 </mapper>

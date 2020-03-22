@@ -64,6 +64,18 @@
     </update>
 
     <insert id="bind">
+        insert into t_role_permission(role_id, perm_id) values (#{roleId},#{permissionId})
+    </insert>
+
+    <delete id="unBind">
+        delete from t_role_permission where role_id = #{roleId} and perm_id = #{permissionId}
+    </delete>
+
+    <delete id="delPermissionsByRoleId">
+        delete from t_role_permission where role_id = #{roleId}
+    </delete>
+
+    <!--<insert id="bind">
         insert into t_user_role (user_id, role_id)
         values (#{userId},#{roleId})
     </insert>
@@ -72,7 +84,7 @@
         delete from t_user_role
         where user_id = #{userId}
         and role_id = #{roleId}
-    </delete>
+    </delete>-->
 
     <select id="findRoleByUserId" resultType="role">
         select r.* from t_role r,t_user_role ur,t_user u

@@ -6,6 +6,7 @@ import com.gxust.edu.rental_room.query.RoleQuery;
 import com.gxust.edu.rental_room.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,17 +18,27 @@ public class RoleServiceImpl extends BaseServiceImpl<Role, RoleQuery> implements
         this.baseMapper = roleMapper;
     }
 
-    @Override
-    public int bind(int roleId, int permissionId) {
-        return ((RoleMapper)baseMapper).bind(roleId,permissionId);
-    }
-
-    @Override
-    public int unBind(int roleId, int permissionId) {
-        return ((RoleMapper)baseMapper).unBind(roleId,permissionId);
-    }
 
     public List<Role> findRoleByUserId(Integer userId) {
         return ((RoleMapper)baseMapper).findRoleByUserId(userId);
+    }
+
+
+    @Transactional
+    @Override
+    public void setPermissions(int roleId, String permissionIdsStr) {
+        if("".equals(permissionIdsStr.trim())){
+            ((RoleMapper)baseMapper).delPermissionsByRoleId(roleId);
+            return;
+        }
+        String[] permissionIds = permissionIdsStr.split(",");
+        int[] ids = new int[permissionIds.length];
+        for (int i = 0; i < ids.length; i++) {
+            ids[i] = Integer.parseInt(permissionIds[i]);
+        }
+        ((RoleMapper)baseMapper).delPermissionsByRoleId(roleId);
+        for (int i = 0; i < ids.length; i++) {
+            ((RoleMapper) baseMapper).bind(roleId, ids[i]);
+        }
     }
 }

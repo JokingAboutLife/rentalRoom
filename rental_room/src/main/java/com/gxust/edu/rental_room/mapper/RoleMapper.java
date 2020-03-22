@@ -10,9 +10,11 @@ import java.util.List;
 @Mapper
 public interface RoleMapper extends BaseMapper<Role, RoleQuery> {
 
-    int bind(@Param("userId") int userId, @Param("roleId") int roleId);
+    int bind(@Param("roleId") int roleId, @Param("permissionId") int permissionId);
 
-    int unBind(@Param("userId") int userId, @Param("roleId") int roleId);
+    int unBind(@Param("roleId") int roleId, @Param("permissionId") int permissionId);
+
+    void delPermissionsByRoleId(int roleId);
 
     List<Role> findRoleByUserId(Integer userId);
 }

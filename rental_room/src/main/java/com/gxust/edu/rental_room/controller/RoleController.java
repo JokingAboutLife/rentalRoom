@@ -103,18 +103,33 @@ public class RoleController {
         return jsonModel;
     }
 
-    @RequestMapping(value = "/findRoleByUserId",method = RequestMethod.GET)
+    @RequestMapping(value = "/findRoleByUserId", method = RequestMethod.GET)
     @ResponseBody
-    public JsonModel findRoleByUserId(Integer userId){
+    public JsonModel findRoleByUserId(Integer userId) {
         JsonModel jsonModel = new JsonModel();
         List<Role> roleList = roleService.findRoleByUserId(userId);
-        if (roleList != null && roleList.size() == 1) {
+        if (roleList != null && roleList.size() >= 0) {
             jsonModel.setMsg("查找角色成功");
             jsonModel.setSuccess(true);
             jsonModel.setData(roleList);
         } else {
             jsonModel.setMsg("查找角色失败");
             jsonModel.setSuccess(false);
+        }
+        return jsonModel;
+    }
+
+    @RequestMapping(value = "/setPermissions",method = RequestMethod.POST)
+    @ResponseBody
+    public JsonModel setPermission(Integer roleId, String permissionIdsStr) {
+        JsonModel jsonModel = new JsonModel();
+        try {
+            roleService.setPermissions(roleId, permissionIdsStr);
+            jsonModel.setSuccess(true);
+            jsonModel.setMsg("分配权限成功！");
+        } catch (Exception e) {
+            jsonModel.setSuccess(false);
+            jsonModel.setMsg("分配角色失败！");
         }
         return jsonModel;
     }

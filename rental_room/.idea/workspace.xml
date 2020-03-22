@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d66c69a4-6ca4-4568-8619-3fc972060d9c" name="Default Changelist" comment="">
+    <list default="true" id="d66c69a4-6ca4-4568-8619-3fc972060d9c" name="Default Changelist" comment="删除房屋实体部分字段">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/utils/TreeUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/0b4f7f7d-0ba2-4f63-81e7-6b07c60572d8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0b4f7f7d-0ba2-4f63-81e7-6b07c60572d8.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/controller/PermissionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/controller/PermissionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/controller/RoleController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/query/BaseQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/query/BaseQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/mapper/PermissionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/mapper/PermissionMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/mapper/RoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/mapper/RoleMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/PermissionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/PermissionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/RoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/impl/PermissionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/impl/PermissionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/impl/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/impl/RoleServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/PermissionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/PermissionMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/RoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/RoleMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/impl/UserServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,13 +59,6 @@
         <item name="MySQL - test@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="rentalroom: schema" type="76f4a085:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="MySQL - test@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="rentalroom: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="t_user: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -121,7 +123,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -156,6 +158,16 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="root:MySQL - test@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:MySQL - test@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@409a1018" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:MySQL - test@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@58ca1de1" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
             </expand>
             <select />
@@ -216,7 +228,24 @@
       <workItem from="1579742864671" duration="4190000" />
       <workItem from="1583829688947" duration="694000" />
       <workItem from="1583891353141" duration="6859000" />
-      <workItem from="1583976891298" duration="10072000" />
+      <workItem from="1583976891298" duration="10419000" />
+      <workItem from="1584062703746" duration="6478000" />
+      <workItem from="1584250561806" duration="7287000" />
+      <workItem from="1584280946153" duration="294000" />
+      <workItem from="1584281279242" duration="320000" />
+      <workItem from="1584281639119" duration="684000" />
+      <workItem from="1584321608479" duration="388000" />
+      <workItem from="1584350478031" duration="359000" />
+      <workItem from="1584350911673" duration="321000" />
+      <workItem from="1584583389594" duration="6991000" />
+      <workItem from="1584598118965" duration="5198000" />
+      <workItem from="1584627132346" duration="940000" />
+      <workItem from="1584666350797" duration="2723000" />
+      <workItem from="1584697672085" duration="1080000" />
+      <workItem from="1584711519961" duration="8900000" />
+      <workItem from="1584777994060" duration="14882000" />
+      <workItem from="1584807904580" duration="673000" />
+      <workItem from="1584868864615" duration="13350000" />
     </task>
     <task id="LOCAL-00001" summary="用户管理">
       <created>1578495101418</created>
@@ -316,7 +345,70 @@
       <option name="project" value="LOCAL" />
       <updated>1579514153742</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="用户模块状态修改">
+      <created>1584006095219</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1584006095219</updated>
+    </task>
+    <task id="LOCAL-00016" summary="新增用户状态修改方法">
+      <created>1584071035424</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1584071035424</updated>
+    </task>
+    <task id="LOCAL-00017" summary="修改登录模块返回账号是否冻结">
+      <created>1584266330425</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1584266330425</updated>
+    </task>
+    <task id="LOCAL-00018" summary="删除房屋实体部分字段">
+      <created>1584350793655</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1584350793655</updated>
+    </task>
+    <task id="LOCAL-00019" summary="用户实体类添加电话属性">
+      <created>1584351054774</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1584351054775</updated>
+    </task>
+    <task id="LOCAL-00020" summary="查询菜单权限SQL优化">
+      <created>1584590246901</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1584590246901</updated>
+    </task>
+    <task id="LOCAL-00021" summary="查询菜单权限SQL优化">
+      <created>1584590488245</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1584590488245</updated>
+    </task>
+    <task id="LOCAL-00022" summary="查询菜单和权限SQL优化">
+      <created>1584604867611</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1584604867611</updated>
+    </task>
+    <task id="LOCAL-00023" summary="优化">
+      <created>1584723320696</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1584723320696</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -351,22 +443,38 @@
     <MESSAGE value="权限模块部分修改" />
     <MESSAGE value="部分修改" />
     <MESSAGE value="菜单排序" />
-    <option name="LAST_COMMIT_MESSAGE" value="菜单排序" />
+    <MESSAGE value="用户模块状态修改" />
+    <MESSAGE value="新增用户状态修改方法" />
+    <MESSAGE value="修改登录模块返回账号是否冻结" />
+    <MESSAGE value="删除房屋实体部分字段" />
+    <MESSAGE value="用户实体类添加电话属性" />
+    <MESSAGE value="查询菜单权限SQL优化" />
+    <MESSAGE value="查询菜单和权限SQL优化" />
+    <MESSAGE value="优化" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="27" key="#Inspections" timestamp="1578495479480">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="275" y="27" key="#Inspections/0.0.1366.738@0.0.1366.738" timestamp="1578495479480" />
+    <state x="280" y="30" key="#TODO" timestamp="1584590199078">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="280" y="30" key="#TODO/0.0.1366.738@0.0.1366.738" timestamp="1584590199078" />
     <state x="361" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578904291576">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1578904291576" />
-    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser" timestamp="1583996359121">
+    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser" timestamp="1584874796628">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1583996359121" />
+    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1584874796628" />
     <state x="549" y="87" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1579508388797" />
+    <state x="289" y="192" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1584590646862">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="289" y="192" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1366.738@0.0.1366.738" timestamp="1584590646862" />
     <state x="521" y="84" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1578132535478">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -380,98 +488,106 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="402" y="214" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.738@0.0.1366.738" timestamp="1578484896682" />
-    <state x="309" y="0" key="CommitChangelistDialog2" timestamp="1579514151912">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="275" y="0" key="CommitChangelistDialog2" timestamp="1584723317023">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1578713185956" />
+    <state x="275" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1584723317023" />
     <state x="309" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1579514151912" />
-    <state width="444" height="466" key="DebuggerActiveHint" timestamp="1583998509663">
+    <state width="484" height="466" key="DebuggerActiveHint" timestamp="1584787924363">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="444" height="466" key="DebuggerActiveHint/0.0.1366.738@0.0.1366.738" timestamp="1583998509663" />
+    <state width="484" height="466" key="DebuggerActiveHint/0.0.1366.738@0.0.1366.738" timestamp="1584787924363" />
     <state width="500" height="521" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1579746302362" />
-    <state x="521" y="142" key="FileChooserDialogImpl" timestamp="1578909613634">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="92" y="92" width="1182" height="554" key="DiffContextDialog" timestamp="1584723424299">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="463" y="127" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1578484475285" />
+    <state x="92" y="92" width="1182" height="554" key="DiffContextDialog/0.0.1366.738@0.0.1366.738" timestamp="1584723424299" />
+    <state x="463" y="127" key="FileChooserDialogImpl" timestamp="1584590659110">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="463" y="127" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1584590659110" />
     <state x="521" y="142" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1578909613634" />
-    <state width="1323" height="194" key="GridCell.Tab.0.bottom" timestamp="1583998254821">
+    <state width="1323" height="173" key="GridCell.Tab.0.bottom" timestamp="1584882678285">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="194" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1583998254821" />
+    <state width="1323" height="173" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1584882678285" />
     <state width="1493" height="232" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579746753082" />
-    <state width="1323" height="194" key="GridCell.Tab.0.center" timestamp="1583998254821">
+    <state width="1323" height="173" key="GridCell.Tab.0.center" timestamp="1584882678285">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="194" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1583998254821" />
+    <state width="1323" height="173" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1584882678285" />
     <state width="1493" height="232" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1579746753082" />
-    <state width="1323" height="194" key="GridCell.Tab.0.left" timestamp="1583998254821">
+    <state width="1323" height="173" key="GridCell.Tab.0.left" timestamp="1584882678285">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="194" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1583998254821" />
+    <state width="1323" height="173" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1584882678285" />
     <state width="1493" height="232" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1579746753081" />
-    <state width="1323" height="194" key="GridCell.Tab.0.right" timestamp="1583998254821">
+    <state width="1323" height="173" key="GridCell.Tab.0.right" timestamp="1584882678285">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="194" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1583998254821" />
+    <state width="1323" height="173" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1584882678285" />
     <state width="1493" height="232" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1579746753082" />
-    <state width="1323" height="194" key="GridCell.Tab.1.bottom" timestamp="1583996597702">
+    <state width="1323" height="173" key="GridCell.Tab.1.bottom" timestamp="1584882678069">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="194" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1583996597702" />
+    <state width="1323" height="173" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1584882678069" />
     <state width="1493" height="232" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579745471698" />
-    <state width="1323" height="194" key="GridCell.Tab.1.center" timestamp="1583996597701">
+    <state width="1323" height="173" key="GridCell.Tab.1.center" timestamp="1584882678069">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="194" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1583996597701" />
+    <state width="1323" height="173" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1584882678069" />
     <state width="1493" height="232" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1579745471698" />
-    <state width="1323" height="194" key="GridCell.Tab.1.left" timestamp="1583996597701">
+    <state width="1323" height="173" key="GridCell.Tab.1.left" timestamp="1584882678068">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="194" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1583996597701" />
+    <state width="1323" height="173" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1584882678068" />
     <state width="1493" height="232" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1579745471698" />
-    <state width="1323" height="194" key="GridCell.Tab.1.right" timestamp="1583996597702">
+    <state width="1323" height="173" key="GridCell.Tab.1.right" timestamp="1584882678069">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="194" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1583996597702" />
+    <state width="1323" height="173" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1584882678069" />
     <state width="1493" height="232" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1579745471698" />
-    <state width="1323" height="194" key="GridCell.Tab.2.bottom" timestamp="1583996583303">
+    <state width="1323" height="173" key="GridCell.Tab.2.bottom" timestamp="1584882678070">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="194" key="GridCell.Tab.2.bottom/0.0.1366.738@0.0.1366.738" timestamp="1583996583303" />
+    <state width="1323" height="173" key="GridCell.Tab.2.bottom/0.0.1366.738@0.0.1366.738" timestamp="1584882678070" />
     <state width="1493" height="232" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579685338039" />
-    <state width="1323" height="194" key="GridCell.Tab.2.center" timestamp="1583996583303">
+    <state width="1323" height="173" key="GridCell.Tab.2.center" timestamp="1584882678069">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="194" key="GridCell.Tab.2.center/0.0.1366.738@0.0.1366.738" timestamp="1583996583303" />
+    <state width="1323" height="173" key="GridCell.Tab.2.center/0.0.1366.738@0.0.1366.738" timestamp="1584882678069" />
     <state width="1493" height="232" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1579685338038" />
-    <state width="1323" height="194" key="GridCell.Tab.2.left" timestamp="1583996583303">
+    <state width="1323" height="173" key="GridCell.Tab.2.left" timestamp="1584882678069">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="194" key="GridCell.Tab.2.left/0.0.1366.738@0.0.1366.738" timestamp="1583996583303" />
+    <state width="1323" height="173" key="GridCell.Tab.2.left/0.0.1366.738@0.0.1366.738" timestamp="1584882678069" />
     <state width="1493" height="232" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1579685338038" />
-    <state width="1323" height="194" key="GridCell.Tab.2.right" timestamp="1583996583303">
+    <state width="1323" height="173" key="GridCell.Tab.2.right" timestamp="1584882678069">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="194" key="GridCell.Tab.2.right/0.0.1366.738@0.0.1366.738" timestamp="1583996583303" />
+    <state width="1323" height="173" key="GridCell.Tab.2.right/0.0.1366.738@0.0.1366.738" timestamp="1584882678069" />
     <state width="1493" height="232" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1579685338039" />
     <state width="212" height="477" key="HiddenNamespacesPopup" timestamp="1578897995375">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="212" height="477" key="HiddenNamespacesPopup/0.0.1536.824@0.0.1536.824" timestamp="1578897995375" />
-    <state x="254" y="31" key="Registry" timestamp="1578495338125">
+    <state x="213" y="27" key="Maven.ArtifactSearchDialog" timestamp="1584712853571">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="254" y="31" key="Registry/0.0.1366.738@0.0.1366.738" timestamp="1578495338125" />
-    <state x="110" y="22" key="SettingsEditor" timestamp="1579242596541">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="213" y="27" key="Maven.ArtifactSearchDialog/0.0.1366.738@0.0.1366.738" timestamp="1584712853571" />
+    <state x="254" y="31" key="Registry" timestamp="1584793663772">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="98" y="20" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1578713051084" />
+    <state x="254" y="31" key="Registry/0.0.1366.738@0.0.1366.738" timestamp="1584793663772" />
+    <state x="98" y="20" key="SettingsEditor" timestamp="1584792804977">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="98" y="20" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1584792804977" />
     <state x="110" y="22" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1579242596541" />
-    <state x="309" y="114" key="Vcs.Push.Dialog.v2" timestamp="1579514160742">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="275" y="102" key="Vcs.Push.Dialog.v2" timestamp="1584723416817">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1578671292186" />
+    <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1584723416817" />
     <state x="309" y="114" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1579514160742" />
     <state x="646" y="292" width="340" height="240" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1579253118926">
       <screen x="0" y="0" width="1536" height="824" />
@@ -482,19 +598,19 @@
     </state>
     <state x="685" y="17" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1366.738@0.0.1366.738" timestamp="1584004507880" />
     <state x="770" y="76" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1578898070187" />
-    <state x="368" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1583977006610">
+    <state x="368" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1584062705606">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="368" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1583977006610" />
+    <state x="368" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1584062705606" />
     <state x="414" y="215" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1579742899504" />
     <state x="328" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1578666388620">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="328" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.738@0.0.1366.738" timestamp="1578666388620" />
-    <state x="477" y="287" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583993746948">
+    <state x="477" y="287" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584723424287">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="477" y="287" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1583993746948" />
+    <state x="477" y="287" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1584723424287" />
     <state x="536" y="320" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1579054406411" />
     <state x="0" y="0" width="647" height="801" key="find.popup" timestamp="1578670645254">
       <screen x="0" y="0" width="1366" height="738" />

@@ -47,9 +47,9 @@ public class UserController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public JsonModel addUser(User user,Integer roleId) {
+    public JsonModel addUser(User user, Integer roleId) {
         JsonModel jsonModel = new JsonModel();
-        boolean result = userService.addUser(user,roleId);
+        boolean result = userService.addUser(user, roleId);
         if (result) {
             jsonModel.setMsg("添加成功");
             jsonModel.setSuccess(true);
@@ -160,11 +160,11 @@ public class UserController {
         return result;
     }
 
-    @RequestMapping(value = "/setRole",method = RequestMethod.POST)
+    @RequestMapping(value = "/setRole", method = RequestMethod.POST)
     @ResponseBody
-    public JsonModel setRole(Integer userId,Integer roleId){
+    public JsonModel setRole(Integer userId, Integer roleId, boolean isNew) {
         JsonModel jsonModel = new JsonModel();
-        boolean result = userService.setRole(userId, roleId);
+        boolean result = userService.setRole(userId, roleId, isNew);
         if (result) {
             jsonModel.setMsg("设置角色成功");
             jsonModel.setSuccess(true);

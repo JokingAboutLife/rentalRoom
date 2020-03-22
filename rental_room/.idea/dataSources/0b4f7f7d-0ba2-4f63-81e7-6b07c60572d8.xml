@@ -977,8 +977,8 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="251" parent="22" name="order"/>
-    <table id="252" parent="22" name="t_house"/>
+    <table id="251" parent="22" name="t_house"/>
+    <table id="252" parent="22" name="t_order"/>
     <table id="253" parent="22" name="t_permission">
       <Collation>utf8_general_ci</Collation>
     </table>
@@ -999,356 +999,346 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="259" parent="251" name="userId">
-      <Position>2</Position>
-      <DataType>int(11)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="260" parent="251" name="houseId">
-      <Position>3</Position>
-      <DataType>int(11)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="261" parent="251" name="time">
-      <Position>4</Position>
-      <DataType>datetime|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="262" parent="251" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="263" parent="252" name="id">
-      <Position>1</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="264" parent="252" name="title">
+    <column id="259" parent="251" name="title">
       <Position>2</Position>
       <Comment>标题</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="265" parent="252" name="title_img">
+    <column id="260" parent="251" name="title_img">
       <Position>3</Position>
       <Comment>房屋标题图片路径</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="266" parent="252" name="name">
+    <column id="261" parent="251" name="name">
       <Position>4</Position>
       <Comment>房屋名称</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="267" parent="252" name="type">
+    <column id="262" parent="251" name="type">
       <Position>5</Position>
       <Comment>房屋类型</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="268" parent="252" name="address">
+    <column id="263" parent="251" name="address">
       <Position>6</Position>
       <Comment>详细地址</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="269" parent="252" name="rent_way">
+    <column id="264" parent="251" name="city">
       <Position>7</Position>
-      <Comment>出租方式</Comment>
-      <DataType>varchar(255)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="270" parent="252" name="city">
-      <Position>8</Position>
       <Comment>城市</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="271" parent="252" name="sex_limit">
-      <Position>9</Position>
+    <column id="265" parent="251" name="sex_limit">
+      <Position>8</Position>
       <Comment>性别限制</Comment>
       <DataType>varchar(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="272" parent="252" name="area">
-      <Position>10</Position>
+    <column id="266" parent="251" name="area">
+      <Position>9</Position>
       <Comment>房屋面积</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="273" parent="252" name="storey">
-      <Position>11</Position>
-      <Comment>所在楼层</Comment>
-      <DataType>varchar(255)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="274" parent="252" name="storey_sum">
-      <Position>12</Position>
-      <Comment>楼层总数</Comment>
-      <DataType>varchar(255)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="275" parent="252" name="building_id">
-      <Position>13</Position>
-      <Comment>楼栋号</Comment>
-      <DataType>varchar(10)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="276" parent="252" name="cell_id">
-      <Position>14</Position>
-      <Comment>单元号</Comment>
-      <DataType>varchar(10)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="277" parent="252" name="room_id">
-      <Position>15</Position>
-      <Comment>房间号</Comment>
-      <DataType>varchar(10)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="278" parent="252" name="price">
-      <Position>16</Position>
+    <column id="267" parent="251" name="price">
+      <Position>10</Position>
       <Comment>租金</Comment>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="279" parent="252" name="text">
-      <Position>17</Position>
+    <column id="268" parent="251" name="text">
+      <Position>11</Position>
       <Comment>描述</Comment>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="280" parent="252" name="text_img">
-      <Position>18</Position>
+    <column id="269" parent="251" name="text_img">
+      <Position>12</Position>
       <Comment>房屋描述图片路径</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="281" parent="252" name="contacts">
-      <Position>19</Position>
+    <column id="270" parent="251" name="contacts">
+      <Position>13</Position>
       <Comment>联系人</Comment>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="282" parent="252" name="phone">
-      <Position>20</Position>
+    <column id="271" parent="251" name="phone">
+      <Position>14</Position>
       <Comment>联系电话</Comment>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="283" parent="252" name="userId">
-      <Position>21</Position>
+    <column id="272" parent="251" name="userId">
+      <Position>15</Position>
       <Comment>房主ID</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="284" parent="252" name="status">
-      <Position>22</Position>
-      <Comment>审核状态</Comment>
+    <column id="273" parent="251" name="rental_status">
+      <Position>16</Position>
+      <Comment>租赁状态（0:待租 1:已租）</Comment>
+      <DataType>tinyint(4)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="274" parent="251" name="status">
+      <Position>17</Position>
+      <Comment>审核状态（0:未通过 1:已通过）</Comment>
       <DataType>tinyint(4)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="285" parent="252" name="PRIMARY">
+    <key id="275" parent="251" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 userId</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="286" parent="253" name="id">
+    <column id="276" parent="252" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="287" parent="253" name="name">
+    <column id="277" parent="252" name="userId">
       <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="278" parent="252" name="houseId">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="279" parent="252" name="time">
+      <Position>4</Position>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="280" parent="252" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="281" parent="253" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="282" parent="253" name="name">
+      <Position>2</Position>
+      <Comment>权限名称</Comment>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="288" parent="253" name="parent_id">
+    <column id="283" parent="253" name="parent_id">
       <Position>3</Position>
+      <Comment>父级ID</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="289" parent="253" name="types">
+    <column id="284" parent="253" name="types">
       <Position>4</Position>
+      <Comment>类型</Comment>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="290" parent="253" name="url">
+    <column id="285" parent="253" name="url">
       <Position>5</Position>
+      <Comment>url地址</Comment>
       <DataType>varchar(150)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="291" parent="253" name="levels">
+    <column id="286" parent="253" name="levels">
       <Position>6</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="292" parent="253" name="state">
+    <column id="287" parent="253" name="state">
       <Position>7</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="293" parent="253" name="sorts">
+    <column id="288" parent="253" name="sorts">
       <Position>8</Position>
+      <Comment>排序</Comment>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="294" parent="253" name="description">
+    <column id="289" parent="253" name="description">
       <Position>9</Position>
+      <Comment>描述</Comment>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="295" parent="253" name="component_name">
+    <column id="290" parent="253" name="component_name">
       <Position>10</Position>
+      <Comment>组件名称</Comment>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="296" parent="253" name="component_path">
+    <column id="291" parent="253" name="component_path">
       <Position>11</Position>
+      <Comment>组件路径</Comment>
       <DataType>varchar(150)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="297" parent="253" name="icon">
+    <column id="292" parent="253" name="icon">
       <Position>12</Position>
       <Comment>图标</Comment>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="298" parent="253" name="PRIMARY">
+    <key id="293" parent="253" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="299" parent="254" name="id">
+    <column id="294" parent="254" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="300" parent="254" name="name">
+    <column id="295" parent="254" name="name">
       <Position>2</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="301" parent="254" name="description">
+    <column id="296" parent="254" name="description">
       <Position>3</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="302" parent="254" name="PRIMARY">
+    <key id="297" parent="254" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="303" parent="255" name="id">
+    <column id="298" parent="255" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="304" parent="255" name="role_id">
+    <column id="299" parent="255" name="role_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="305" parent="255" name="perm_id">
+    <column id="300" parent="255" name="perm_id">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="306" parent="255" name="PRIMARY">
+    <key id="301" parent="255" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="307" parent="256" name="id">
+    <column id="302" parent="256" name="id">
       <Position>1</Position>
       <DataType>int(11) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="308" parent="256" name="loginName">
+    <column id="303" parent="256" name="loginName">
       <Position>2</Position>
+      <Comment>账号</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="309" parent="256" name="username">
+    <column id="304" parent="256" name="username">
       <Position>3</Position>
+      <Comment>用户名</Comment>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="310" parent="256" name="password">
+    <column id="305" parent="256" name="password">
       <Position>4</Position>
+      <Comment>密码</Comment>
       <DataType>varchar(32)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="311" parent="256" name="realName">
+    <column id="306" parent="256" name="realName">
       <Position>5</Position>
+      <Comment>真实姓名</Comment>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="312" parent="256" name="city">
+    <column id="307" parent="256" name="phone">
       <Position>6</Position>
-      <DataType>varchar(20)|0s</DataType>
+      <Comment>手机号码</Comment>
+      <DataType>varchar(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="313" parent="256" name="email">
+    <column id="308" parent="256" name="email">
       <Position>7</Position>
+      <Comment>邮箱</Comment>
       <DataType>varchar(30)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="314" parent="256" name="status">
+    <column id="309" parent="256" name="status">
       <Position>8</Position>
-      <Comment>0:未激活 1:已激活</Comment>
+      <Comment>0:已冻结 1:已激活</Comment>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="315" parent="256" name="PRIMARY">
+    <column id="310" parent="256" name="idcard">
+      <Position>9</Position>
+      <Comment>身份证</Comment>
+      <DataType>varchar(18)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="311" parent="256" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="316" parent="257" name="id">
+    <column id="312" parent="257" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="317" parent="257" name="user_id">
+    <column id="313" parent="257" name="user_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="318" parent="257" name="role_id">
+    <column id="314" parent="257" name="role_id">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="319" parent="257" name="PRIMARY">
+    <key id="315" parent="257" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

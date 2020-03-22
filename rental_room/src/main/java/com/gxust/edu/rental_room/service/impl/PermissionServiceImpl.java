@@ -31,12 +31,12 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission, Permissio
     }
 
     @Override
-    public int bind(int roleId, int permissionId) {
-        return ((PermissionMapper)baseMapper).bind(roleId,permissionId);
+    public List<Permission> selectFirstMenuByUserIdOrRoleId(Integer roleId, Integer userId) {
+        return ((PermissionMapper)baseMapper).selectFirstMenuByUserIdOrRoleId(roleId,userId);
     }
 
     @Override
-    public int unBind(int roleId, int permissionId) {
-        return ((PermissionMapper)baseMapper).unBind(roleId,permissionId);
+    public List<Permission> selectLeafByUserIdOrRoleId(Integer roleId, Integer userId) {
+        return ((PermissionMapper)baseMapper).selectLeafByUserIdOrRoleId(roleId,userId);
     }
 }

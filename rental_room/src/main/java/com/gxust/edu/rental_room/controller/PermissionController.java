@@ -5,6 +5,7 @@ import com.gxust.edu.rental_room.domain.Permission;
 import com.gxust.edu.rental_room.query.PermissionQuery;
 import com.gxust.edu.rental_room.service.impl.PermissionServiceImpl;
 import com.gxust.edu.rental_room.utils.JsonModel;
+import com.gxust.edu.rental_room.utils.TreeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -107,7 +108,10 @@ public class PermissionController {
     @ResponseBody
     public JsonModel findLevelMenu(Integer userId) {
         JsonModel jsonModel = new JsonModel();
-        List<Permission> levelMenu = permissionService.findAllPermission(userId,null);
+//        List<Permission> levelMenu = permissionService.findAllPermission(userId,null);
+        List<Permission> FirstMenus = permissionService.selectFirstMenuByUserIdOrRoleId(null, userId);
+        List<Permission> permissionList = permissionService.selectLeafByUserIdOrRoleId(null, userId);
+        List<Permission> levelMenu = TreeUtil.getMenuTree(FirstMenus, permissionList);
         if (levelMenu != null && levelMenu.size() >= 0) {
             jsonModel.setSuccess(true);
             jsonModel.setMsg("菜单查询成功");
@@ -121,9 +125,23 @@ public class PermissionController {
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     @ResponseBody
-    public JsonModel findAllPermission() {
+    public JsonModel findAllPermission(String type) {
         JsonModel jsonModel = new JsonModel();
-        List<Permission> allPermission = permissionService.findAllPermission(null,null);
+        if ("list".equals(type)) {
+            PermissionQuery qo = new PermissionQuery();
+            qo.setPaging(false);
+            List<Permission> list = permissionService.findByQuery(qo).getList();
+            if (list != null && list.size() >= 0) {
+                jsonModel.setSuccess(true);
+                jsonModel.setMsg("权限查找成功！");
+                jsonModel.setData(list);
+            } else {
+                jsonModel.setSuccess(false);
+                jsonModel.setMsg("权限查询失败！");
+            }
+            return jsonModel;
+        }
+        List<Permission> allPermission = permissionService.findAllPermission(null, null);
         if (allPermission != null && allPermission.size() >= 0) {
             jsonModel.setSuccess(true);
             jsonModel.setMsg("权限查找成功！");
@@ -135,16 +153,19 @@ public class PermissionController {
         return jsonModel;
     }
 
-    @RequestMapping(value = "/findByRole",method = RequestMethod.GET)
+    @RequestMapping(value = "/findByRole", method = RequestMethod.GET)
     @ResponseBody
-    public JsonModel findPermissionByRoleId(Integer roleId){
+    public JsonModel findPermissionByRoleId(Integer roleId) {
         JsonModel jsonModel = new JsonModel();
-        List<Permission> roleOfPermission = permissionService.findAllPermission(null, roleId);
-        if(roleOfPermission != null && roleOfPermission.size() >= 0){
+//        List<Permission> roleOfPermission = permissionService.findAllPermission(null,roleId);
+        List<Permission> FirstMenus = permissionService.selectFirstMenuByUserIdOrRoleId(roleId, null);
+        List<Permission> permissionList = permissionService.selectLeafByUserIdOrRoleId(roleId, null);
+        List<Permission> roleOfPermission = TreeUtil.getMenuTree(FirstMenus, permissionList);
+        if (roleOfPermission != null && roleOfPermission.size() >= 0) {
             jsonModel.setSuccess(true);
             jsonModel.setMsg("根据角色查找权限成功！");
             jsonModel.setData(roleOfPermission);
-        }else {
+        } else {
             jsonModel.setSuccess(false);
             jsonModel.setMsg("根据角色查找权限失败！");
         }
