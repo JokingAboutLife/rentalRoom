@@ -1,94 +1,27 @@
 package com.gxust.edu.rental_room.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class House extends BaseDomain implements Serializable {
-    /**
-     * 标题
-     */
     private String title;
-
-    /**
-     * 房屋标题图片路径
-     */
     private String titleImg;
-
-    /**
-     * 房屋名称
-     */
     private String name;
-
-    /**
-     * 房屋类型
-     */
     private String type;
-
-    /**
-     * 详细地址
-     */
     private String address;
-
-    /**
-     * 出租方式
-     */
     private String rentWay;
-
-    /**
-     * 城市
-     */
     private String city;
-
-    /**
-     * 性别限制
-     */
     private String sexLimit;
-
-    /**
-     * 房屋面积
-     */
     private String area;
-
-    /**
-     * 租金
-     */
     private Integer price;
-
-    /**
-     * 房屋描述图片路径
-     */
-    private String textImg;
-
-    /**
-     * 联系人
-     */
+    private String descImg;
     private String contacts;
-
-    /**
-     * 联系电话
-     */
     private String phone;
-
-    /**
-     * 房主ID
-     */
     private Integer userId;
-
-    /**
-     * 审核状态
-     */
     private Byte rentalStatus;
-
-    /**
-     * 审核状态
-     */
     private Byte status;
-
-    /**
-     * 描述
-     */
-    private String text;
-
-    private static final long serialVersionUID = 1L;
+    private String desc;
+    private Date releaseTime;
 
     public String getTitle() {
         return title;
@@ -170,12 +103,12 @@ public class House extends BaseDomain implements Serializable {
         this.price = price;
     }
 
-    public String getTextImg() {
-        return textImg;
+    public String getDescImg() {
+        return descImg;
     }
 
-    public void setTextImg(String textImg) {
-        this.textImg = textImg;
+    public void setDescImg(String descImg) {
+        this.descImg = descImg;
     }
 
     public String getContacts() {
@@ -218,11 +151,19 @@ public class House extends BaseDomain implements Serializable {
         this.status = status;
     }
 
-    public String getText() {
-        return text;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public Date getReleaseTime() {
+        return releaseTime;
+    }
+
+    public void setReleaseTime(Date releaseTime) {
+        this.releaseTime = releaseTime;
     }
 }

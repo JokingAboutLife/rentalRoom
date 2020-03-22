@@ -14,14 +14,16 @@
         <result column="sex_limit" jdbcType="VARCHAR" property="sexLimit"/>
         <result column="area" jdbcType="VARCHAR" property="area"/>
         <result column="price" jdbcType="INTEGER" property="price"/>
-        <result column="text_img" jdbcType="VARCHAR" property="textImg"/>
+        <result column="desc" jdbcType="VARCHAR" property="desc"/>
+        <result column="desc_img" jdbcType="VARCHAR" property="descImg"/>
         <result column="contacts" jdbcType="VARCHAR" property="contacts"/>
         <result column="phone" jdbcType="VARCHAR" property="phone"/>
         <result column="retal_status" jdbcType="TINYINT" property="rentalStatus"/>
         <result column="status" jdbcType="TINYINT" property="status"/>
+        <result column="release_time" jdbcType="DATE" property="releaseTime"/>
     </resultMap>
 
-    <select id="findByQuery" resultType="house" parameterType="houseQuery">
+    <select id="findByQuery" resultMap="BaseResultMap" parameterType="houseQuery">
         select * from t_house
         <where>
             <if test="title != null and title!=''">
@@ -43,7 +45,7 @@
     </select>
 
     <!--根据Id查询-->
-    <select id="findById" resultType="house" parameterType="int">
+    <select id="findById" resultMap="BaseResultMap" parameterType="int">
         SELECT * from t_house where id = #{id,jdbcType=INTEGER}
     </select>
 
