@@ -164,6 +164,7 @@ public class UserController {
     @RequestMapping(value = "/setRole", method = RequestMethod.POST)
     @ResponseBody
     public JsonModel setRole(Integer userId, Integer roleId, boolean isNew) {
+        //TODO 一个用户可以有多个角色-------待修改
         JsonModel jsonModel = new JsonModel();
         boolean result = userService.setRole(userId, roleId, isNew);
         if (result) {

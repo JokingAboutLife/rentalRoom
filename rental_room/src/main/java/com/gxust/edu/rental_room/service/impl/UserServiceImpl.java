@@ -52,9 +52,9 @@ public class UserServiceImpl extends BaseServiceImpl<User, UserQuery> implements
     public boolean addUser(User user, Integer roleId) {
         user.setPassword("123456");
         user.setStatus(true);
-        boolean result = baseMapper.add(user) == 1;
-        ((UserMapper) baseMapper).bind(user.getId(), roleId);
-        return result;
+        boolean addResult = baseMapper.add(user) == 1;
+        boolean bindResult = ((UserMapper) baseMapper).bind(user.getId(), roleId)==1;
+        return addResult && bindResult;
     }
 
 }

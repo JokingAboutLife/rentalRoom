@@ -134,11 +134,13 @@
         update t_user_role set role_id = #{roleId} where user_id = #{userId}
     </update>
 
+    <!--绑定用户和角色-->
     <insert id="bind">
         insert into t_user_role (user_id, role_id)
         values (#{userId},#{roleId})
     </insert>
 
+    <!--用户和角色解除绑定-->
     <delete id="unBind">
         delete from t_user_role
         where user_id = #{userId}

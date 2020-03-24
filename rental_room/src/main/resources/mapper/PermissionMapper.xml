@@ -52,7 +52,7 @@
             FROM
             t_role_permission
             WHERE
-            role_id = ( SELECT role_id FROM t_user_role WHERE user_id = #{userId} ))
+            role_id in ( SELECT role_id FROM t_user_role WHERE user_id = #{userId} ))
         </if>
         order by sorts;
     </select>
@@ -175,7 +175,7 @@
             and rp.role_id = #{roleId}
         </if>
         <if test="userId != null">
-            and rp.role_id = (select role_id from t_user_role where user_id = #{userId})
+            and rp.role_id in (select role_id from t_user_role where user_id = #{userId})
         </if>
         order by p.sorts;
     </select>
@@ -188,7 +188,7 @@
             and rp.role_id = #{roleId}
         </if>
         <if test="userId != null">
-            and rp.role_id = (select role_id from t_user_role where user_id = #{userId})
+            and rp.role_id in (select role_id from t_user_role where user_id = #{userId})
         </if>
         order by p.sorts;
     </select>
