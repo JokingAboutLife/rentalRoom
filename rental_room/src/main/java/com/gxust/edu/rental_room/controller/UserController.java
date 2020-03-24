@@ -1,9 +1,8 @@
 package com.gxust.edu.rental_room.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.util.StringUtil;
 import com.gxust.edu.rental_room.domain.User;
-import com.gxust.edu.rental_room.exception.ExceptionKind;
-import com.gxust.edu.rental_room.exception.KPException;
 import com.gxust.edu.rental_room.query.UserQuery;
 import com.gxust.edu.rental_room.service.impl.UserServiceImpl;
 import com.gxust.edu.rental_room.utils.JsonModel;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -129,8 +129,8 @@ public class UserController {
     @RequestMapping(value = "/findByQuery", method = RequestMethod.GET)
     @ResponseBody
     public JsonModel findByQuery(UserQuery userQuery) {
-        throw new KPException(ExceptionKind.PARAM_E,"参数错误");
-        /*JsonModel jsonModel = new JsonModel();
+//        throw new KPException(ExceptionKind.PARAM_E,"参数错误");
+        JsonModel jsonModel = new JsonModel();
         PageInfo<User> pageInfo = userService.findByQuery(userQuery);
         List<User> userList = pageInfo.getList();
         if (userList != null && userList.size() > 0) {
@@ -141,7 +141,7 @@ public class UserController {
             jsonModel.setMsg("查找失败");
             jsonModel.setSuccess(false);
         }
-        return jsonModel;*/
+        return jsonModel;
     }
 
     @RequestMapping(value = "/check/loginName", method = RequestMethod.GET)
