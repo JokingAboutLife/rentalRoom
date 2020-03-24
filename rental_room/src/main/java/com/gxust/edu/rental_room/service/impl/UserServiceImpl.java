@@ -21,8 +21,8 @@ public class UserServiceImpl extends BaseServiceImpl<User, UserQuery> implements
     RoleMapper roleMapper;
 
     @Override
-    public User login(String loginName, String password) {
-        return ((UserMapper) baseMapper).login(loginName, password);
+    public User findByLoginName(String loginName) {
+        return ((UserMapper)baseMapper).findByLoginName(loginName);
     }
 
     @Override

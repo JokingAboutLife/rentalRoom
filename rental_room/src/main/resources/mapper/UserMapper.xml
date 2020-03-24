@@ -25,10 +25,8 @@
     </sql>
 
     <!--登陆查询-->
-    <select id="login" resultType="user">
-        select
-        <include refid="Base_Column_List"/>
-        from t_user where loginName = #{loginName} and password = #{password}
+    <select id="findByLoginName" resultMap="BaseResultMap">
+        select * from t_user where loginName = #{loginName}
     </select>
 
     <!--根据查询条件查询-->

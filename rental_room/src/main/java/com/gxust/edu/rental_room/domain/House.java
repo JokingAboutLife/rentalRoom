@@ -10,6 +10,7 @@ public class House extends BaseDomain implements Serializable {
 
     private static final long serialVersionUID = 6876101360261469456L;
 
+    private Integer userId;         //房主id
     private String title;           //标题
     private String titleImg;        //标题图片
     private String name;            //名字

@@ -27,20 +27,25 @@ public class UserController {
     @ResponseBody
     public JsonModel login(String loginName, String password) {
         JsonModel jsonModel = new JsonModel();
-        User user = userService.login(loginName, password);
-        if (user != null) {
-            boolean status = user.isStatus();
-            if (status) {
-                jsonModel.setSuccess(true);
-                jsonModel.setMsg("登陆成功！");
-                jsonModel.setData(user);
-            } else {
-                jsonModel.setSuccess(false);
-                jsonModel.setMsg("该账号已冻结，请联系管理员");
-            }
-        } else {
+        User user = userService.findByLoginName(loginName);
+        if (user == null) {
             jsonModel.setSuccess(false);
             jsonModel.setMsg("用户不存在，请输入正确的账号密码！");
+            return jsonModel;
+        }
+        if (!password.equals(user.getPassword())) {
+            jsonModel.setSuccess(false);
+            jsonModel.setMsg("密码错误！请输入正确密码！");
+            return jsonModel;
+        }
+        boolean status = user.isStatus();
+        if (status) {
+            jsonModel.setSuccess(true);
+            jsonModel.setMsg("登陆成功！");
+            jsonModel.setData(user);
+        } else {
+            jsonModel.setSuccess(false);
+            jsonModel.setMsg("该账号已冻结，请联系管理员");
         }
         return jsonModel;
     }
