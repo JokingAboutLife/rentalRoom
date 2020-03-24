@@ -4,7 +4,7 @@ import com.github.pagehelper.PageInfo;
 import com.gxust.edu.rental_room.domain.Role;
 import com.gxust.edu.rental_room.query.RoleQuery;
 import com.gxust.edu.rental_room.service.impl.RoleServiceImpl;
-import com.gxust.edu.rental_room.utils.JsonModel;
+import com.gxust.edu.rental_room.response.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,8 +22,8 @@ public class RoleController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public JsonModel addRole(Role role) {
-        JsonModel jsonModel = new JsonModel();
+    public Result addRole(Role role) {
+        Result jsonModel = new Result();
         boolean result = roleService.add(role);
         if (result) {
             jsonModel.setMsg("添加成功");
@@ -37,8 +37,8 @@ public class RoleController {
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     @ResponseBody
-    public JsonModel deleteRole(String id) {
-        JsonModel jsonModel = new JsonModel();
+    public Result deleteRole(String id) {
+        Result jsonModel = new Result();
         String[] idsStr = id.split(",");
         int[] ids = new int[idsStr.length];
         for (int i = 0; i < idsStr.length; i++) {
@@ -57,8 +57,8 @@ public class RoleController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public JsonModel update(Role role) {
-        JsonModel jsonModel = new JsonModel();
+    public Result update(Role role) {
+        Result jsonModel = new Result();
         boolean result = roleService.update(role);
         if (result) {
             jsonModel.setMsg("更新成功");
@@ -72,65 +72,65 @@ public class RoleController {
 
     @RequestMapping(value = "/findById", method = RequestMethod.GET)
     @ResponseBody
-    public JsonModel findById(Integer id) {
-        JsonModel jsonModel = new JsonModel();
+    public Result findById(Integer id) {
+        Result result = new Result();
         Role role = roleService.findById(id);
         if (role != null) {
-            jsonModel.setMsg("查找ID成功");
-            jsonModel.setSuccess(true);
-            jsonModel.setData(role);
+            result.setMsg("查找ID成功");
+            result.setSuccess(true);
+            result.setData(role);
         } else {
-            jsonModel.setMsg("查找ID失败");
-            jsonModel.setSuccess(false);
+            result.setMsg("查找ID失败");
+            result.setSuccess(false);
         }
-        return jsonModel;
+        return result;
     }
 
     @RequestMapping(value = "/findByQuery", method = RequestMethod.GET)
     @ResponseBody
-    public JsonModel findByQuery(RoleQuery roleQuery) {
-        JsonModel jsonModel = new JsonModel();
+    public Result findByQuery(RoleQuery roleQuery) {
+        Result result = new Result();
         PageInfo<Role> pageInfo = roleService.findByQuery(roleQuery);
         List<Role> roleList = pageInfo.getList();
         if (roleList != null && roleList.size() >= 0) {
-            jsonModel.setMsg("查找成功");
-            jsonModel.setSuccess(true);
-            jsonModel.setData(pageInfo);
+            result.setMsg("查找成功");
+            result.setSuccess(true);
+            result.setData(pageInfo);
         } else {
-            jsonModel.setMsg("查找失败");
-            jsonModel.setSuccess(false);
+            result.setMsg("查找失败");
+            result.setSuccess(false);
         }
-        return jsonModel;
+        return result;
     }
 
     @RequestMapping(value = "/findRoleByUserId", method = RequestMethod.GET)
     @ResponseBody
-    public JsonModel findRoleByUserId(Integer userId) {
-        JsonModel jsonModel = new JsonModel();
+    public Result findRoleByUserId(Integer userId) {
+        Result result = new Result();
         List<Role> roleList = roleService.findRoleByUserId(userId);
         if (roleList != null && roleList.size() >= 0) {
-            jsonModel.setMsg("查找角色成功");
-            jsonModel.setSuccess(true);
-            jsonModel.setData(roleList);
+            result.setMsg("查找角色成功");
+            result.setSuccess(true);
+            result.setData(roleList);
         } else {
-            jsonModel.setMsg("查找角色失败");
-            jsonModel.setSuccess(false);
+            result.setMsg("查找角色失败");
+            result.setSuccess(false);
         }
-        return jsonModel;
+        return result;
     }
 
     @RequestMapping(value = "/setPermissions",method = RequestMethod.POST)
     @ResponseBody
-    public JsonModel setPermission(Integer roleId, String permissionIdsStr) {
-        JsonModel jsonModel = new JsonModel();
+    public Result setPermission(Integer roleId, String permissionIdsStr) {
+        Result result = new Result();
         try {
             roleService.setPermissions(roleId, permissionIdsStr);
-            jsonModel.setSuccess(true);
-            jsonModel.setMsg("分配权限成功！");
+            result.setSuccess(true);
+            result.setMsg("分配权限成功！");
         } catch (Exception e) {
-            jsonModel.setSuccess(false);
-            jsonModel.setMsg("分配角色失败！");
+            result.setSuccess(false);
+            result.setMsg("分配角色失败！");
         }
-        return jsonModel;
+        return result;
     }
 }

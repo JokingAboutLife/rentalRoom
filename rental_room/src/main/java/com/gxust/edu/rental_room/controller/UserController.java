@@ -3,9 +3,14 @@ package com.gxust.edu.rental_room.controller;
 import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.util.StringUtil;
 import com.gxust.edu.rental_room.domain.User;
+import com.gxust.edu.rental_room.exception.ExceptionKind;
+import com.gxust.edu.rental_room.exception.KPException;
 import com.gxust.edu.rental_room.query.UserQuery;
+import com.gxust.edu.rental_room.response.ResultEnum;
 import com.gxust.edu.rental_room.service.impl.UserServiceImpl;
-import com.gxust.edu.rental_room.utils.JsonModel;
+import com.gxust.edu.rental_room.response.Result;
+import com.gxust.edu.rental_room.utils.ResultUtil;
+import com.sun.org.apache.regexp.internal.REUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,128 +30,85 @@ public class UserController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
-    public JsonModel login(String loginName, String password) {
-        JsonModel jsonModel = new JsonModel();
+    public Result login(String loginName, String password) {
         User user = userService.findByLoginName(loginName);
         if (user == null) {
-            jsonModel.setSuccess(false);
-            jsonModel.setMsg("用户不存在，请输入正确的账号密码！");
-            return jsonModel;
+            return ResultUtil.error(ResultEnum.USER_NOT_EXIST.getCode(), ResultEnum.USER_NOT_EXIST.getMsg());
         }
         if (!password.equals(user.getPassword())) {
-            jsonModel.setSuccess(false);
-            jsonModel.setMsg("密码错误！请输入正确密码！");
-            return jsonModel;
+            return ResultUtil.error(ResultEnum.PASSWORD_IS_ERRO.getCode(), ResultEnum.PASSWORD_IS_ERRO.getMsg());
         }
         boolean status = user.isStatus();
-        if (status) {
-            jsonModel.setSuccess(true);
-            jsonModel.setMsg("登陆成功！");
-            jsonModel.setData(user);
-        } else {
-            jsonModel.setSuccess(false);
-            jsonModel.setMsg("该账号已冻结，请联系管理员");
+        if (!status) {
+            return ResultUtil.error(ResultEnum.ACCOUNT_IS_FREEZE.getCode(), ResultEnum.ACCOUNT_IS_FREEZE.getMsg());
         }
-        return jsonModel;
+        return ResultUtil.success(user);
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public JsonModel addUser(User user, Integer roleId) {
-        JsonModel jsonModel = new JsonModel();
+    public Result addUser(User user, Integer roleId) {
         boolean result = userService.addUser(user, roleId);
-        if (result) {
-            jsonModel.setMsg("添加成功");
-            jsonModel.setSuccess(true);
-        } else {
-            jsonModel.setMsg("添加失败");
-            jsonModel.setSuccess(false);
+        if (!result) {
+            return ResultUtil.error(ResultEnum.HOUSE_ADD_ERRO.getCode(), ResultEnum.HOUSE_ADD_ERRO.getMsg());
         }
-        return jsonModel;
+        return ResultUtil.success();
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     @ResponseBody
-    public JsonModel deleteUser(String id) {
-        JsonModel jsonModel = new JsonModel();
+    public Result deleteUser(String id) {
         String[] idsStr = id.split(",");
         int[] ids = new int[idsStr.length];
         for (int i = 0; i < idsStr.length; i++) {
             ids[i] = Integer.parseInt(idsStr[i]);
         }
         boolean result = userService.deleteByIds(ids);
-        if (result) {
-            jsonModel.setMsg("删除成功");
-            jsonModel.setSuccess(true);
-        } else {
-            jsonModel.setMsg("删除失败");
-            jsonModel.setSuccess(false);
+        if (!result) {
+            return ResultUtil.error(ResultEnum.HOUSE_ADD_ERRO.getCode(), ResultEnum.HOUSE_ADD_ERRO.getMsg());
         }
-        return jsonModel;
+        return ResultUtil.success();
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public JsonModel update(User user) {
-        JsonModel jsonModel = new JsonModel();
+    public Result update(User user) {
         boolean result = userService.update(user);
-        if (result) {
-            jsonModel.setMsg("更新成功");
-            jsonModel.setSuccess(true);
-        } else {
-            jsonModel.setMsg("更新失败");
-            jsonModel.setSuccess(false);
+        if (!result) {
+            return ResultUtil.error(ResultEnum.HOUSE_ADD_ERRO.getCode(), ResultEnum.HOUSE_ADD_ERRO.getMsg());
         }
-        return jsonModel;
+        return ResultUtil.success();
     }
 
     @RequestMapping(value = "/update/status", method = RequestMethod.POST)
     @ResponseBody
-    public JsonModel updateStatus(Boolean status, Integer id) {
-        JsonModel jsonModel = new JsonModel();
+    public Result updateStatus(Boolean status, Integer id) {
         boolean result = userService.updateStatus(status, id);
-        if (result) {
-            jsonModel.setMsg("更新用户状态成功");
-            jsonModel.setSuccess(true);
-        } else {
-            jsonModel.setMsg("更新用户状态失败");
-            jsonModel.setSuccess(false);
+        if (!result) {
+            return ResultUtil.error(ResultEnum.HOUSE_ADD_ERRO.getCode(), ResultEnum.HOUSE_ADD_ERRO.getMsg());
         }
-        return jsonModel;
+        return ResultUtil.success();
     }
 
     @RequestMapping(value = "/findById", method = RequestMethod.GET)
     @ResponseBody
-    public JsonModel findById(Integer id) {
-        JsonModel jsonModel = new JsonModel();
+    public Result findById(Integer id) {
         User user = userService.findById(id);
-        if (user != null) {
-            jsonModel.setMsg("查找ID成功");
-            jsonModel.setSuccess(true);
-            jsonModel.setData(user);
-        } else {
-            jsonModel.setMsg("查找ID失败");
-            jsonModel.setSuccess(false);
+        if (user == null) {
+            return ResultUtil.error(ResultEnum.HOUSE_FIND_IS_NULL.getCode(), ResultEnum.HOUSE_FIND_IS_NULL.getMsg());
         }
-        return jsonModel;
+        return ResultUtil.success(user);
     }
 
     @RequestMapping(value = "/findByQuery", method = RequestMethod.GET)
     @ResponseBody
-    public JsonModel findByQuery(UserQuery userQuery) {
-//        throw new KPException(ExceptionKind.PARAM_E,"参数错误");
-        JsonModel jsonModel = new JsonModel();
+    public Result findByQuery(UserQuery userQuery) {
         PageInfo<User> pageInfo = userService.findByQuery(userQuery);
         List<User> userList = pageInfo.getList();
-        if (userList != null && userList.size() > 0) {
-            jsonModel.setMsg("查找成功");
-            jsonModel.setSuccess(true);
-            jsonModel.setData(pageInfo);
-        } else {
-            jsonModel.setMsg("查找失败");
-            jsonModel.setSuccess(false);
+        if (userList == null) {
+            return ResultUtil.error(ResultEnum.HOUSE_FIND_IS_NULL.getCode(), ResultEnum.HOUSE_FIND_IS_NULL.getMsg());
         }
-        return jsonModel;
+        return ResultUtil.success(pageInfo);
     }
 
     @RequestMapping(value = "/check/loginName", method = RequestMethod.GET)
@@ -168,17 +130,12 @@ public class UserController {
 
     @RequestMapping(value = "/setRole", method = RequestMethod.POST)
     @ResponseBody
-    public JsonModel setRole(Integer userId, Integer roleId, boolean isNew) {
-        JsonModel jsonModel = new JsonModel();
+    public Result setRole(Integer userId, Integer roleId, boolean isNew) {
         boolean result = userService.setRole(userId, roleId, isNew);
-        if (result) {
-            jsonModel.setMsg("设置角色成功");
-            jsonModel.setSuccess(true);
-        } else {
-            jsonModel.setMsg("设置角色失败");
-            jsonModel.setSuccess(false);
+        if (!result) {
+            return ResultUtil.error(ResultEnum.HOUSE_FIND_IS_NULL.getCode(), ResultEnum.HOUSE_FIND_IS_NULL.getMsg());
         }
-        return jsonModel;
+        return ResultUtil.success();
     }
 
 
