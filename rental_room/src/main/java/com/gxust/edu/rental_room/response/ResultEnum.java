@@ -30,7 +30,7 @@ public enum ResultEnum {
     USER_NOT_EXIST(1001,"用户不存在"),
     USER_IS_EXISTS(1002,"用户已存在"),
     PASSWORD_IS_ERRO(1003,"密码错误"),
-    ACCOUNT_IS_FREEZE(1004,"账号已冻结"),
+    ACCOUNT_IS_FREEZE(1004,"账号已冻结，请联系管理员"),
     USER_ADD_ERRO(1005,"用户添加失败"),
     USER_DELETE_ERRO(1006,"用户删除失败"),
     USER_UPDATE_ERRO(1007,"用户更新失败"),
