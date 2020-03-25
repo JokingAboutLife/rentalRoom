@@ -23,7 +23,7 @@ public enum ResultEnum {
     PERMISSION_NOT_FIND(4004,"查询不到该权限"),
     PERMISSION_IS_NULL(4004,"权限查询失败"),
     PERMISSION_NOT_FIND_BY_ROLE(4005,"根据角色ID查找权限树失败"),
-    MENU_FIND_IS_NULL(4005,"菜单查询失败"),
+    MENU_FIND_IS_NULL(4006,"菜单查询失败"),
 
 
     //用户模块
@@ -45,6 +45,7 @@ public enum ResultEnum {
     HOUSE_DELETE_ERRO(3002,"房屋删除失败"),
     HOUSE_UPDATE_ERRO(3003,"房屋更新失败"),
     HOUSE_FIND_IS_NULL(3004,"查询不到房屋"),
+    HOUSE_RENTAL_IS_NULL(3005,"查询不到正在出租的房屋"),
 
     //租赁信息模块
 

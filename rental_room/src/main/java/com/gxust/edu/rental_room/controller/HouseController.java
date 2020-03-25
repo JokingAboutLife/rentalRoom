@@ -2,6 +2,7 @@ package com.gxust.edu.rental_room.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.gxust.edu.rental_room.domain.House;
+import com.gxust.edu.rental_room.query.BaseQuery;
 import com.gxust.edu.rental_room.query.HouseQuery;
 import com.gxust.edu.rental_room.response.Result;
 import com.gxust.edu.rental_room.response.ResultEnum;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.awt.geom.GeneralPath;
 import java.util.List;
 
 @Controller
@@ -21,6 +23,16 @@ public class HouseController {
 
     @Autowired
     HouseServiceImpl houseService;
+
+    @RequestMapping(value = "/findRentalHouse",method = RequestMethod.GET)
+    @ResponseBody
+    public Result allRental(HouseQuery qo) {
+        PageInfo<House> pageInfo = houseService.findAllRental(qo);
+        if (pageInfo.getList() == null || pageInfo.getList().size() < 0) {
+            return ResultUtil.error(ResultEnum.HOUSE_RENTAL_IS_NULL.getCode(), ResultEnum.HOUSE_RENTAL_IS_NULL.getMsg());
+        }
+        return ResultUtil.success(pageInfo);
+    }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
@@ -75,6 +87,6 @@ public class HouseController {
         if (houseList == null && houseList.size() < 0) {
             return ResultUtil.error(ResultEnum.HOUSE_FIND_IS_NULL.getCode(), ResultEnum.HOUSE_FIND_IS_NULL.getMsg());
         }
-        return ResultUtil.success(houseList);
+        return ResultUtil.success(pageInfo);
     }
 }

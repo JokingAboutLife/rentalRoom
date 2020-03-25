@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class PermissionQuery extends BaseQuery {
+
     private String name;
     private String description;
 

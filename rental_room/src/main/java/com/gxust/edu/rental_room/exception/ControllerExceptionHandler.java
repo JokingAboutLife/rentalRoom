@@ -13,9 +13,12 @@ import javax.xml.bind.ValidationException;
 @RestControllerAdvice
 public class ControllerExceptionHandler {
 
-    @ExceptionHandler({ValidationException.class,KPException.class})
+    @ExceptionHandler({ValidationException.class,KPException.class,Exception.class})
     @ResponseBody
     public Result exceptionHandler(Exception e) {
+        System.out.println("=====================================");
+        System.out.println("===============发生异常===============");
+        System.out.println("=====================================");
         return ResultUtil.error(ResultEnum.UNKNOWN_ERROR.getCode(),e.getMessage());
     }
 }

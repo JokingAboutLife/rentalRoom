@@ -7,10 +7,11 @@
         <id column="userId" jdbcType="INTEGER" property="userId"/>
         <result column="title" jdbcType="VARCHAR" property="title"/>
         <result column="title_img" jdbcType="VARCHAR" property="titleImg"/>
-        <result column="name" jdbcType="VARCHAR" property="name"/>
-        <result column="type" jdbcType="VARCHAR" property="type"/>
-        <result column="address" jdbcType="VARCHAR" property="address"/>
         <result column="city" jdbcType="VARCHAR" property="city"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="rent_way" jdbcType="VARCHAR" property="rentWay"/>
+        <result column="orientation" jdbcType="VARCHAR" property="orientation"/>
+        <result column="address" jdbcType="VARCHAR" property="address"/>
         <result column="sex_limit" jdbcType="VARCHAR" property="sexLimit"/>
         <result column="area" jdbcType="VARCHAR" property="area"/>
         <result column="price" jdbcType="INTEGER" property="price"/>
@@ -29,17 +30,6 @@
             <if test="title != null and title!=''">
                 <bind name="likeTitle" value="'%' + _parameter.title + '%'"/>
                 and title like #{likeTitle}
-            </if>
-            <if test="name != null and name!=''">
-                <bind name="likeName" value="'%' + _parameter.name + '%'"/>
-                and name like #{likeName}
-            </if>
-            <if test="type != null and type!=''">
-                and type = #{type}
-            </if>
-            <if test="city != null and city!=''">
-                <bind name="likeCity" value="'%' + _parameter.city + '%'"/>
-                and city like #{likeCity}
             </if>
         </where>
     </select>
@@ -80,9 +70,6 @@
             <if test="titleImg != null">
                 title_img,
             </if>
-            <if test="name != null">
-                name,
-            </if>
             <if test="type != null">
                 type,
             </if>
@@ -91,6 +78,9 @@
             </if>
             <if test="rentWay != null">
                 rent_way,
+            </if>
+            <if test="orientation != null">
+                orientation,
             </if>
             <if test="city != null">
                 city,
@@ -104,8 +94,8 @@
             <if test="price != null">
                 price,
             </if>
-            <if test="textImg != null">
-                text_img,
+            <if test="descImg != null">
+                desc_img,
             </if>
             <if test="contacts != null">
                 contacts,
@@ -119,8 +109,8 @@
             <if test="status != null">
                 status,
             </if>
-            <if test="text != null">
-                text,
+            <if test="desc != null">
+                desc,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -133,9 +123,6 @@
             <if test="titleImg != null">
                 #{titleImg,jdbcType=VARCHAR},
             </if>
-            <if test="name != null">
-                #{name,jdbcType=VARCHAR},
-            </if>
             <if test="type != null">
                 #{type,jdbcType=VARCHAR},
             </if>
@@ -144,6 +131,9 @@
             </if>
             <if test="rentWay != null">
                 #{rentWay,jdbcType=VARCHAR},
+            </if>
+            <if test="orientation != null">
+                #{orientation,jdbcType=VARCHAR},
             </if>
             <if test="city != null">
                 #{city,jdbcType=VARCHAR},
@@ -157,8 +147,8 @@
             <if test="price != null">
                 #{price,jdbcType=INTEGER},
             </if>
-            <if test="textImg != null">
-                #{textImg,jdbcType=VARCHAR},
+            <if test="descImg != null">
+                #{descImg,jdbcType=VARCHAR},
             </if>
             <if test="contacts != null">
                 #{contacts,jdbcType=VARCHAR},
@@ -172,8 +162,8 @@
             <if test="status != null">
                 #{status,jdbcType=TINYINT},
             </if>
-            <if test="text != null">
-                #{text,jdbcType=LONGVARCHAR},
+            <if test="desc != null">
+                #{desc,jdbcType=LONGVARCHAR},
             </if>
         </trim>
     </insert>
@@ -201,9 +191,6 @@
             <if test="titleImg != null">
                 title_img = #{titleImg,jdbcType=VARCHAR},
             </if>
-            <if test="name != null">
-                name = #{name,jdbcType=VARCHAR},
-            </if>
             <if test="type != null">
                 type = #{type,jdbcType=VARCHAR},
             </if>
@@ -212,6 +199,9 @@
             </if>
             <if test="rentWay != null">
                 rent_way = #{rentWay,jdbcType=VARCHAR},
+            </if>
+            <if test="orientation != null">
+                orientation = #{rentWay,jdbcType=VARCHAR},
             </if>
             <if test="city != null">
                 city = #{city,jdbcType=VARCHAR},
@@ -225,8 +215,8 @@
             <if test="price != null">
                 price = #{price,jdbcType=INTEGER},
             </if>
-            <if test="textImg != null">
-                text_img = #{textImg,jdbcType=VARCHAR},
+            <if test="descImg != null">
+                desc_img = #{descImg,jdbcType=VARCHAR},
             </if>
             <if test="contacts != null">
                 contacts = #{contacts,jdbcType=VARCHAR},
@@ -240,12 +230,18 @@
             <if test="status != null">
                 status = #{status,jdbcType=TINYINT},
             </if>
-            <if test="text != null">
-                text = #{text,jdbcType=LONGVARCHAR},
+            <if test="desc != null">
+                text = #{desc,jdbcType=LONGVARCHAR},
             </if>
         </set>
         where id = #{id,jdbcType=INTEGER}
-        and userId = #{userId,jdbcType=INTEGER}
     </update>
+    <select id="findAllRental" resultMap="BaseResultMap">
+        select * from t_house where status = 1 and rental_status = 1
+        <if test="title != null and title!=''">
+            <bind name="likeTitle" value="'%' + _parameter.title + '%'"/>
+            and title like #{likeTitle}
+        </if>
+    </select>
 
 </mapper>
