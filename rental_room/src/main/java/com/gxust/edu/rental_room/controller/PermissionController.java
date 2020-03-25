@@ -51,7 +51,6 @@ public class PermissionController {
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
     public Result update(Permission permission) {
-        Result jsonModel = new Result();
         boolean result = permissionService.update(permission);
         if (!result) {
             return ResultUtil.error(ResultEnum.PERMISSION_UPDATE_ERRO.getCode(), ResultEnum.PERMISSION_UPDATE_ERRO.getMsg());
@@ -62,7 +61,6 @@ public class PermissionController {
     @RequestMapping(value = "/findById", method = RequestMethod.GET)
     @ResponseBody
     public Result findById(Integer id) {
-        Result result = new Result();
         Permission permission = permissionService.findById(id);
         if (permission == null) {
             return ResultUtil.error(ResultEnum.PERMISSION_NOT_FIND.getCode(), ResultEnum.PERMISSION_NOT_FIND.getMsg());
@@ -73,10 +71,9 @@ public class PermissionController {
     @RequestMapping(value = "/findByQuery", method = RequestMethod.GET)
     @ResponseBody
     public Result findByQuery(PermissionQuery permissionQuery) {
-        Result result = new Result();
         PageInfo<Permission> pageInfo = permissionService.findByQuery(permissionQuery);
         List<Permission> permissionList = pageInfo.getList();
-        if (permissionList == null && permissionList.size() <= 0) {
+        if (permissionList == null && permissionList.size() < 0) {
             return ResultUtil.error(ResultEnum.PERMISSION_NOT_FIND.getCode(), ResultEnum.PERMISSION_NOT_FIND.getMsg());
         }
         return ResultUtil.success(permissionList);

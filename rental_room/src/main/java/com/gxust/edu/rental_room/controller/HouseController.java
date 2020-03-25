@@ -3,9 +3,9 @@ package com.gxust.edu.rental_room.controller;
 import com.github.pagehelper.PageInfo;
 import com.gxust.edu.rental_room.domain.House;
 import com.gxust.edu.rental_room.query.HouseQuery;
+import com.gxust.edu.rental_room.response.Result;
 import com.gxust.edu.rental_room.response.ResultEnum;
 import com.gxust.edu.rental_room.service.impl.HouseServiceImpl;
-import com.gxust.edu.rental_room.response.Result;
 import com.gxust.edu.rental_room.utils.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.swing.*;
 import java.util.List;
 
 @Controller
@@ -73,7 +72,7 @@ public class HouseController {
     public Result findByQuery(HouseQuery houseQuery) {
         PageInfo<House> pageInfo = houseService.findByQuery(houseQuery);
         List<House> houseList = pageInfo.getList();
-        if (houseList == null && houseList.size() <= 0) {
+        if (houseList == null && houseList.size() < 0) {
             return ResultUtil.error(ResultEnum.HOUSE_FIND_IS_NULL.getCode(), ResultEnum.HOUSE_FIND_IS_NULL.getMsg());
         }
         return ResultUtil.success(houseList);

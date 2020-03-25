@@ -3,14 +3,11 @@ package com.gxust.edu.rental_room.controller;
 import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.util.StringUtil;
 import com.gxust.edu.rental_room.domain.User;
-import com.gxust.edu.rental_room.exception.ExceptionKind;
-import com.gxust.edu.rental_room.exception.KPException;
 import com.gxust.edu.rental_room.query.UserQuery;
+import com.gxust.edu.rental_room.response.Result;
 import com.gxust.edu.rental_room.response.ResultEnum;
 import com.gxust.edu.rental_room.service.impl.UserServiceImpl;
-import com.gxust.edu.rental_room.response.Result;
 import com.gxust.edu.rental_room.utils.ResultUtil;
-import com.sun.org.apache.regexp.internal.REUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -50,7 +47,7 @@ public class UserController {
     public Result addUser(User user, Integer roleId) {
         boolean result = userService.addUser(user, roleId);
         if (!result) {
-            return ResultUtil.error(ResultEnum.HOUSE_ADD_ERRO.getCode(), ResultEnum.HOUSE_ADD_ERRO.getMsg());
+            return ResultUtil.error(ResultEnum.USER_ADD_ERRO.getCode(), ResultEnum.USER_ADD_ERRO.getMsg());
         }
         return ResultUtil.success();
     }
@@ -65,7 +62,7 @@ public class UserController {
         }
         boolean result = userService.deleteByIds(ids);
         if (!result) {
-            return ResultUtil.error(ResultEnum.HOUSE_ADD_ERRO.getCode(), ResultEnum.HOUSE_ADD_ERRO.getMsg());
+            return ResultUtil.error(ResultEnum.USER_DELETE_ERRO.getCode(), ResultEnum.USER_DELETE_ERRO.getMsg());
         }
         return ResultUtil.success();
     }
@@ -75,7 +72,7 @@ public class UserController {
     public Result update(User user) {
         boolean result = userService.update(user);
         if (!result) {
-            return ResultUtil.error(ResultEnum.HOUSE_ADD_ERRO.getCode(), ResultEnum.HOUSE_ADD_ERRO.getMsg());
+            return ResultUtil.error(ResultEnum.USER_UPDATE_ERRO.getCode(), ResultEnum.USER_UPDATE_ERRO.getMsg());
         }
         return ResultUtil.success();
     }
@@ -85,7 +82,7 @@ public class UserController {
     public Result updateStatus(Boolean status, Integer id) {
         boolean result = userService.updateStatus(status, id);
         if (!result) {
-            return ResultUtil.error(ResultEnum.HOUSE_ADD_ERRO.getCode(), ResultEnum.HOUSE_ADD_ERRO.getMsg());
+            return ResultUtil.error(ResultEnum.USER_STATUS_UPDATE_FAIL.getCode(), ResultEnum.USER_STATUS_UPDATE_FAIL.getMsg());
         }
         return ResultUtil.success();
     }
@@ -95,7 +92,7 @@ public class UserController {
     public Result findById(Integer id) {
         User user = userService.findById(id);
         if (user == null) {
-            return ResultUtil.error(ResultEnum.HOUSE_FIND_IS_NULL.getCode(), ResultEnum.HOUSE_FIND_IS_NULL.getMsg());
+            return ResultUtil.error(ResultEnum.USER_NOT_FIND.getCode(), ResultEnum.USER_NOT_FIND.getMsg());
         }
         return ResultUtil.success(user);
     }
@@ -106,7 +103,7 @@ public class UserController {
         PageInfo<User> pageInfo = userService.findByQuery(userQuery);
         List<User> userList = pageInfo.getList();
         if (userList == null) {
-            return ResultUtil.error(ResultEnum.HOUSE_FIND_IS_NULL.getCode(), ResultEnum.HOUSE_FIND_IS_NULL.getMsg());
+            return ResultUtil.error(ResultEnum.USER_IS_NULL.getCode(), ResultEnum.USER_IS_NULL.getMsg());
         }
         return ResultUtil.success(pageInfo);
     }
@@ -133,7 +130,7 @@ public class UserController {
     public Result setRole(Integer userId, Integer roleId, boolean isNew) {
         boolean result = userService.setRole(userId, roleId, isNew);
         if (!result) {
-            return ResultUtil.error(ResultEnum.HOUSE_FIND_IS_NULL.getCode(), ResultEnum.HOUSE_FIND_IS_NULL.getMsg());
+            return ResultUtil.error(ResultEnum.USER_SET_ROLE_FAIL.getCode(), ResultEnum.USER_SET_ROLE_FAIL.getMsg());
         }
         return ResultUtil.success();
     }
