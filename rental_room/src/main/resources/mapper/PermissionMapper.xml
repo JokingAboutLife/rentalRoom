@@ -17,6 +17,7 @@
         <result column="icon" jdbcType="VARCHAR" property="icon"/>
     </resultMap>
 
+
     <resultMap id="menuAndPermissionResultMap" type="permission">
         <id column="id" jdbcType="INTEGER" property="id"/>
         <result column="name" jdbcType="VARCHAR" property="name"/>
@@ -61,7 +62,7 @@
     </select>
 
     <!--根据查询条件查询-->
-    <select id="findByQuery" resultType="permission" parameterType="roleQuery">
+    <select id="findByQuery" resultMap="BaseResultMap" parameterType="roleQuery">
         select * from t_permission
         <where>
             <if test="name != null and name!=''">
@@ -77,7 +78,7 @@
     </select>
 
     <!--根据Id查询-->
-    <select id="findById" resultType="permission" parameterType="int">
+    <select id="findById" resultMap="BaseResultMap" parameterType="int">
         SELECT * from t_permission where id = #{id,jdbcType=INTEGER}
     </select>
 

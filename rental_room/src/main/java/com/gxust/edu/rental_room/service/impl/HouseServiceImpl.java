@@ -34,4 +34,9 @@ public class HouseServiceImpl extends BaseServiceImpl<House, HouseQuery> impleme
         }
         return pageInfo;
     }
+
+    public boolean updateStatus(Integer id,Boolean status) {
+        int sta = status?1:0;
+        return ((HouseMapper)baseMapper).updateStatus(id,sta) == 1;
+    }
 }

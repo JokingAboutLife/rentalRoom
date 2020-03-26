@@ -46,6 +46,7 @@ public enum ResultEnum {
     HOUSE_UPDATE_ERRO(3003,"房屋更新失败"),
     HOUSE_FIND_IS_NULL(3004,"查询不到房屋"),
     HOUSE_RENTAL_IS_NULL(3005,"查询不到正在出租的房屋"),
+    HOUSE_UPDATE_STATUS_FAIL(3006,"房屋审核状态修改失败"),
 
     //租赁信息模块
 

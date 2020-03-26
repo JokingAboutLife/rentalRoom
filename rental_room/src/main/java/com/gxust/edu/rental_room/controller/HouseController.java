@@ -89,4 +89,14 @@ public class HouseController {
         }
         return ResultUtil.success(pageInfo);
     }
+
+    @RequestMapping(value = "/update/status",method = RequestMethod.POST)
+    @ResponseBody
+    public Result updateStatus(Integer id,Boolean status) {
+        boolean result = houseService.updateStatus(id,status);
+        if (!result) {
+            return ResultUtil.error(ResultEnum.HOUSE_UPDATE_STATUS_FAIL.getCode(), ResultEnum.HOUSE_UPDATE_STATUS_FAIL.getMsg());
+        }
+        return ResultUtil.success();
+    }
 }
