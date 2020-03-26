@@ -41,4 +41,9 @@ public class RoleServiceImpl extends BaseServiceImpl<Role, RoleQuery> implements
             ((RoleMapper) baseMapper).bind(roleId, ids[i]);
         }
     }
+
+    @Override
+    public List<String> findStringRolesByUserId(Integer userId) {
+        return ((RoleMapper)baseMapper).findStringRolesByUserId(userId);
+    }
 }

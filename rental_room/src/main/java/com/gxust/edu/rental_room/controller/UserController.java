@@ -8,6 +8,7 @@ import com.gxust.edu.rental_room.response.Result;
 import com.gxust.edu.rental_room.response.ResultEnum;
 import com.gxust.edu.rental_room.service.impl.UserServiceImpl;
 import com.gxust.edu.rental_room.utils.ResultUtil;
+import com.gxust.edu.rental_room.vo.AuthInfo;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.crypto.hash.Md5Hash;
@@ -29,33 +30,35 @@ public class UserController {
     @Autowired
     UserServiceImpl userService;
 
-    //用户登录
+   /* //用户登录
     @RequestMapping(value="/login",method = RequestMethod.POST)
     @ResponseBody
-    public String login(String loginName,String password) {
+    public Result login(String loginName,String password) {
         //构造登录令牌
         try {
             password = new Md5Hash(password,loginName,3).toString();
-
             UsernamePasswordToken upToken = new UsernamePasswordToken(loginName,password);
             //1.获取subject
             Subject subject = SecurityUtils.getSubject();
-
             //获取session
             String sid = (String) subject.getSession().getId();
-
             //2.调用subject进行登录
             subject.login(upToken);
-            return "登录成功";
+            User user = (User) subject.getPrincipals().getPrimaryPrincipal();
+            AuthInfo authInfo = new AuthInfo();
+            authInfo.setUser(user);
+            authInfo.setToken(sid);
+            return ResultUtil.success(authInfo);
         }catch (Exception e) {
-            return "用户名或密码错误";
+            return ResultUtil.error(ResultEnum.USER_NOT_EXIST.getCode(),ResultEnum.USER_NOT_EXIST.getMsg());
         }
-    }
+    }*/
 
-   /* @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
     public Result login(String loginName, String password) {
         User user = userService.findByLoginName(loginName);
+        password = new Md5Hash(password,loginName,3).toString();
         if (user == null) {
             return ResultUtil.error(ResultEnum.USER_NOT_EXIST.getCode(), ResultEnum.USER_NOT_EXIST.getMsg());
         }
@@ -67,7 +70,7 @@ public class UserController {
             return ResultUtil.error(ResultEnum.ACCOUNT_IS_FREEZE.getCode(), ResultEnum.ACCOUNT_IS_FREEZE.getMsg());
         }
         return ResultUtil.success(user);
-    }*/
+    }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody

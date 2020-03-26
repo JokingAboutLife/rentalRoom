@@ -17,5 +17,5 @@ public class Role extends BaseDomain implements Serializable {
     private String name;            //角色名称
     private String description;     //角色描述
 
-    private Set<Permission> permissions = new HashSet<Permission>(0);
+//    private Set<Permission> permissions = new HashSet<Permission>(0);
 }

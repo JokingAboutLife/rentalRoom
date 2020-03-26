@@ -7,7 +7,10 @@ import com.gxust.edu.rental_room.service.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class PermissionServiceImpl extends BaseServiceImpl<Permission, PermissionQuery> implements PermissionService {
@@ -19,24 +22,39 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission, Permissio
 
     @Override
     public boolean add(Permission permission) {
-        if(permission.getParentId()==null){
+        if (permission.getParentId() == null) {
             permission.setParentId(0);
         }
         return super.add(permission);
     }
 
     @Override
-    public List<Permission> findAllPermission(Integer userId,Integer roleId) {
-        return ((PermissionMapper)baseMapper).findAllPermission(userId, roleId);
+    public List<Permission> findAllPermission(Integer userId, Integer roleId) {
+        return ((PermissionMapper) baseMapper).findAllPermission(userId, roleId);
     }
 
     @Override
     public List<Permission> selectFirstMenuByUserIdOrRoleId(Integer roleId, Integer userId) {
-        return ((PermissionMapper)baseMapper).selectFirstMenuByUserIdOrRoleId(roleId,userId);
+        return ((PermissionMapper) baseMapper).selectFirstMenuByUserIdOrRoleId(roleId, userId);
     }
 
     @Override
     public List<Permission> selectLeafByUserIdOrRoleId(Integer roleId, Integer userId) {
-        return ((PermissionMapper)baseMapper).selectLeafByUserIdOrRoleId(roleId,userId);
+        return ((PermissionMapper) baseMapper).selectLeafByUserIdOrRoleId(roleId, userId);
     }
+
+    @Override
+    public List<String> findStringPermsByUserId(Integer userId) {
+        List<String> stringPermsByUserId = ((PermissionMapper) baseMapper).findStringPermsByUserId(userId);
+        Set<String> set = new HashSet<>();
+        for (String s : stringPermsByUserId) {
+            if (s != null && !"".equals(s)) {
+                set.add(s);
+            }
+        }
+        List<String> perms = new ArrayList<>();
+        perms.addAll(set);
+        return perms;
+    }
+
 }

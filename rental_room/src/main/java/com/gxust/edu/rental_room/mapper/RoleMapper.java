@@ -17,4 +17,6 @@ public interface RoleMapper extends BaseMapper<Role, RoleQuery> {
     void delPermissionsByRoleId(int roleId);
 
     List<Role> findRoleByUserId(Integer userId);
+
+    List<String> findStringRolesByUserId(@Param("userId")Integer userId);
 }

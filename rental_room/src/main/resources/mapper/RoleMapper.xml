@@ -93,4 +93,11 @@
         and u.id = #{userId}
     </select>
 
+    <!--根据用户id查找角色-->
+    <select id="findStringRolesByUserId" resultType="String">
+        select name from t_role r
+        inner join t_user_role tur on r.id = tur.role_id
+        where tur.user_id = #{userId}
+    </select>
+
 </mapper>

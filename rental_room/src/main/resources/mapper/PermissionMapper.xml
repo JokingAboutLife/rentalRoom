@@ -12,7 +12,7 @@
         <result column="state" jdbcType="INTEGER" property="state"/>
         <result column="sorts" jdbcType="INTEGER" property="sorts"/>
         <result column="description" jdbcType="VARCHAR" property="description"/>
-        <result column="component_name" jdbcType="VARCHAR" property="componentName"/>
+        <result column="perms" jdbcType="VARCHAR" property="perms"/>
         <result column="component_path" jdbcType="VARCHAR" property="componentPath"/>
         <result column="icon" jdbcType="VARCHAR" property="icon"/>
     </resultMap>
@@ -28,7 +28,7 @@
         <result column="state" jdbcType="INTEGER" property="state"/>
         <result column="sorts" jdbcType="INTEGER" property="sorts"/>
         <result column="description" jdbcType="VARCHAR" property="description"/>
-        <result column="component_name" jdbcType="VARCHAR" property="componentName"/>
+        <result column="perms" jdbcType="VARCHAR" property="perms"/>
         <result column="component_path" jdbcType="VARCHAR" property="componentPath"/>
         <result column="icon" jdbcType="VARCHAR" property="icon"/>
         <collection property="children" ofType="com.gxust.edu.rental_room.domain.Permission" column="id"
@@ -94,7 +94,7 @@
             state,
             sorts,
             description,
-            component_name,
+            perms,
             component_path,
             icon
         </trim>
@@ -107,7 +107,7 @@
             #{state},
             #{sorts},
             #{description},
-            #{componentName},
+            #{perms},
             #{componentPath},
             #{icon}
         </trim>
@@ -154,8 +154,8 @@
             <if test="description != null and description != ''">
                 description = #{description,jdbcType=VARCHAR},
             </if>
-            <if test="componentName != null and componentName != ''">
-                component_name = #{componentName,jdbcType=VARCHAR},
+            <if test="perms != null and perms != ''">
+                perms = #{perms,jdbcType=VARCHAR},
             </if>
             <if test="componentPath != null and componentPath != ''">
                 component_path = #{componentPath,jdbcType=VARCHAR},
@@ -192,6 +192,17 @@
             and rp.role_id = (select role_id from t_user_role where user_id = #{userId})
         </if>
         order by p.sorts;
+    </select>
+
+    <!--根据用户id查找菜单权限标识-->
+    <select id="findStringPermsByUserId" resultType="java.lang.String">
+        select distinct p.perms
+        from t_permission p
+        inner join t_role_permission rp
+        on p.id = rp.perm_id
+        inner join t_user_role tur on rp.role_id = tur.role_id
+        inner join t_user tu on tur.user_id = tu.id
+        where tu.id = #{userId}
     </select>
 
 

@@ -13,4 +13,6 @@ public interface PermissionService extends BaseService<Permission, PermissionQue
     List<Permission> selectFirstMenuByUserIdOrRoleId(@Param("roleId") Integer roleId, @Param("userId") Integer userId);
 
     List<Permission> selectLeafByUserIdOrRoleId(@Param("roleId") Integer roleId,@Param("userId") Integer userId);
+
+    List<String> findStringPermsByUserId(Integer userId);
 }
