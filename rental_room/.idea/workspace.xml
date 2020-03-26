@@ -2,166 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="318c9f61-9005-4b3c-93ce-b61620777554" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/eff5ea6a-4bf3-443e-996e-5c78a3d15768.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/eff5ea6a-4bf3-443e-996e-5c78a3d15768/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_44.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_10_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_10_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_10_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_10_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_10_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_10_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_jsqlparser_jsqlparser_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_pagehelper_pagehelper_5_1_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_pagehelper_pagehelper_spring_boot_autoconfigure_1_2_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_HikariCP_3_4_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_9_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_3_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_activation_jakarta_activation_api_1_2_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_annotation_jakarta_annotation_api_1_3_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_validation_jakarta_validation_api_2_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_xml_bind_jakarta_xml_bind_api_2_3_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_18.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_10_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_10_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_accessors_smart_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_json_smart_2_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_12_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_to_slf4j_2_12_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_cache_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_config_core_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_config_ogdl_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_core_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_crypto_cipher_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_crypto_core_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_crypto_hash_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_event_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_lang_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_spring_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_web_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_29.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_9_0_29.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_29.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_13_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_attoparser_attoparser_2_0_5_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_2_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_validator_hibernate_validator_6_0_18_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_4_1_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_5_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_5_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_5_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_5_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_5_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_5_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_3_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_junit_jupiter_3_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_5_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_2_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_autoconfigure_2_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_starter_2_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_2_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_0_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_29.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_29.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_2_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_2_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_2_2_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_2_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_2_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_2_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_2_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_2_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_thymeleaf_2_2_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_2_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_validation_2_2_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_2_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_2_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_2_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_2_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_2_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_2_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_2_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_2_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_2_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_2_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_2_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_2_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_2_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_2_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_extras_thymeleaf_extras_java8time_3_0_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_3_0_11_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_spring5_3_0_11_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_unbescape_unbescape_1_1_6_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_6_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_25.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rental_room.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/RentalRoomApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/config/WebMvcConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/controller/HouseController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/controller/PermissionController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/domain/BaseDomain.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/domain/House.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/domain/Permission.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/domain/Role.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/domain/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/exception/ExceptionKind.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/exception/KPException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/mapper/BaseMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/mapper/HouseMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/mapper/PermissionMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/mapper/RoleMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/mapper/UserMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/query/BaseQuery.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/query/HouseQuery.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/query/PermissionQuery.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/query/RoleQuery.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/query/UserQuery.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/response/Result.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/BaseService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/HouseService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/PermissionService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/RoleService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/UserService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/impl/BaseServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/impl/HouseServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/impl/PermissionServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/impl/RoleServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/utils/MD5Util.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/utils/TreeUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/HouseMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/PermissionMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/RoleMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/com/gxust/edu/rental_room/RentalRoomApplicationTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/controller/HouseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/controller/HouseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/domain/House.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/domain/House.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/exception/ControllerExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/exception/ControllerExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/mapper/HouseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/mapper/HouseMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/query/HouseQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/query/HouseQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/query/PermissionQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/query/PermissionQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/response/ResultEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/response/ResultEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/impl/HouseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxust/edu/rental_room/service/impl/HouseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/HouseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/HouseMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/eff5ea6a-4bf3-443e-996e-5c78a3d15768.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/eff5ea6a-4bf3-443e-996e-5c78a3d15768.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rental_room.iml" beforeDir="false" afterPath="$PROJECT_DIR$/rental_room.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/controller/HouseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/controller/HouseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/domain/BaseDomain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/domain/BaseDomain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/domain/House.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/domain/House.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/domain/Permission.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/domain/Permission.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/domain/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/domain/Role.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/domain/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/mapper/HouseMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/mapper/HouseMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/impl/HouseServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gxust/edu/rental_room/service/impl/HouseServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/HouseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/HouseMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/PermissionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/PermissionMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -288,6 +141,7 @@
       <updated>1585049058109</updated>
       <workItem from="1585049067719" duration="9701000" />
       <workItem from="1585139492351" duration="11231000" />
+      <workItem from="1585217810729" duration="164000" />
     </task>
     <task id="LOCAL-00001" summary="修改用户和角色关系">
       <created>1585049279146</created>
