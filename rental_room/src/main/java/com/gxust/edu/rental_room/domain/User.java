@@ -1,15 +1,21 @@
 package com.gxust.edu.rental_room.domain;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import org.crazycake.shiro.AuthCachePrincipal;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
-@Data
-public class User extends BaseDomain implements Serializable {
+@Getter
+@Setter
+public class User extends BaseDomain implements Serializable, AuthCachePrincipal {
 
     private static final long serialVersionUID = 507680604309224348L;
 
@@ -21,7 +27,7 @@ public class User extends BaseDomain implements Serializable {
 
     @NotNull
     @NotBlank(message = "密码不能为空")
-    @Size(min = 6,max = 15,message = "密码最少6位，最多15位")
+    @Size(min = 6, max = 15, message = "密码最少6位，最多15位")
     private String password;    //密码
 
     @NotNull
@@ -38,4 +44,11 @@ public class User extends BaseDomain implements Serializable {
     private String email;       //邮箱
 
     private boolean status;     //激活状态
+
+    private Set<Role> roles = new HashSet<Role>(0);
+
+    @Override
+    public String getAuthCacheKey() {
+        return null;
+    }
 }

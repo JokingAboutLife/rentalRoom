@@ -2,6 +2,8 @@ package com.gxust.edu.rental_room.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.gxust.edu.rental_room.domain.House;
+import com.gxust.edu.rental_room.exception.ExceptionKind;
+import com.gxust.edu.rental_room.exception.KPException;
 import com.gxust.edu.rental_room.query.BaseQuery;
 import com.gxust.edu.rental_room.query.HouseQuery;
 import com.gxust.edu.rental_room.response.Result;

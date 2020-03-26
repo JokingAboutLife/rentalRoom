@@ -8,6 +8,10 @@ import com.gxust.edu.rental_room.response.Result;
 import com.gxust.edu.rental_room.response.ResultEnum;
 import com.gxust.edu.rental_room.service.impl.UserServiceImpl;
 import com.gxust.edu.rental_room.utils.ResultUtil;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.crypto.hash.Md5Hash;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +29,30 @@ public class UserController {
     @Autowired
     UserServiceImpl userService;
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    //用户登录
+    @RequestMapping(value="/login",method = RequestMethod.POST)
+    @ResponseBody
+    public String login(String loginName,String password) {
+        //构造登录令牌
+        try {
+            password = new Md5Hash(password,loginName,3).toString();
+
+            UsernamePasswordToken upToken = new UsernamePasswordToken(loginName,password);
+            //1.获取subject
+            Subject subject = SecurityUtils.getSubject();
+
+            //获取session
+            String sid = (String) subject.getSession().getId();
+
+            //2.调用subject进行登录
+            subject.login(upToken);
+            return "登录成功";
+        }catch (Exception e) {
+            return "用户名或密码错误";
+        }
+    }
+
+   /* @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
     public Result login(String loginName, String password) {
         User user = userService.findByLoginName(loginName);
@@ -40,7 +67,7 @@ public class UserController {
             return ResultUtil.error(ResultEnum.ACCOUNT_IS_FREEZE.getCode(), ResultEnum.ACCOUNT_IS_FREEZE.getMsg());
         }
         return ResultUtil.success(user);
-    }
+    }*/
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
