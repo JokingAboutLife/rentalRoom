@@ -19,6 +19,7 @@ public class RoleServiceImpl extends BaseServiceImpl<Role, RoleQuery> implements
     }
 
 
+    @Override
     public List<Role> findRoleByUserId(Integer userId) {
         return ((RoleMapper)baseMapper).findRoleByUserId(userId);
     }

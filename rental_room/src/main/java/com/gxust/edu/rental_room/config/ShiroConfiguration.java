@@ -18,17 +18,17 @@ import org.springframework.context.annotation.Configuration;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-//@Configuration
+@Configuration
 public class ShiroConfiguration {
 
     //1.创建realm
-//    @Bean
+    @Bean
     public CustomRealm getRealm() {
         return new CustomRealm();
     }
 
     //2.创建安全管理器
-//    @Bean
+    @Bean
     public SecurityManager getSecurityManager(CustomRealm realm) {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         securityManager.setRealm(realm);
@@ -45,15 +45,15 @@ public class ShiroConfiguration {
      * 再web程序中，shiro进行权限控制全部是通过一组过滤器集合进行控制
      *
      */
-//    @Bean
+    @Bean
     public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager) {
         //1.创建过滤器工厂
         ShiroFilterFactoryBean filterFactory = new ShiroFilterFactoryBean();
         //2.设置安全管理器
         filterFactory.setSecurityManager(securityManager);
-        //3.通用配置（跳转登录页面，为授权跳转的页面）
-//        filterFactory.setLoginUrl("/house/findRentalHouse");//跳转url地址
-//        filterFactory.setUnauthorizedUrl("/autherror?code=2");//未授权的url
+        //3.通用配置（跳转登录页面，未授权跳转的页面）
+        filterFactory.setLoginUrl("/login");//跳转url地址
+        filterFactory.setUnauthorizedUrl("/unauth");//未授权的url
         //4.设置过滤器集合
         /**
          * 设置所有的过滤器：有顺序map
@@ -67,11 +67,10 @@ public class ShiroConfiguration {
         //filterMap.put("/user/home","perms[user-home]"); //不具备指定的权限，跳转到setUnauthorizedUrl地址
         //使用过滤器的形式配置请求地址的依赖角色
         //filterMap.put("/user/home","roles[系统管理员]");
-        filterMap.put("/user/login","anon");//当前请求地址必须认证之后可以访问
-        filterMap.put("/user/**","authc");//当前请求地址必须认证之后可以访问
-        filterMap.put("/permission/**","authc");//当前请求地址必须认证之后可以访问
-        filterMap.put("/house/**","anon");//当前请求地址必须认证之后可以访问
-        filterMap.put("/role/**","authc");//当前请求地址必须认证之后可以访问
+        filterMap.put("/login","anon");
+        filterMap.put("/findLevelMenu","anon");
+        filterMap.put("/house/findRentalHouse","anon");
+        filterMap.put("/**","authc");
         filterFactory.setFilterChainDefinitionMap(filterMap);
         return filterFactory;
     }
@@ -121,7 +120,7 @@ public class ShiroConfiguration {
 
 
     //开启对shior注解的支持
-//    @Bean
+    @Bean
     public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityManager securityManager) {
         AuthorizationAttributeSourceAdvisor advisor = new AuthorizationAttributeSourceAdvisor();
         advisor.setSecurityManager(securityManager);

@@ -8,6 +8,7 @@ import com.gxust.edu.rental_room.query.BaseQuery;
 import com.gxust.edu.rental_room.query.HouseQuery;
 import com.gxust.edu.rental_room.response.Result;
 import com.gxust.edu.rental_room.response.ResultEnum;
+import com.gxust.edu.rental_room.service.HouseService;
 import com.gxust.edu.rental_room.service.impl.HouseServiceImpl;
 import com.gxust.edu.rental_room.utils.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ import java.util.List;
 public class HouseController {
 
     @Autowired
-    HouseServiceImpl houseService;
+    HouseService houseService;
 
     @RequestMapping(value = "/findRentalHouse",method = RequestMethod.GET)
     @ResponseBody

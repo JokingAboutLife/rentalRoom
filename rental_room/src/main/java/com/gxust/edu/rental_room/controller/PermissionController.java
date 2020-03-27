@@ -79,7 +79,7 @@ public class PermissionController {
         return ResultUtil.success(permissionList);
     }
 
-    @RequestMapping(value = "/findLevelMenu", method = RequestMethod.GET)
+    /*@RequestMapping(value = "/findLevelMenu", method = RequestMethod.GET)
     @ResponseBody
     public Result findLevelMenu(Integer userId) {
         List<Permission> FirstMenus = permissionService.selectFirstMenuByUserIdOrRoleId(null, userId);
@@ -89,7 +89,7 @@ public class PermissionController {
             return ResultUtil.error(ResultEnum.MENU_FIND_IS_NULL.getCode(),ResultEnum.MENU_FIND_IS_NULL.getMsg());
         }
         return ResultUtil.success(levelMenuTree);
-    }
+    }*/
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     @ResponseBody

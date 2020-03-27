@@ -6,6 +6,7 @@ import com.gxust.edu.rental_room.domain.User;
 import com.gxust.edu.rental_room.query.UserQuery;
 import com.gxust.edu.rental_room.response.Result;
 import com.gxust.edu.rental_room.response.ResultEnum;
+import com.gxust.edu.rental_room.service.UserService;
 import com.gxust.edu.rental_room.service.impl.UserServiceImpl;
 import com.gxust.edu.rental_room.utils.ResultUtil;
 import org.apache.shiro.SecurityUtils;
@@ -27,31 +28,7 @@ import java.util.Map;
 public class UserController {
 
     @Autowired
-    UserServiceImpl userService;
-
-   /* //用户登录
-    @RequestMapping(value="/login",method = RequestMethod.POST)
-    @ResponseBody
-    public Result login(String loginName,String password) {
-        //构造登录令牌
-        try {
-            password = new Md5Hash(password,loginName,3).toString();
-            UsernamePasswordToken upToken = new UsernamePasswordToken(loginName,password);
-            //1.获取subject
-            Subject subject = SecurityUtils.getSubject();
-            //获取session
-            String sid = (String) subject.getSession().getId();
-            //2.调用subject进行登录
-            subject.login(upToken);
-            User user = (User) subject.getPrincipals().getPrimaryPrincipal();
-            AuthInfo authInfo = new AuthInfo();
-            authInfo.setUser(user);
-            authInfo.setToken(sid);
-            return ResultUtil.success(authInfo);
-        }catch (Exception e) {
-            return ResultUtil.error(ResultEnum.USER_NOT_EXIST.getCode(),ResultEnum.USER_NOT_EXIST.getMsg());
-        }
-    }*/
+    UserService userService;
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody

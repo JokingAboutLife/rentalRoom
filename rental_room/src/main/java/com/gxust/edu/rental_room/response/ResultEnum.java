@@ -24,6 +24,7 @@ public enum ResultEnum {
     PERMISSION_IS_NULL(4004,"权限查询失败"),
     PERMISSION_NOT_FIND_BY_ROLE(4005,"根据角色ID查找权限树失败"),
     MENU_FIND_IS_NULL(4006,"菜单查询失败"),
+    PERMISSION_NOT_ALLOW(4007,"未授权不允许访问"),
 
 
     //用户模块

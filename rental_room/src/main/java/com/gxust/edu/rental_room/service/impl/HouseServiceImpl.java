@@ -21,22 +21,24 @@ public class HouseServiceImpl extends BaseServiceImpl<House, HouseQuery> impleme
         this.baseMapper = houseMapper;
     }
 
+    @Override
     public PageInfo<House> findAllRental(HouseQuery q) {
         PageInfo<House> pageInfo = null;
         if (q.isPaging()) {
             PageHelper.startPage(q.getCurrentPage(), q.getPageSize());
-            Page<House> page = (Page<House>) ((HouseMapper)baseMapper).findAllRental(q);
+            Page<House> page = (Page<House>) ((HouseMapper) baseMapper).findAllRental(q);
             pageInfo = page.toPageInfo();
         } else {
-            List<House> data = ((HouseMapper)baseMapper).findAllRental(q);
+            List<House> data = ((HouseMapper) baseMapper).findAllRental(q);
             pageInfo = new PageInfo<>();
             pageInfo.setList(data);
         }
         return pageInfo;
     }
 
-    public boolean updateStatus(Integer id,Boolean status) {
-        int sta = status?1:0;
-        return ((HouseMapper)baseMapper).updateStatus(id,sta) == 1;
+    @Override
+    public boolean updateStatus(Integer id, Boolean status) {
+        int sta = status ? 1 : 0;
+        return ((HouseMapper) baseMapper).updateStatus(id, sta) == 1;
     }
 }
