@@ -12,4 +12,6 @@ public interface HouseMapper extends BaseMapper<House, HouseQuery> {
     List<House> findAllRental(HouseQuery qo);
 
     int updateStatus(@Param("id") int id,@Param("status") int status);
+
+    int rental(@Param("userId") Integer userId, Integer houseId, Integer lessorId);
 }

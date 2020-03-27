@@ -7,12 +7,8 @@ import com.gxust.edu.rental_room.query.UserQuery;
 import com.gxust.edu.rental_room.response.Result;
 import com.gxust.edu.rental_room.response.ResultEnum;
 import com.gxust.edu.rental_room.service.UserService;
-import com.gxust.edu.rental_room.service.impl.UserServiceImpl;
 import com.gxust.edu.rental_room.utils.ResultUtil;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.crypto.hash.Md5Hash;
-import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -140,6 +136,5 @@ public class UserController {
         }
         return ResultUtil.success();
     }
-
 
 }

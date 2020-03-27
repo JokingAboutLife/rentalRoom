@@ -72,12 +72,14 @@ public class LoginController {
     @ResponseBody
     public Result login(){
         System.out.println("未授权跳转登陆页面的响应数据");
-        return ResultUtil.error(400,"未授权跳转登陆页面的响应数据");
+        return ResultUtil.error(101,"未授权跳转登陆页面的响应数据");
     }
 
     @RequestMapping(value = "/logout",method = RequestMethod.GET)
     @ResponseBody
     public Result logout(){
+        Subject subject=SecurityUtils.getSubject();
+        subject.logout();
         System.out.println("退出登陆响应数据");
         return ResultUtil.success("退出登陆");
     }

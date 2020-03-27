@@ -2,6 +2,7 @@ package com.gxust.edu.rental_room.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.gxust.edu.rental_room.domain.House;
+import com.gxust.edu.rental_room.domain.YzInfo;
 import com.gxust.edu.rental_room.exception.ExceptionKind;
 import com.gxust.edu.rental_room.exception.KPException;
 import com.gxust.edu.rental_room.query.BaseQuery;
@@ -99,6 +100,16 @@ public class HouseController {
         boolean result = houseService.updateStatus(id,status);
         if (!result) {
             return ResultUtil.error(ResultEnum.HOUSE_UPDATE_STATUS_FAIL.getCode(), ResultEnum.HOUSE_UPDATE_STATUS_FAIL.getMsg());
+        }
+        return ResultUtil.success();
+    }
+
+    @RequestMapping(value = "/rental", method = RequestMethod.POST)
+    @ResponseBody
+    public Result rental(YzInfo yzInfo) {
+        boolean result = houseService.rental(yzInfo);
+        if (!result) {
+            return ResultUtil.error(ResultEnum.HOUSE_RENTAL_YZ_FAIL.getCode(), ResultEnum.HOUSE_RENTAL_YZ_FAIL.getMsg());
         }
         return ResultUtil.success();
     }

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gxust.edu.rental_room.mapper.YzInfoMapper">
+  <resultMap id="BaseResultMap" type="com.gxust.edu.rental_room.domain.YzInfo">
+    <!--@Table t_yzinfo-->
+    <id column="id" property="id" />
+    <result column="userId" property="userid" />
+    <result column="lessorId" property="lessorid" />
+    <result column="houseId" property="houseid" />
+    <result column="period" property="period" />
+    <result column="yztime" property="yztime" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, userId, lessorId, houseId, period, yztime
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_yzinfo
+    where id = #{id}
+  </select>
+
+  <delete id="deleteById" parameterType="java.lang.Integer">
+    delete from t_yzinfo
+    where id = #{id}
+  </delete>
+
+  <insert id="add" keyColumn="id" keyProperty="id" parameterType="com.gxust.edu.rental_room.domain.YzInfo" useGeneratedKeys="true">
+    insert into t_yzinfo (userId, lessorId, houseId, period, yztime)
+    values (#{userid}, #{lessorid}, #{houseid}, #{period}, #{yztime})
+  </insert>
+
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.gxust.edu.rental_room.domain.YzInfo" useGeneratedKeys="true">
+    insert into t_yzinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        userId,
+      </if>
+      <if test="lessorid != null">
+        lessorId,
+      </if>
+      <if test="houseid != null">
+        houseId,
+      </if>
+      <if test="period != null">
+        period,
+      </if>
+      <if test="yztime != null">
+        yztime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        #{userid},
+      </if>
+      <if test="lessorid != null">
+        #{lessorid},
+      </if>
+      <if test="houseid != null">
+        #{houseid},
+      </if>
+      <if test="period != null">
+        #{period},
+      </if>
+      <if test="yztime != null">
+        #{yztime},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="update" parameterType="com.gxust.edu.rental_room.domain.YzInfo">
+    update t_yzinfo
+    <set>
+      <if test="userid != null">
+        userId = #{userid},
+      </if>
+      <if test="lessorid != null">
+        lessorId = #{lessorid},
+      </if>
+      <if test="houseid != null">
+        houseId = #{houseid},
+      </if>
+      <if test="period != null">
+        period = #{period},
+      </if>
+      <if test="yztime != null">
+        yztime = #{yztime},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+
+  <update id="updateByPrimaryKey" parameterType="com.gxust.edu.rental_room.domain.YzInfo">
+    update t_yzinfo
+    set userId = #{userid},
+      lessorId = #{lessorid},
+      houseId = #{houseid},
+      period = #{period},
+      yztime = #{yztime}
+    where id = #{id}
+  </update>
+</mapper>

@@ -1,0 +1,15 @@
+package com.gxust.edu.rental_room.mapper;
+
+import com.gxust.edu.rental_room.domain.SysDict;
+import com.gxust.edu.rental_room.query.SysDictQuery;
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface SysDictMapper extends BaseMapper<SysDict, SysDictQuery> {
+
+    int insertSelective(SysDict record);
+
+    SysDict selectByPrimaryKey(Integer id);
+
+    int updateByPrimaryKey(SysDict record);
+}

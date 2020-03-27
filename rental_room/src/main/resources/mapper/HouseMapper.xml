@@ -19,7 +19,7 @@
         <result column="desc_img" jdbcType="VARCHAR" property="descImg"/>
         <result column="contacts" jdbcType="VARCHAR" property="contacts"/>
         <result column="phone" jdbcType="VARCHAR" property="phone"/>
-        <result column="retal_status" jdbcType="TINYINT" property="rentalStatus"/>
+        <result column="rental_status" jdbcType="TINYINT" property="rentalStatus"/>
         <result column="status" jdbcType="TINYINT" property="status"/>
         <result column="release_time" jdbcType="DATE" property="releaseTime"/>
     </resultMap>

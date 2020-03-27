@@ -20,12 +20,12 @@ public class ControllerExceptionHandler {
 
     @ExceptionHandler(value = AuthenticationException.class)
     @ResponseBody
-    public String error(AuthenticationException e) {
+    public Result error(AuthenticationException e) {
         System.out.println("+++++++++++++++++++++++++++++++++++++");
         System.out.println("+++++++++++++++授权异常+++++++++++++++");
         System.out.println("+++++++++++++++++++++++++++++++++++++");
         System.out.println(e.getMessage());
-        return "未授权";
+        return ResultUtil.error(ResultEnum.COMMENT_ERROR.getCode(),e.getMessage());
     }
 
     @ExceptionHandler({Exception.class})

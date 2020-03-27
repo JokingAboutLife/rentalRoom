@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gxust.edu.rental_room.mapper.SysDictMapper">
+
+  <resultMap id="BaseResultMap" type="com.gxust.edu.rental_room.domain.SysDict">
+    <!--@Table t_sys_dict-->
+    <id column="id" property="id" />
+    <result column="type" property="type" />
+    <result column="code" property="code" />
+    <result column="name" property="name" />
+    <result column="xy_bj" property="xyBj" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, `type`, code, `name`, xy_bj
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_sys_dict
+    where id = #{id}
+  </select>
+
+  <delete id="deleteById" parameterType="java.lang.Integer">
+    delete from t_sys_dict
+    where id = #{id}
+  </delete>
+
+  <insert id="add" keyColumn="id" keyProperty="id" parameterType="com.gxust.edu.rental_room.domain.SysDict" useGeneratedKeys="true">
+    insert into t_sys_dict (`type`, code, `name`, xy_bj)
+    values (#{type}, #{code}, #{name}, #{xyBj})
+  </insert>
+  
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.gxust.edu.rental_room.domain.SysDict" useGeneratedKeys="true">
+    insert into t_sys_dict
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="xyBj != null">
+        xy_bj,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="type != null">
+        #{type},
+      </if>
+      <if test="code != null">
+        #{code},
+      </if>
+      <if test="name != null">
+        #{name},
+      </if>
+      <if test="xyBj != null">
+        #{xyBj},
+      </if>
+    </trim>
+  </insert>
+  
+  <update id="update" parameterType="com.gxust.edu.rental_room.domain.SysDict">
+    update t_sys_dict
+    <set>
+      <if test="type != null">
+        `type` = #{type},
+      </if>
+      <if test="code != null">
+        code = #{code},
+      </if>
+      <if test="name != null">
+        `name` = #{name},
+      </if>
+      <if test="xyBj != null">
+        xy_bj = #{xyBj},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  
+  <update id="updateByPrimaryKey" parameterType="com.gxust.edu.rental_room.domain.SysDict">
+    update t_sys_dict
+    set `type` = #{type},
+      code = #{code},
+      `name` = #{name},
+      xy_bj = #{xyBj}
+    where id = #{id}
+  </update>
+</mapper>

@@ -3,8 +3,10 @@ package com.gxust.edu.rental_room.service.impl;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.gxust.edu.rental_room.domain.YzInfo;
 import com.gxust.edu.rental_room.mapper.HouseMapper;
 import com.gxust.edu.rental_room.domain.House;
+import com.gxust.edu.rental_room.mapper.YzInfoMapper;
 import com.gxust.edu.rental_room.query.BaseQuery;
 import com.gxust.edu.rental_room.query.HouseQuery;
 import com.gxust.edu.rental_room.service.HouseService;
@@ -20,6 +22,8 @@ public class HouseServiceImpl extends BaseServiceImpl<House, HouseQuery> impleme
     public void setHouseMapper(HouseMapper houseMapper) {
         this.baseMapper = houseMapper;
     }
+
+    YzInfoMapper yzInfoMapper;
 
     @Override
     public PageInfo<House> findAllRental(HouseQuery q) {
@@ -41,4 +45,10 @@ public class HouseServiceImpl extends BaseServiceImpl<House, HouseQuery> impleme
         int sta = status ? 1 : 0;
         return ((HouseMapper) baseMapper).updateStatus(id, sta) == 1;
     }
+
+    @Override
+    public boolean rental(YzInfo yzInfo) {
+        return yzInfoMapper.add(yzInfo) == 1;
+    }
+
 }

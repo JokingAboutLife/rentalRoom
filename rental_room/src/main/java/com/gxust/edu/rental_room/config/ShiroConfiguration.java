@@ -68,6 +68,7 @@ public class ShiroConfiguration {
         //使用过滤器的形式配置请求地址的依赖角色
         //filterMap.put("/user/home","roles[系统管理员]");
         filterMap.put("/login","anon");
+        filterMap.put("/logout","anon");
         filterMap.put("/findLevelMenu","anon");
         filterMap.put("/house/findRentalHouse","anon");
         filterMap.put("/**","authc");
