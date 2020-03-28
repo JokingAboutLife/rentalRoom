@@ -40,10 +40,8 @@ public class ShiroConfiguration {
     }
 
     //3.配置shiro的过滤器工厂
-
     /**
-     * 再web程序中，shiro进行权限控制全部是通过一组过滤器集合进行控制
-     *
+     * 在web程序中，shiro进行权限控制全部是通过一组过滤器集合进行控制
      */
     @Bean
     public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager) {
@@ -54,23 +52,11 @@ public class ShiroConfiguration {
         //3.通用配置（跳转登录页面，未授权跳转的页面）
         filterFactory.setLoginUrl("/login");//跳转url地址
         filterFactory.setUnauthorizedUrl("/unauth");//未授权的url
-        //4.设置过滤器集合
-        /**
-         * 设置所有的过滤器：有顺序map
-         *     key = 拦截的url地址
-         *     value = 过滤器类型
-         */
         Map<String,String> filterMap = new LinkedHashMap<>();
-        //filterMap.put("/user/home","anon");//当前请求地址可以匿名访问
-        //具有某中权限才能访问
-        //使用过滤器的形式配置请求地址的依赖权限
-        //filterMap.put("/user/home","perms[user-home]"); //不具备指定的权限，跳转到setUnauthorizedUrl地址
-        //使用过滤器的形式配置请求地址的依赖角色
-        //filterMap.put("/user/home","roles[系统管理员]");
-        filterMap.put("/login","anon");
-        filterMap.put("/logout","anon");
-        filterMap.put("/findLevelMenu","anon");
-        filterMap.put("/house/findRentalHouse","anon");
+//        filterMap.put("/login","anon");
+//        filterMap.put("/logout","anon");
+//        filterMap.put("/findLevelMenu","anon");
+//        filterMap.put("/house/findRentalHouse","anon");
         filterMap.put("/**","authc");
         filterFactory.setFilterChainDefinitionMap(filterMap);
         return filterFactory;

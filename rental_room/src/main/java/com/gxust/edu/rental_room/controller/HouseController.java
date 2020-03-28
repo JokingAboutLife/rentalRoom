@@ -12,13 +12,14 @@ import com.gxust.edu.rental_room.response.ResultEnum;
 import com.gxust.edu.rental_room.service.HouseService;
 import com.gxust.edu.rental_room.service.impl.HouseServiceImpl;
 import com.gxust.edu.rental_room.utils.ResultUtil;
+import com.gxust.edu.rental_room.vo.CheckedHouseVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.awt.geom.GeneralPath;
+import java.sql.SQLIntegrityConstraintViolationException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 @Controller
@@ -28,7 +29,7 @@ public class HouseController {
     @Autowired
     HouseService houseService;
 
-    @RequestMapping(value = "/findRentalHouse",method = RequestMethod.GET)
+    @RequestMapping(value = "/findRentalHouse", method = RequestMethod.GET)
     @ResponseBody
     public Result allRental(HouseQuery qo) {
         PageInfo<House> pageInfo = houseService.findAllRental(qo);
@@ -94,23 +95,67 @@ public class HouseController {
         return ResultUtil.success(pageInfo);
     }
 
-    @RequestMapping(value = "/update/status",method = RequestMethod.POST)
+    @RequestMapping(value = "/update/status", method = RequestMethod.POST)
     @ResponseBody
-    public Result updateStatus(Integer id,Boolean status) {
-        boolean result = houseService.updateStatus(id,status);
+    public Result updateStatus(Integer id, Boolean status) {
+        boolean result = houseService.updateStatus(id, status);
         if (!result) {
             return ResultUtil.error(ResultEnum.HOUSE_UPDATE_STATUS_FAIL.getCode(), ResultEnum.HOUSE_UPDATE_STATUS_FAIL.getMsg());
         }
         return ResultUtil.success();
     }
 
-    @RequestMapping(value = "/rental", method = RequestMethod.POST)
+    @RequestMapping(value = "/yzhouse", method = RequestMethod.POST)
     @ResponseBody
-    public Result rental(YzInfo yzInfo) {
-        boolean result = houseService.rental(yzInfo);
+    public Result yzhouse(YzInfo yzInfo) {
+        try {
+            if(yzInfo.getUserid() == yzInfo.getLessorid()){
+                return ResultUtil.error(ResultEnum.HOUSE_NOT_RENT_SELF.getCode(),ResultEnum.HOUSE_NOT_RENT_SELF.getMsg());
+            }
+            boolean result = houseService.yzhouse(yzInfo);
+            if (!result) {
+                return ResultUtil.error(ResultEnum.HOUSE_RENTAL_YZ_FAIL.getCode(), ResultEnum.HOUSE_RENTAL_YZ_FAIL.getMsg());
+            }
+            return ResultUtil.success();
+        } catch (Exception e) {
+            return ResultUtil.error(ResultEnum.HOUSE_RENTAL_YZ_EXISTS.getCode(), ResultEnum.HOUSE_RENTAL_YZ_EXISTS.getMsg());
+        }
+    }
+
+    @RequestMapping(value = "/getYzHouse", method = RequestMethod.GET)
+    @ResponseBody
+    public Result getYzHouse(Integer userId) {
+        List<House> yzHouse = houseService.findYzHouse(userId);
+        return ResultUtil.success(yzHouse);
+    }
+
+    @RequestMapping(value = "/cancelYzHouse", method = RequestMethod.GET)
+    @ResponseBody
+    public Result cancelYzHouse(Integer userId, Integer houseId) {
+        boolean result = houseService.cancelYzHouse(userId, houseId);
         if (!result) {
-            return ResultUtil.error(ResultEnum.HOUSE_RENTAL_YZ_FAIL.getCode(), ResultEnum.HOUSE_RENTAL_YZ_FAIL.getMsg());
+            return ResultUtil.error(ResultEnum.HOUSE_CANCEL_YZ_EXISTS.getCode(), ResultEnum.HOUSE_CANCEL_YZ_EXISTS.getMsg());
         }
         return ResultUtil.success();
+    }
+
+    @RequestMapping(value = "/getSuccessRentHouse", method = RequestMethod.GET)
+    @ResponseBody
+    public Result getSuccessRentHouse(Integer userId) {
+        List<House> list = houseService.findsuccessRentHouse(userId);
+        if (list == null || list.size() < 0) {
+            return ResultUtil.error(ResultEnum.HOUSE_CANCEL_YZ_EXISTS.getCode(), ResultEnum.HOUSE_CANCEL_YZ_EXISTS.getMsg());
+        }
+        return ResultUtil.success(list);
+    }
+
+    @RequestMapping(value = "/getCheckedHouse", method = RequestMethod.GET)
+    @ResponseBody
+    public Result getCheckedHouse(Integer userId) {
+        List<CheckedHouseVo> list = houseService.findCheckedHouse(userId);
+        if (list == null || list.size() < 0) {
+            return ResultUtil.error(ResultEnum.HOUSE_CANCEL_YZ_EXISTS.getCode(), ResultEnum.HOUSE_CANCEL_YZ_EXISTS.getMsg());
+        }
+        return ResultUtil.success(list);
     }
 }

@@ -33,27 +33,29 @@ public class LoginController {
     PermissionService permissionService;
 
     //用户登录
-    @RequestMapping(value="/login",method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
     public Result login(String loginName, String password) {
         //构造登录令牌
-//        try {
-            password = new Md5Hash(password,loginName,3).toString();
-            UsernamePasswordToken upToken = new UsernamePasswordToken(loginName,password);
-            //1.获取subject
-            Subject subject = SecurityUtils.getSubject();
-            //获取session
-            String sid = (String) subject.getSession().getId();
-            //2.调用subject进行登录
-            subject.login(upToken);
-            User user = (User) subject.getPrincipals().getPrimaryPrincipal();
-            Map<String,Object> map = new HashMap<>();
-            map.put("user",user);
-            map.put("token",sid);
-            return ResultUtil.success(map);
-//        }catch (Exception e) {
-//            return ResultUtil.error(ResultEnum.USER_NOT_EXIST.getCode(),ResultEnum.USER_NOT_EXIST.getMsg());
-//        }
+        password = new Md5Hash(password, loginName, 3).toString();
+        UsernamePasswordToken upToken = new UsernamePasswordToken(loginName, password);
+        //1.获取subject
+        Subject subject = SecurityUtils.getSubject();
+        //获取session
+        String sid = (String) subject.getSession().getId();
+        //2.调用subject进行登录
+        subject.login(upToken);
+        User user = (User) subject.getPrincipals().getPrimaryPrincipal();
+        Map<String, Object> map = new HashMap<>();
+        map.put("user", user);
+        map.put("token", sid);
+        return ResultUtil.success(map);
+    }
+
+    @RequestMapping(value = "/visitorLogin",method = RequestMethod.POST)
+    @ResponseBody
+    public Result visitorLogin() {
+        return ResultUtil.success();
     }
 
     @RequestMapping(value = "/findLevelMenu", method = RequestMethod.GET)
@@ -63,31 +65,44 @@ public class LoginController {
         List<Permission> permissionList = permissionService.selectLeafByUserIdOrRoleId(null, userId);
         List<Permission> levelMenuTree = TreeUtil.getMenuTree(FirstMenus, permissionList);
         if (levelMenuTree == null && levelMenuTree.size() < 0) {
-            return ResultUtil.error(ResultEnum.MENU_FIND_IS_NULL.getCode(),ResultEnum.MENU_FIND_IS_NULL.getMsg());
+            return ResultUtil.error(ResultEnum.MENU_FIND_IS_NULL.getCode(), ResultEnum.MENU_FIND_IS_NULL.getMsg());
         }
         return ResultUtil.success(levelMenuTree);
     }
 
-    @RequestMapping(value = "/login",method = RequestMethod.GET)
+    @RequestMapping(value = "/visitor/findLevelMenu", method = RequestMethod.POST)
     @ResponseBody
-    public Result login(){
-        System.out.println("未授权跳转登陆页面的响应数据");
-        return ResultUtil.error(101,"未授权跳转登陆页面的响应数据");
+    public Result visitorLevelMenu() {
+        List<Permission> FirstMenus = permissionService.selectFirstMenuByUserIdOrRoleId(0,null);
+        List<Permission> permissionList = permissionService.selectLeafByUserIdOrRoleId(0,null);
+        List<Permission> levelMenuTree = TreeUtil.getMenuTree(FirstMenus, permissionList);
+        if (levelMenuTree == null && levelMenuTree.size() < 0) {
+            return ResultUtil.error(ResultEnum.MENU_FIND_IS_NULL.getCode(), ResultEnum.MENU_FIND_IS_NULL.getMsg());
+        }
+        return ResultUtil.success(levelMenuTree);
     }
 
-    @RequestMapping(value = "/logout",method = RequestMethod.GET)
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     @ResponseBody
-    public Result logout(){
-        Subject subject=SecurityUtils.getSubject();
+    public String login() {
+//        System.out.println("未授权跳转登陆页面的响应数据");
+//        return ResultUtil.error(101, "未授权跳转登陆页面的响应数据");
+        return "未授权跳转登陆页面的响应数据";
+    }
+
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    @ResponseBody
+    public Result logout() {
+        Subject subject = SecurityUtils.getSubject();
         subject.logout();
         System.out.println("退出登陆响应数据");
         return ResultUtil.success("退出登陆");
     }
 
-    @RequestMapping(value = "/unauth",method = RequestMethod.GET)
+    @RequestMapping(value = "/unauth", method = RequestMethod.GET)
     @ResponseBody
-    public Result unauth(){
+    public Result unauth() {
         System.out.println("未授权响应数据");
-        return ResultUtil.error(ResultEnum.PERMISSION_NOT_ALLOW.getCode(),ResultEnum.PERMISSION_NOT_ALLOW.getMsg());
+        return ResultUtil.error(ResultEnum.PERMISSION_NOT_ALLOW.getCode(), ResultEnum.PERMISSION_NOT_ALLOW.getMsg());
     }
 }

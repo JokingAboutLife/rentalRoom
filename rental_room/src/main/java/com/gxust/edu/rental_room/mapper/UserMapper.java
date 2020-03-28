@@ -5,6 +5,8 @@ import com.gxust.edu.rental_room.query.UserQuery;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 @Mapper
 public interface UserMapper extends BaseMapper<User, UserQuery> {
     User findByLoginName(@Param("loginName") String loginName);
@@ -18,4 +20,6 @@ public interface UserMapper extends BaseMapper<User, UserQuery> {
     int bind(@Param("userId") int userId, @Param("roleId") int roleId);
 
     int unBind(@Param("userId") int userId, @Param("roleId") int roleId);
+
+    List<User> findUsersByLessorId(@Param("lessorId") Integer lessorId,@Param("houseId") Integer houseId);
 }

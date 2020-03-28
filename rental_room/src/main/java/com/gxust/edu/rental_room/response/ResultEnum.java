@@ -4,7 +4,10 @@ package com.gxust.edu.rental_room.response;
 public enum ResultEnum {
     //这里是可以自己定义的，方便与前端交互即可
     UNKNOWN_ERROR(-1,"未知错误"),
-    COMMENT_ERROR(-1,"普通错误"),
+    COMMENT_ERROR(-100,"普通错误"),
+    SERVE_ERROR(-200,"服务器错误"),
+    SHIRO_ERROR(-300,"您没有权限访问"),
+    DATA_IS_NULL(3,"数据为空"),
     SUCCESS(2000,"成功"),
 
     //角色模块
@@ -50,11 +53,13 @@ public enum ResultEnum {
     HOUSE_RENTAL_IS_NULL(3005,"查询不到正在出租的房屋"),
     HOUSE_UPDATE_STATUS_FAIL(3006,"房屋审核状态修改失败"),
     HOUSE_RENTAL_YZ_FAIL(3007,"预租房屋失败"),
+    HOUSE_RENTAL_YZ_EXISTS(3008,"您已经预租该房屋"),
+    HOUSE_CANCEL_YZ_EXISTS(3009,"取消预租房屋失败"),
+    HOUSE_NOT_RENT_SELF(3010,"您不能租赁自己的房屋"),
 
     //租赁信息模块
 
 
-    DATA_IS_NULL(3,"数据为空"),
     ;
     private Integer code;
     private String msg;

@@ -15,15 +15,7 @@ public class YzInfoServiceImpl extends BaseServiceImpl<YzInfo, YzInfoQuery> impl
         this.baseMapper = tYzInfoMapper;
     }
 
-    public int insertSelective(YzInfo record) {
-        return ((YzInfoMapper)baseMapper).insertSelective(record);
-    }
-    
-    public YzInfo selectByPrimaryKey(Integer id) {
-        return ((YzInfoMapper)baseMapper).selectByPrimaryKey(id);
-    }
-
-    
+    @Override
     public int updateByPrimaryKey(YzInfo record) {
         return ((YzInfoMapper)baseMapper).updateByPrimaryKey(record);
     }

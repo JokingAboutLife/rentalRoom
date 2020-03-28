@@ -1,39 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.gxust.edu.rental_room.mapper.YzInfoMapper">
-  <resultMap id="BaseResultMap" type="com.gxust.edu.rental_room.domain.YzInfo">
-    <!--@Table t_yzinfo-->
+<mapper namespace="com.gxust.edu.rental_room.mapper.OrderMapper">
+  <resultMap id="BaseResultMap" type="com.gxust.edu.rental_room.domain.Order">
+    <!--@Table t_order-->
     <id column="id" property="id" />
     <result column="userId" property="userid" />
     <result column="lessorId" property="lessorid" />
     <result column="houseId" property="houseid" />
-    <result column="period" property="period" />
-    <result column="yztime" property="yztime" />
+    <result column="time" property="time" />
   </resultMap>
 
   <sql id="Base_Column_List">
-    id, userId, lessorId, houseId, period, yztime
+    id, userId, lessorId, houseId, `time`
   </sql>
 
   <select id="findById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
-    from t_yzinfo
+    from t_order
     where id = #{id}
   </select>
 
   <delete id="deleteById" parameterType="java.lang.Integer">
-    delete from t_yzinfo
+    delete from t_order
     where id = #{id}
   </delete>
 
-  <insert id="add" keyColumn="id" keyProperty="id" parameterType="com.gxust.edu.rental_room.domain.YzInfo" useGeneratedKeys="true">
-    insert into t_yzinfo (userId, lessorId, houseId, period, yztime)
-    values (#{userid}, #{lessorid}, #{houseid}, #{period}, #{yztime})
+  <insert id="add" keyColumn="id" keyProperty="id" parameterType="com.gxust.edu.rental_room.domain.Order" useGeneratedKeys="true">
+    insert into t_order (userId, lessorId, houseId, `time`)
+    values (#{userid}, #{lessorid}, #{houseid}, #{time})
   </insert>
 
- <!-- <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.gxust.edu.rental_room.domain.YzInfo" useGeneratedKeys="true">
-    insert into t_yzinfo
+  <!--<insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.gxust.edu.rental_room.domain.Order" useGeneratedKeys="true">
+    insert into t_order
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="userid != null">
         userId,
@@ -44,11 +43,8 @@
       <if test="houseid != null">
         houseId,
       </if>
-      <if test="period != null">
-        period,
-      </if>
-      <if test="yztime != null">
-        yztime,
+      <if test="time != null">
+        `time`,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -61,17 +57,14 @@
       <if test="houseid != null">
         #{houseid},
       </if>
-      <if test="period != null">
-        #{period},
-      </if>
-      <if test="yztime != null">
-        #{yztime},
+      <if test="time != null">
+        #{time},
       </if>
     </trim>
   </insert>
 -->
-  <update id="update" parameterType="com.gxust.edu.rental_room.domain.YzInfo">
-    update t_yzinfo
+  <update id="update" parameterType="com.gxust.edu.rental_room.domain.Order">
+    update t_order
     <set>
       <if test="userid != null">
         userId = #{userid},
@@ -82,27 +75,19 @@
       <if test="houseid != null">
         houseId = #{houseid},
       </if>
-      <if test="period != null">
-        period = #{period},
-      </if>
-      <if test="yztime != null">
-        yztime = #{yztime},
+      <if test="time != null">
+        `time` = #{time},
       </if>
     </set>
     where id = #{id}
   </update>
 
-  <update id="updateByPrimaryKey" parameterType="com.gxust.edu.rental_room.domain.YzInfo">
-    update t_yzinfo
+  <update id="updateByPrimaryKey" parameterType="com.gxust.edu.rental_room.domain.Order">
+    update t_order
     set userId = #{userid},
       lessorId = #{lessorid},
       houseId = #{houseid},
-      period = #{period},
-      yztime = #{yztime}
+      `time` = #{time}
     where id = #{id}
   </update>
-
-    <delete id="cancelYzHouse">
-      delete from t_yzinfo where userId = #{userId} and houseId = #{houseId}
-    </delete>
 </mapper>

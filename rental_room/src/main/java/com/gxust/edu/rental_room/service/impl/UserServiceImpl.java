@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl extends BaseServiceImpl<User, UserQuery> implements UserService {
 
@@ -55,6 +57,11 @@ public class UserServiceImpl extends BaseServiceImpl<User, UserQuery> implements
         boolean addResult = baseMapper.add(user) == 1;
         boolean bindResult = ((UserMapper) baseMapper).bind(user.getId(), roleId)==1;
         return addResult && bindResult;
+    }
+
+    @Override
+    public List<User> findUsersByLessorId(Integer lessorId,Integer houseId){
+        return ((UserMapper)baseMapper).findUsersByLessorId(lessorId,houseId);
     }
 
 }

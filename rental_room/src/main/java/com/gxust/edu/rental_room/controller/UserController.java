@@ -8,6 +8,7 @@ import com.gxust.edu.rental_room.response.Result;
 import com.gxust.edu.rental_room.response.ResultEnum;
 import com.gxust.edu.rental_room.service.UserService;
 import com.gxust.edu.rental_room.utils.ResultUtil;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.crypto.hash.Md5Hash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,7 +27,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    /*@RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
     public Result login(String loginName, String password) {
         User user = userService.findByLoginName(loginName);
@@ -42,7 +43,7 @@ public class UserController {
             return ResultUtil.error(ResultEnum.ACCOUNT_IS_FREEZE.getCode(), ResultEnum.ACCOUNT_IS_FREEZE.getMsg());
         }
         return ResultUtil.success(user);
-    }
+    }*/
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
@@ -54,6 +55,7 @@ public class UserController {
         return ResultUtil.success();
     }
 
+    @RequiresPermissions("管理员添加")
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     @ResponseBody
     public Result deleteUser(String id) {

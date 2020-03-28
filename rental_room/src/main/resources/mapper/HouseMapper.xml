@@ -236,6 +236,8 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
+
+    <!--查找正在租赁的房源-->
     <select id="findAllRental" resultMap="BaseResultMap">
         select * from t_house where status = 1 and rental_status = 1
         <if test="title != null and title!=''">
@@ -243,8 +245,31 @@
             and title like #{likeTitle}
         </if>
     </select>
+
+    <!--更新房屋审核状态-->
     <update id="updateStatus">
         update t_house set status = #{status} where id = #{id}
     </update>
+
+    <!--查找预租的房源-->
+    <select id="findYzHouse" resultMap="BaseResultMap">
+        select h.* from t_house h,t_yzinfo y
+        where h.id = y.houseId
+        and y.userId = #{userId}
+    </select>
+
+    <!--查找成功租赁的房屋（签订合同）-->
+    <select id="findsuccessRentHouse" resultMap="BaseResultMap">
+        select h.* from t_house h,t_order o
+        where h.id = o.houseId
+        and o.userId = #{userId}
+    </select>
+
+    <!--查找待房主审核的预租信息-->
+    <select id="findCheckedHouse" resultMap="BaseResultMap">
+        select distinct h.* from t_house h,t_yzinfo y
+        where h.id = y.houseId
+        and lessorId = #{userId}
+    </select>
 
 </mapper>

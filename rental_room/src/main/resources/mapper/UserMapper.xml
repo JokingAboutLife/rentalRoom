@@ -145,4 +145,10 @@
         and role_id = #{roleId}
     </delete>
 
+    <!--查找预租的用户组-->
+    <select id="findUsersByLessorId" resultType="com.gxust.edu.rental_room.domain.User">
+        select * from t_user
+        where id in (select userId from t_yzinfo where lessorId = #{lessorId} and houseId = #{houseId})
+    </select>
+
 </mapper>

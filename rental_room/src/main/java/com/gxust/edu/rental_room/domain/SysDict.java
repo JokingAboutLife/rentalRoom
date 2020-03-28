@@ -18,6 +18,7 @@ import lombok.ToString;
 @Setter
 public class SysDict extends BaseDomain implements Serializable {
 
+    private static final long serialVersionUID = 5218122430499462548L;
     /**
     * 字典类型
     */
@@ -38,5 +39,4 @@ public class SysDict extends BaseDomain implements Serializable {
     */
     private Byte xyBj;
 
-    private static final long serialVersionUID = 1L;
 }
