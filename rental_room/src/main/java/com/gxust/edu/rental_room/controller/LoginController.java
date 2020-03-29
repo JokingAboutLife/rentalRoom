@@ -9,6 +9,7 @@ import com.gxust.edu.rental_room.service.UserService;
 import com.gxust.edu.rental_room.service.impl.UserServiceImpl;
 import com.gxust.edu.rental_room.utils.ResultUtil;
 import com.gxust.edu.rental_room.utils.TreeUtil;
+import com.sun.org.apache.regexp.internal.REUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -65,7 +66,7 @@ public class LoginController {
         List<Permission> permissionList = permissionService.selectLeafByUserIdOrRoleId(null, userId);
         List<Permission> levelMenuTree = TreeUtil.getMenuTree(FirstMenus, permissionList);
         if (levelMenuTree == null && levelMenuTree.size() < 0) {
-            return ResultUtil.error(ResultEnum.MENU_FIND_IS_NULL.getCode(), ResultEnum.MENU_FIND_IS_NULL.getMsg());
+            return ResultUtil.error(ResultEnum.MENU_FIND_IS_NULL);
         }
         return ResultUtil.success(levelMenuTree);
     }
@@ -77,17 +78,9 @@ public class LoginController {
         List<Permission> permissionList = permissionService.selectLeafByUserIdOrRoleId(0,null);
         List<Permission> levelMenuTree = TreeUtil.getMenuTree(FirstMenus, permissionList);
         if (levelMenuTree == null && levelMenuTree.size() < 0) {
-            return ResultUtil.error(ResultEnum.MENU_FIND_IS_NULL.getCode(), ResultEnum.MENU_FIND_IS_NULL.getMsg());
+            return ResultUtil.error(ResultEnum.MENU_FIND_IS_NULL);
         }
         return ResultUtil.success(levelMenuTree);
-    }
-
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    @ResponseBody
-    public String login() {
-//        System.out.println("未授权跳转登陆页面的响应数据");
-//        return ResultUtil.error(101, "未授权跳转登陆页面的响应数据");
-        return "未授权跳转登陆页面的响应数据";
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
@@ -101,8 +94,8 @@ public class LoginController {
 
     @RequestMapping(value = "/unauth", method = RequestMethod.GET)
     @ResponseBody
-    public Result unauth() {
+    public Result unauth(int code) {
         System.out.println("未授权响应数据");
-        return ResultUtil.error(ResultEnum.PERMISSION_NOT_ALLOW.getCode(), ResultEnum.PERMISSION_NOT_ALLOW.getMsg());
+        return code == 1? ResultUtil.error(ResultEnum.UNAUTHENTICATED):ResultUtil.error(ResultEnum.UNAUTHORIZED);
     }
 }

@@ -3,6 +3,7 @@ package com.gxust.edu.rental_room.utils;
 import com.gxust.edu.rental_room.response.ResultEnum;
 import com.gxust.edu.rental_room.response.Result;
 
+
 public class ResultUtil {
 
     /**成功且带数据**/
@@ -26,4 +27,13 @@ public class ResultUtil {
         result.setMsg(msg);
         return result;
     }
+
+    /**失败**/
+    public static Result error(ResultEnum resultEnum){
+        Result result = new Result();
+        result.setCode(resultEnum.getCode());
+        result.setMsg(resultEnum.getMsg());
+        return result;
+    }
+
 }

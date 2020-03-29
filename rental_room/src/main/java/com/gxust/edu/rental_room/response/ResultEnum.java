@@ -5,8 +5,9 @@ public enum ResultEnum {
     //这里是可以自己定义的，方便与前端交互即可
     UNKNOWN_ERROR(-1,"未知错误"),
     COMMENT_ERROR(-100,"普通错误"),
-    SERVE_ERROR(-200,"服务器错误"),
-    SHIRO_ERROR(-300,"您没有权限访问"),
+    SERVE_ERROR(-200,"抱歉，系统繁忙,请稍后重试！"),
+    UNAUTHENTICATED(-300,"您还未登录"),
+    UNAUTHORIZED(-400,"权限不足"),
     DATA_IS_NULL(3,"数据为空"),
     SUCCESS(2000,"成功"),
 
@@ -18,6 +19,7 @@ public enum ResultEnum {
     ROLE_IS_NULL(5005,"角色查询失败"),
     ROLE_FIND_FAIL(5006,"找不到角色"),
     ROLE_SET_PERMISSION_FAIL(5007,"角色设置权限失败"),
+    ROLE_NOT_DELETE(5008,"该角色不能删除"),
 
 
     //菜单权限模块
@@ -33,10 +35,12 @@ public enum ResultEnum {
 
     //用户模块
     USER_NOT_EXIST(1001,"用户不存在"),
-    USER_IS_EXISTS(1002,"用户已存在"),
+    ACCOUNT_IS_EXISTS(1002,"账号已存在"),
+    ACCOUNT_NOT_NULL(1012,"账号不能为空"),
     PASSWORD_IS_ERRO(1003,"密码错误"),
     ACCOUNT_IS_FREEZE(1004,"账号已冻结，请联系管理员"),
     USER_ADD_ERRO(1005,"用户添加失败"),
+    USER_REGISTER_ERRO(1012,"用户注册失败"),
     USER_DELETE_ERRO(1006,"用户删除失败"),
     USER_UPDATE_ERRO(1007,"用户更新失败"),
     USER_NOT_FIND(1008,"查询不到该用户"),
@@ -56,6 +60,7 @@ public enum ResultEnum {
     HOUSE_RENTAL_YZ_EXISTS(3008,"您已经预租该房屋"),
     HOUSE_CANCEL_YZ_EXISTS(3009,"取消预租房屋失败"),
     HOUSE_NOT_RENT_SELF(3010,"您不能租赁自己的房屋"),
+    HOUSE_YZ_TIME_IS_NULL(3011,"房屋预租日期不能为空"),
 
     //租赁信息模块
 

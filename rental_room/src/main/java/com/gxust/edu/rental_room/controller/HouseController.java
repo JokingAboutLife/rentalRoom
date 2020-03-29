@@ -34,7 +34,7 @@ public class HouseController {
     public Result allRental(HouseQuery qo) {
         PageInfo<House> pageInfo = houseService.findAllRental(qo);
         if (pageInfo.getList() == null || pageInfo.getList().size() < 0) {
-            return ResultUtil.error(ResultEnum.HOUSE_RENTAL_IS_NULL.getCode(), ResultEnum.HOUSE_RENTAL_IS_NULL.getMsg());
+            return ResultUtil.error(ResultEnum.HOUSE_RENTAL_IS_NULL);
         }
         return ResultUtil.success(pageInfo);
     }
@@ -44,7 +44,7 @@ public class HouseController {
     public Result addHouse(House house) {
         boolean result = houseService.add(house);
         if (!result) {
-            return ResultUtil.error(ResultEnum.HOUSE_ADD_ERRO.getCode(), ResultEnum.HOUSE_ADD_ERRO.getMsg());
+            return ResultUtil.error(ResultEnum.HOUSE_ADD_ERRO);
         }
         return ResultUtil.success();
     }
@@ -59,7 +59,7 @@ public class HouseController {
         }
         boolean result = houseService.deleteByIds(ids);
         if (!result) {
-            return ResultUtil.error(ResultEnum.HOUSE_DELETE_ERRO.getCode(), ResultEnum.HOUSE_DELETE_ERRO.getMsg());
+            return ResultUtil.error(ResultEnum.HOUSE_DELETE_ERRO);
         }
         return ResultUtil.success();
     }
@@ -69,7 +69,7 @@ public class HouseController {
     public Result update(House house) {
         boolean result = houseService.update(house);
         if (!result) {
-            return ResultUtil.error(ResultEnum.HOUSE_UPDATE_ERRO.getCode(), ResultEnum.HOUSE_UPDATE_ERRO.getMsg());
+            return ResultUtil.error(ResultEnum.HOUSE_UPDATE_ERRO);
         }
         return ResultUtil.success();
     }
@@ -79,7 +79,7 @@ public class HouseController {
     public Result findById(Integer id) {
         House house = houseService.findById(id);
         if (house == null) {
-            return ResultUtil.error(ResultEnum.HOUSE_FIND_IS_NULL.getCode(), ResultEnum.HOUSE_FIND_IS_NULL.getMsg());
+            return ResultUtil.error(ResultEnum.HOUSE_FIND_IS_NULL);
         }
         return ResultUtil.success(house);
     }
@@ -90,7 +90,7 @@ public class HouseController {
         PageInfo<House> pageInfo = houseService.findByQuery(houseQuery);
         List<House> houseList = pageInfo.getList();
         if (houseList == null && houseList.size() < 0) {
-            return ResultUtil.error(ResultEnum.HOUSE_FIND_IS_NULL.getCode(), ResultEnum.HOUSE_FIND_IS_NULL.getMsg());
+            return ResultUtil.error(ResultEnum.HOUSE_FIND_IS_NULL);
         }
         return ResultUtil.success(pageInfo);
     }
@@ -100,7 +100,7 @@ public class HouseController {
     public Result updateStatus(Integer id, Boolean status) {
         boolean result = houseService.updateStatus(id, status);
         if (!result) {
-            return ResultUtil.error(ResultEnum.HOUSE_UPDATE_STATUS_FAIL.getCode(), ResultEnum.HOUSE_UPDATE_STATUS_FAIL.getMsg());
+            return ResultUtil.error(ResultEnum.HOUSE_UPDATE_STATUS_FAIL);
         }
         return ResultUtil.success();
     }
@@ -109,16 +109,19 @@ public class HouseController {
     @ResponseBody
     public Result yzhouse(YzInfo yzInfo) {
         try {
+            if(yzInfo.getYztime()==null){
+                return ResultUtil.error(ResultEnum.HOUSE_YZ_TIME_IS_NULL);
+            }
             if(yzInfo.getUserid() == yzInfo.getLessorid()){
-                return ResultUtil.error(ResultEnum.HOUSE_NOT_RENT_SELF.getCode(),ResultEnum.HOUSE_NOT_RENT_SELF.getMsg());
+                return ResultUtil.error(ResultEnum.HOUSE_NOT_RENT_SELF);
             }
             boolean result = houseService.yzhouse(yzInfo);
             if (!result) {
-                return ResultUtil.error(ResultEnum.HOUSE_RENTAL_YZ_FAIL.getCode(), ResultEnum.HOUSE_RENTAL_YZ_FAIL.getMsg());
+                return ResultUtil.error(ResultEnum.HOUSE_RENTAL_YZ_FAIL);
             }
             return ResultUtil.success();
         } catch (Exception e) {
-            return ResultUtil.error(ResultEnum.HOUSE_RENTAL_YZ_EXISTS.getCode(), ResultEnum.HOUSE_RENTAL_YZ_EXISTS.getMsg());
+            return ResultUtil.error(ResultEnum.HOUSE_RENTAL_YZ_EXISTS);
         }
     }
 
@@ -134,7 +137,7 @@ public class HouseController {
     public Result cancelYzHouse(Integer userId, Integer houseId) {
         boolean result = houseService.cancelYzHouse(userId, houseId);
         if (!result) {
-            return ResultUtil.error(ResultEnum.HOUSE_CANCEL_YZ_EXISTS.getCode(), ResultEnum.HOUSE_CANCEL_YZ_EXISTS.getMsg());
+            return ResultUtil.error(ResultEnum.HOUSE_CANCEL_YZ_EXISTS);
         }
         return ResultUtil.success();
     }
@@ -144,7 +147,7 @@ public class HouseController {
     public Result getSuccessRentHouse(Integer userId) {
         List<House> list = houseService.findsuccessRentHouse(userId);
         if (list == null || list.size() < 0) {
-            return ResultUtil.error(ResultEnum.HOUSE_CANCEL_YZ_EXISTS.getCode(), ResultEnum.HOUSE_CANCEL_YZ_EXISTS.getMsg());
+            return ResultUtil.error(ResultEnum.HOUSE_CANCEL_YZ_EXISTS);
         }
         return ResultUtil.success(list);
     }
@@ -154,7 +157,7 @@ public class HouseController {
     public Result getCheckedHouse(Integer userId) {
         List<CheckedHouseVo> list = houseService.findCheckedHouse(userId);
         if (list == null || list.size() < 0) {
-            return ResultUtil.error(ResultEnum.HOUSE_CANCEL_YZ_EXISTS.getCode(), ResultEnum.HOUSE_CANCEL_YZ_EXISTS.getMsg());
+            return ResultUtil.error(ResultEnum.HOUSE_CANCEL_YZ_EXISTS);
         }
         return ResultUtil.success(list);
     }

@@ -28,13 +28,13 @@ public class ControllerExceptionHandler {
         System.out.println("+++++++++++++++授权异常+++++++++++++++");
         System.out.println("+++++++++++++++++++++++++++++++++++++");
         System.out.println(e.getMessage());
-        return ResultUtil.error(ResultEnum.COMMENT_ERROR.getCode(), e.getMessage());
+        return ResultUtil.error(ResultEnum.COMMENT_ERROR);
     }
 
     // 捕捉shiro的异常
     @ExceptionHandler(ShiroException.class)
     public Result handle401() {
-        return ResultUtil.error(ResultEnum.SHIRO_ERROR.getCode(),ResultEnum.SHIRO_ERROR.getMsg());
+        return ResultUtil.error(ResultEnum.UNAUTHORIZED);
     }
 
 
@@ -44,7 +44,7 @@ public class ControllerExceptionHandler {
         System.out.println("=====================================");
         System.out.println("===============发生异常===============");
         System.out.println("=====================================");
-        return ResultUtil.error(ResultEnum.UNKNOWN_ERROR.getCode(), e.getMessage());
+        return ResultUtil.error(ResultEnum.UNKNOWN_ERROR);
     }
 
 }

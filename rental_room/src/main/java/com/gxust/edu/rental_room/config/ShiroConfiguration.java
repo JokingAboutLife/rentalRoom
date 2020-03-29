@@ -50,13 +50,15 @@ public class ShiroConfiguration {
         //2.设置安全管理器
         filterFactory.setSecurityManager(securityManager);
         //3.通用配置（跳转登录页面，未授权跳转的页面）
-        filterFactory.setLoginUrl("/login");//跳转url地址
-        filterFactory.setUnauthorizedUrl("/unauth");//未授权的url
+        filterFactory.setLoginUrl("/unauth?code=1");//跳转url地址
+        filterFactory.setUnauthorizedUrl("/unauth?code=2");//未授权的url
         Map<String,String> filterMap = new LinkedHashMap<>();
-//        filterMap.put("/login","anon");
-//        filterMap.put("/logout","anon");
-//        filterMap.put("/findLevelMenu","anon");
-//        filterMap.put("/house/findRentalHouse","anon");
+        filterMap.put("/login","anon");
+        filterMap.put("/register","anon");
+        filterMap.put("/logout","anon");
+        filterMap.put("/user/check/loginName","anon");
+        filterMap.put("/findLevelMenu","anon");
+        filterMap.put("/house/findRentalHouse","anon");
         filterMap.put("/**","authc");
         filterFactory.setFilterChainDefinitionMap(filterMap);
         return filterFactory;
@@ -93,6 +95,8 @@ public class ShiroConfiguration {
     public DefaultWebSessionManager sessionManager() {
         CustomSessionManager sessionManager = new CustomSessionManager();
         sessionManager.setSessionDAO(redisSessionDAO());
+        sessionManager.setSessionIdCookieEnabled(false);
+        sessionManager.setSessionIdUrlRewritingEnabled(false);
         return sessionManager;
     }
 

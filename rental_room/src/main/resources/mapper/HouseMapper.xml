@@ -241,8 +241,9 @@
     <select id="findAllRental" resultMap="BaseResultMap">
         select * from t_house where status = 1 and rental_status = 1
         <if test="title != null and title!=''">
-            <bind name="likeTitle" value="'%' + _parameter.title + '%'"/>
-            and title like #{likeTitle}
+            <foreach collection="title.split(' ')" open="and" item="item" separator="and">
+                title like CONCAT(CONCAT('%',#{item}),'%')
+            </foreach>
         </if>
     </select>
 

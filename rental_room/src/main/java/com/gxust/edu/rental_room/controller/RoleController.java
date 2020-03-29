@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -37,13 +38,16 @@ public class RoleController {
     @ResponseBody
     public Result deleteRole(String id) {
         String[] idsStr = id.split(",");
+        if(Arrays.asList(idsStr).contains("1") || Arrays.asList(idsStr).contains("2") || Arrays.asList(idsStr).contains("3")){
+            return ResultUtil.error(ResultEnum.ROLE_NOT_DELETE);
+        }
         int[] ids = new int[idsStr.length];
         for (int i = 0; i < idsStr.length; i++) {
             ids[i] = Integer.parseInt(idsStr[i]);
         }
         boolean result = roleService.deleteByIds(ids);
         if (!result) {
-           return ResultUtil.error(ResultEnum.ROLE_DELETE_ERRO.getCode(),ResultEnum.ROLE_DELETE_ERRO.getMsg());
+           return ResultUtil.error(ResultEnum.ROLE_DELETE_ERRO);
         }
         return ResultUtil.success();
     }
@@ -53,7 +57,7 @@ public class RoleController {
     public Result update(Role role) {
         boolean result = roleService.update(role);
         if (!result) {
-            return ResultUtil.error(ResultEnum.ROLE_UPDATE_ERRO.getCode(),ResultEnum.ROLE_UPDATE_ERRO.getMsg());
+            return ResultUtil.error(ResultEnum.ROLE_UPDATE_ERRO);
         }
         return ResultUtil.success();
     }
@@ -63,7 +67,7 @@ public class RoleController {
     public Result findById(Integer id) {
         Role role = roleService.findById(id);
         if (role == null) {
-            return ResultUtil.error(ResultEnum.ROLE_NOT_FIND.getCode(),ResultEnum.ROLE_NOT_FIND.getMsg());
+            return ResultUtil.error(ResultEnum.ROLE_NOT_FIND);
         }
         return ResultUtil.success(role);
     }
@@ -74,7 +78,7 @@ public class RoleController {
         PageInfo<Role> pageInfo = roleService.findByQuery(roleQuery);
         List<Role> roleList = pageInfo.getList();
         if (roleList == null || roleList.size() < 0) {
-            return ResultUtil.error(ResultEnum.ROLE_IS_NULL.getCode(),ResultEnum.ROLE_IS_NULL.getMsg());
+            return ResultUtil.error(ResultEnum.ROLE_IS_NULL);
         }
         return ResultUtil.success(pageInfo);
     }
@@ -84,7 +88,7 @@ public class RoleController {
     public Result findRoleByUserId(Integer userId) {
         List<Role> roleList = roleService.findRoleByUserId(userId);
         if (roleList == null && roleList.size() < 0) {
-            return ResultUtil.error(ResultEnum.ROLE_FIND_FAIL.getCode(),ResultEnum.ROLE_FIND_FAIL.getMsg());
+            return ResultUtil.error(ResultEnum.ROLE_FIND_FAIL);
         }
         return ResultUtil.success(roleList);
     }
@@ -96,7 +100,7 @@ public class RoleController {
             roleService.setPermissions(roleId, permissionIdsStr);
             return ResultUtil.success();
         } catch (Exception e) {
-            return ResultUtil.error(ResultEnum.ROLE_SET_PERMISSION_FAIL.getCode(),ResultEnum.ROLE_SET_PERMISSION_FAIL.getMsg());
+            return ResultUtil.error(ResultEnum.ROLE_SET_PERMISSION_FAIL);
         }
     }
 }

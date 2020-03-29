@@ -2,6 +2,7 @@ package com.gxust.edu.rental_room.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.util.StringUtil;
+import com.gxust.edu.rental_room.RentalRoomApplication;
 import com.gxust.edu.rental_room.domain.User;
 import com.gxust.edu.rental_room.query.UserQuery;
 import com.gxust.edu.rental_room.response.Result;
@@ -50,12 +51,23 @@ public class UserController {
     public Result addUser(User user, Integer roleId) {
         boolean result = userService.addUser(user, roleId);
         if (!result) {
-            return ResultUtil.error(ResultEnum.USER_ADD_ERRO.getCode(), ResultEnum.USER_ADD_ERRO.getMsg());
+            return ResultUtil.error(ResultEnum.USER_ADD_ERRO);
         }
         return ResultUtil.success();
     }
 
-    @RequiresPermissions("管理员添加")
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    @ResponseBody
+    public Result register(User user) {
+        boolean result = userService.add(user);
+        if (!result) {
+            return ResultUtil.error(ResultEnum.USER_REGISTER_ERRO);
+        }
+        return ResultUtil.success();
+    }
+
+
+    @RequiresPermissions("user:delete")
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     @ResponseBody
     public Result deleteUser(String id) {
@@ -66,7 +78,7 @@ public class UserController {
         }
         boolean result = userService.deleteByIds(ids);
         if (!result) {
-            return ResultUtil.error(ResultEnum.USER_DELETE_ERRO.getCode(), ResultEnum.USER_DELETE_ERRO.getMsg());
+            return ResultUtil.error(ResultEnum.USER_DELETE_ERRO);
         }
         return ResultUtil.success();
     }
@@ -76,7 +88,7 @@ public class UserController {
     public Result update(User user) {
         boolean result = userService.update(user);
         if (!result) {
-            return ResultUtil.error(ResultEnum.USER_UPDATE_ERRO.getCode(), ResultEnum.USER_UPDATE_ERRO.getMsg());
+            return ResultUtil.error(ResultEnum.USER_UPDATE_ERRO);
         }
         return ResultUtil.success();
     }
@@ -86,7 +98,7 @@ public class UserController {
     public Result updateStatus(Boolean status, Integer id) {
         boolean result = userService.updateStatus(status, id);
         if (!result) {
-            return ResultUtil.error(ResultEnum.USER_STATUS_UPDATE_FAIL.getCode(), ResultEnum.USER_STATUS_UPDATE_FAIL.getMsg());
+            return ResultUtil.error(ResultEnum.USER_STATUS_UPDATE_FAIL);
         }
         return ResultUtil.success();
     }
@@ -96,7 +108,7 @@ public class UserController {
     public Result findById(Integer id) {
         User user = userService.findById(id);
         if (user == null) {
-            return ResultUtil.error(ResultEnum.USER_NOT_FIND.getCode(), ResultEnum.USER_NOT_FIND.getMsg());
+            return ResultUtil.error(ResultEnum.USER_NOT_FIND);
         }
         return ResultUtil.success(user);
     }
@@ -107,26 +119,23 @@ public class UserController {
         PageInfo<User> pageInfo = userService.findByQuery(userQuery);
         List<User> userList = pageInfo.getList();
         if (userList == null) {
-            return ResultUtil.error(ResultEnum.USER_IS_NULL.getCode(), ResultEnum.USER_IS_NULL.getMsg());
+            return ResultUtil.error(ResultEnum.USER_IS_NULL);
         }
         return ResultUtil.success(pageInfo);
     }
 
     @RequestMapping(value = "/check/loginName", method = RequestMethod.GET)
     @ResponseBody
-    public Map<String, Boolean> checkLoginName(String loginName, Integer id) {
-        Map<String, Boolean> result = new HashMap<>();
+    public Result checkLoginName(String loginName, Integer id) {
         if (StringUtil.isEmpty(loginName)) {
-            result.put("valid", false);
-            return result;
+            return ResultUtil.error(ResultEnum.ACCOUNT_NOT_NULL);
         }
         int count = userService.findCountByLoginName(loginName, id);
         if (count > 0) {
-            result.put("valid", false);
+            return ResultUtil.error(ResultEnum.ACCOUNT_IS_EXISTS);
         } else {
-            result.put("valid", true);
+            return ResultUtil.success();
         }
-        return result;
     }
 
     @RequestMapping(value = "/setRole", method = RequestMethod.POST)
@@ -134,7 +143,7 @@ public class UserController {
     public Result setRole(Integer userId, Integer roleId, boolean isNew) {
         boolean result = userService.setRole(userId, roleId, isNew);
         if (!result) {
-            return ResultUtil.error(ResultEnum.USER_SET_ROLE_FAIL.getCode(), ResultEnum.USER_SET_ROLE_FAIL.getMsg());
+            return ResultUtil.error(ResultEnum.USER_SET_ROLE_FAIL);
         }
         return ResultUtil.success();
     }

@@ -14,7 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Arrays;
 import java.util.List;
+
+import static com.gxust.edu.rental_room.response.ResultEnum.ROLE_NOT_DELETE;
 
 @Controller
 @RequestMapping("/permission")
@@ -28,7 +31,7 @@ public class PermissionController {
     public Result addPermission(Permission permission) {
         boolean result = permissionService.add(permission);
         if (!result) {
-            return ResultUtil.error(ResultEnum.PERMISSION_ADD_ERRO.getCode(),ResultEnum.PERMISSION_ADD_ERRO.getMsg());
+            return ResultUtil.error(ResultEnum.PERMISSION_ADD_ERRO);
         }
         return ResultUtil.success();
     }
@@ -43,7 +46,7 @@ public class PermissionController {
         }
         boolean result = permissionService.deleteByIds(ids);
         if (!result) {
-            return ResultUtil.error(ResultEnum.PERMISSION_DELETE_ERRO.getCode(), ResultEnum.PERMISSION_DELETE_ERRO.getMsg());
+            return ResultUtil.error(ResultEnum.PERMISSION_DELETE_ERRO);
         }
         return ResultUtil.success();
     }
@@ -53,7 +56,7 @@ public class PermissionController {
     public Result update(Permission permission) {
         boolean result = permissionService.update(permission);
         if (!result) {
-            return ResultUtil.error(ResultEnum.PERMISSION_UPDATE_ERRO.getCode(), ResultEnum.PERMISSION_UPDATE_ERRO.getMsg());
+            return ResultUtil.error(ResultEnum.PERMISSION_UPDATE_ERRO);
         }
         return ResultUtil.success();
     }
@@ -63,7 +66,7 @@ public class PermissionController {
     public Result findById(Integer id) {
         Permission permission = permissionService.findById(id);
         if (permission == null) {
-            return ResultUtil.error(ResultEnum.PERMISSION_NOT_FIND.getCode(), ResultEnum.PERMISSION_NOT_FIND.getMsg());
+            return ResultUtil.error(ResultEnum.PERMISSION_NOT_FIND);
         }
         return ResultUtil.success(permission);
     }
@@ -74,7 +77,7 @@ public class PermissionController {
         PageInfo<Permission> pageInfo = permissionService.findByQuery(permissionQuery);
         List<Permission> permissionList = pageInfo.getList();
         if (permissionList == null && permissionList.size() < 0) {
-            return ResultUtil.error(ResultEnum.PERMISSION_NOT_FIND.getCode(), ResultEnum.PERMISSION_NOT_FIND.getMsg());
+            return ResultUtil.error(ResultEnum.PERMISSION_NOT_FIND);
         }
         return ResultUtil.success(permissionList);
     }
@@ -100,14 +103,14 @@ public class PermissionController {
             qo.setPaging(false);
             List<Permission> list = permissionService.findByQuery(qo).getList();
             if (list == null && list.size() < 0) {
-                return ResultUtil.error(ResultEnum.PERMISSION_IS_NULL.getCode(),ResultEnum.PERMISSION_IS_NULL.getMsg());
+                return ResultUtil.error(ResultEnum.PERMISSION_IS_NULL);
             }
             return ResultUtil.success(list);
         }
         //请求tree结构的权限列表
         List<Permission> allPermission = permissionService.findAllPermission(null, null);
         if (allPermission == null && allPermission.size() < 0) {
-            return ResultUtil.error(ResultEnum.PERMISSION_IS_NULL.getCode(),ResultEnum.PERMISSION_IS_NULL.getMsg());
+            return ResultUtil.error(ResultEnum.PERMISSION_IS_NULL);
         }
         return ResultUtil.success(allPermission);
     }
@@ -119,7 +122,7 @@ public class PermissionController {
         List<Permission> permissionList = permissionService.selectLeafByUserIdOrRoleId(roleId, null);
         List<Permission> roleOfPermission = TreeUtil.getMenuTree(FirstMenus, permissionList);
         if (roleOfPermission == null && roleOfPermission.size() < 0) {
-            return ResultUtil.error(ResultEnum.PERMISSION_NOT_FIND_BY_ROLE.getCode(),ResultEnum.PERMISSION_NOT_FIND_BY_ROLE.getMsg());
+            return ResultUtil.error(ResultEnum.PERMISSION_NOT_FIND_BY_ROLE);
         }
         return ResultUtil.success(roleOfPermission);
     }
