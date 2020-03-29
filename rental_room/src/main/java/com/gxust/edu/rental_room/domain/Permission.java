@@ -17,11 +17,9 @@ public class Permission extends BaseDomain implements Serializable {
     private String name;                //权限名
     private Integer parentId;           //父类权限id
     private String url;                 //路由地址
-    private Integer levels;             //
-    private Integer state;              //
     private Integer sorts;              //排序序号
     private String description;         //描述
-    private String perms;       //组件名称
+    private String perms;               //权限标识
     private String componentPath;       //组件路由
     private String icon;                //图标
     private Integer types;              //类型

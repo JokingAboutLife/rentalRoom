@@ -8,8 +8,6 @@
         <result column="parent_id" jdbcType="INTEGER" property="parentId"/>
         <result column="types" jdbcType="INTEGER" property="types"/>
         <result column="url" jdbcType="VARCHAR" property="url"/>
-        <result column="levels" jdbcType="INTEGER" property="levels"/>
-        <result column="state" jdbcType="INTEGER" property="state"/>
         <result column="sorts" jdbcType="INTEGER" property="sorts"/>
         <result column="description" jdbcType="VARCHAR" property="description"/>
         <result column="perms" jdbcType="VARCHAR" property="perms"/>
@@ -24,8 +22,6 @@
         <result column="parent_id" jdbcType="INTEGER" property="parentId"/>
         <result column="types" jdbcType="INTEGER" property="types"/>
         <result column="url" jdbcType="VARCHAR" property="url"/>
-        <result column="levels" jdbcType="INTEGER" property="levels"/>
-        <result column="state" jdbcType="INTEGER" property="state"/>
         <result column="sorts" jdbcType="INTEGER" property="sorts"/>
         <result column="description" jdbcType="VARCHAR" property="description"/>
         <result column="perms" jdbcType="VARCHAR" property="perms"/>
@@ -90,8 +86,6 @@
             parent_id,
             types,
             url,
-            levels,
-            state,
             sorts,
             description,
             perms,
@@ -103,8 +97,6 @@
             #{parentId},
             #{types},
             #{url},
-            #{levels},
-            #{state},
             #{sorts},
             #{description},
             #{perms},
@@ -141,12 +133,6 @@
             </if>
             <if test="url != null and url != ''">
                 url = #{url,jdbcType=VARCHAR},
-            </if>
-            <if test="levels != null and levels != ''">
-                levels = #{levels,jdbcType=INTEGER},
-            </if>
-            <if test="state != null and state != ''">
-                state = #{state,jdbcType=INTEGER},
             </if>
             <if test="sorts != null and sorts != ''">
                 sorts = #{sorts,jdbcType=INTEGER},

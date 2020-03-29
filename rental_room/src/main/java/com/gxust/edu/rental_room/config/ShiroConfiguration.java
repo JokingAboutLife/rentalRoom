@@ -59,6 +59,7 @@ public class ShiroConfiguration {
         filterMap.put("/user/check/loginName","anon");
         filterMap.put("/findLevelMenu","anon");
         filterMap.put("/house/findRentalHouse","anon");
+        filterMap.put("/unauth","anon");
         filterMap.put("/**","authc");
         filterFactory.setFilterChainDefinitionMap(filterMap);
         return filterFactory;
