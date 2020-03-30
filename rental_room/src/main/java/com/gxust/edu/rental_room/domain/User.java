@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.crazycake.shiro.AuthCachePrincipal;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -27,17 +24,20 @@ public class User extends BaseDomain implements Serializable, AuthCachePrincipal
 
     @NotNull
     @NotBlank(message = "密码不能为空")
-    @Size(min = 6, max = 15, message = "密码最少6位，最多15位")
+    @Pattern(regexp = "^[a-zA-Z]\\w{5,17}$",message = "密码以字母开头，长度在6~18之间，只能包含字符、数字和下划线")
     private String password;    //密码
 
     @NotNull
     @NotBlank(message = "真实姓名不能为空")
+    @Pattern(regexp = "^[\\u4e00-\\u9fa5]{0,}$",message = "真实姓名只能输入汉字")
     private String realName;    //真实姓名
 
     @NotNull
     @NotBlank(message = "身份证号不能为空")
+    @Pattern(regexp = "^\\d{15}|\\d{18}$",message = "身份证号格式错误")
     private String idcard;      //身份证号
 
+//    @Pattern(regexp = "/^[1]([3-9])[0-9]{9}$/",message = "手机号格式错误")
     private String phone;       //手机号
 
     @Email(message = "邮箱格式错误")

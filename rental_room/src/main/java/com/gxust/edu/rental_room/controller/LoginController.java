@@ -22,6 +22,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import sun.java2d.pipe.ValidatePipe;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,6 +57,21 @@ public class LoginController {
         return ResultUtil.success(map);
     }
 
+
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    @ResponseBody
+    public Result register(@Valid User user) {
+        String loginName = user.getLoginName();
+        String password = user.getPassword();
+        password = new Md5Hash(password,loginName,3).toString();
+        user.setPassword(password);
+        boolean result = userService.addUser(user, 3);
+        if (!result) {
+            return ResultUtil.error(ResultEnum.USER_REGISTER_ERRO);
+        }
+        return ResultUtil.success();
+    }
+
     @RequestMapping(value = "/visitorLogin",method = RequestMethod.POST)
     @ResponseBody
     public Result visitorLogin() {
@@ -71,7 +90,7 @@ public class LoginController {
         return ResultUtil.success(levelMenuTree);
     }
 
-    @RequestMapping(value = "/visitor/findLevelMenu", method = RequestMethod.POST)
+   /* @RequestMapping(value = "/visitor/findLevelMenu", method = RequestMethod.POST)
     @ResponseBody
     public Result visitorLevelMenu() {
         List<Permission> FirstMenus = permissionService.selectFirstMenuByUserIdOrRoleId(0,null);
@@ -81,7 +100,7 @@ public class LoginController {
             return ResultUtil.error(ResultEnum.MENU_FIND_IS_NULL);
         }
         return ResultUtil.success(levelMenuTree);
-    }
+    }*/
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     @ResponseBody

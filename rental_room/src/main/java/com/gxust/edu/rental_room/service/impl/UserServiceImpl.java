@@ -5,6 +5,7 @@ import com.gxust.edu.rental_room.mapper.RoleMapper;
 import com.gxust.edu.rental_room.mapper.UserMapper;
 import com.gxust.edu.rental_room.query.UserQuery;
 import com.gxust.edu.rental_room.service.UserService;
+import org.apache.shiro.crypto.hash.Md5Hash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,7 +25,7 @@ public class UserServiceImpl extends BaseServiceImpl<User, UserQuery> implements
 
     @Override
     public User findByLoginName(String loginName) {
-        return ((UserMapper)baseMapper).findByLoginName(loginName);
+        return ((UserMapper) baseMapper).findByLoginName(loginName);
     }
 
     @Override
@@ -52,16 +53,18 @@ public class UserServiceImpl extends BaseServiceImpl<User, UserQuery> implements
     @Transactional
     @Override
     public boolean addUser(User user, Integer roleId) {
-        user.setPassword("123456");
+        if (user.getPassword() == null || "".equals(user.getPassword())) {
+            user.setPassword(new Md5Hash("123456", user.getLoginName(), 3).toString());
+        }
         user.setStatus(true);
         boolean addResult = baseMapper.add(user) == 1;
-        boolean bindResult = ((UserMapper) baseMapper).bind(user.getId(), roleId)==1;
+        boolean bindResult = ((UserMapper) baseMapper).bind(user.getId(), roleId) == 1;
         return addResult && bindResult;
     }
 
     @Override
-    public List<User> findUsersByLessorId(Integer lessorId,Integer houseId){
-        return ((UserMapper)baseMapper).findUsersByLessorId(lessorId,houseId);
+    public List<User> findUsersByLessorId(Integer lessorId, Integer houseId) {
+        return ((UserMapper) baseMapper).findUsersByLessorId(lessorId, houseId);
     }
 
 }

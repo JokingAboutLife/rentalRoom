@@ -6,6 +6,14 @@ import com.gxust.edu.rental_room.utils.ResultUtil;
 import org.apache.shiro.ShiroException;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authz.AuthorizationException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.converter.HttpMessageConversionException;
+import org.springframework.validation.BindException;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -15,20 +23,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.ValidationException;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.List;
 
 
 @ControllerAdvice
 public class ControllerExceptionHandler {
 
+    private static final Logger logger = LoggerFactory.getLogger(ControllerExceptionHandler.class);
 
     @ExceptionHandler(value = AuthenticationException.class)
     @ResponseBody
-    public Result error(AuthenticationException e) {
+    public Result error(Exception e) {
         System.out.println("+++++++++++++++++++++++++++++++++++++");
         System.out.println("+++++++++++++++授权异常+++++++++++++++");
         System.out.println("+++++++++++++++++++++++++++++++++++++");
         System.out.println(e.getMessage());
-        return ResultUtil.error(ResultEnum.COMMENT_ERROR);
+        return ResultUtil.error(ResultEnum.COMMENT_ERROR.getCode(),((AuthenticationException)e).getMessage());
     }
 
     // 捕捉shiro的异常
@@ -37,6 +47,20 @@ public class ControllerExceptionHandler {
         return ResultUtil.error(ResultEnum.UNAUTHORIZED);
     }
 
+    @ExceptionHandler(BindException.class)
+    @ResponseBody
+    public Result parameterTypeException(Exception e){
+        //打印校验住的所有的错误信息
+        StringBuilder sb = new StringBuilder();
+        List<ObjectError> list = ((BindException) e).getAllErrors();
+        for (ObjectError item : list) {
+            sb.append("【").append(item.getDefaultMessage()).append(";】").append("<br/>");
+        }
+        sb.deleteCharAt(sb.length() - 1);
+        String msg = sb.toString();
+        System.out.println(msg);
+        return ResultUtil.error(ResultEnum.TYPE_TRANSFORM_ERROR.getCode(),msg);
+    }
 
     @ExceptionHandler({Exception.class})
     @ResponseBody

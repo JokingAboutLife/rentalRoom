@@ -56,18 +56,8 @@ public class UserController {
         return ResultUtil.success();
     }
 
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
-    @ResponseBody
-    public Result register(User user) {
-        boolean result = userService.add(user);
-        if (!result) {
-            return ResultUtil.error(ResultEnum.USER_REGISTER_ERRO);
-        }
-        return ResultUtil.success();
-    }
 
-
-    @RequiresPermissions("user:delete")
+//    @RequiresPermissions("user:delete")
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     @ResponseBody
     public Result deleteUser(String id) {

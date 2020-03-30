@@ -3,11 +3,13 @@ package com.gxust.edu.rental_room.response;
 
 public enum ResultEnum {
     //这里是可以自己定义的，方便与前端交互即可
-    UNKNOWN_ERROR(-1,"未知错误"),
-    COMMENT_ERROR(-100,"普通错误"),
-    SERVE_ERROR(-200,"抱歉，系统繁忙,请稍后重试！"),
-    UNAUTHENTICATED(-300,"您还未登录"),
-    UNAUTHORIZED(-400,"权限不足"),
+    UNKNOWN_ERROR(-10,"未知错误"),
+    COMMENT_ERROR(-20,"普通错误"),
+    SERVE_ERROR(-30,"抱歉，系统繁忙,请稍后重试！"),
+    UNAUTHENTICATED(-40,"您还未登录"),
+    UNAUTHORIZED(-50,"权限不足"),
+    PARAM_ERROR(-60,"参数错误"),
+    TYPE_TRANSFORM_ERROR(-60,"类型转换错误"),
     DATA_IS_NULL(3,"数据为空"),
     SUCCESS(2000,"成功"),
 
