@@ -6,6 +6,8 @@ import com.gxust.edu.rental_room.utils.ResultUtil;
 import org.apache.shiro.ShiroException;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authz.AuthorizationException;
+import org.apache.shiro.authz.UnauthenticatedException;
+import org.apache.shiro.authz.UnauthorizedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.converter.HttpMessageConversionException;
@@ -23,7 +25,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.ValidationException;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @ControllerAdvice
@@ -31,22 +35,29 @@ public class ControllerExceptionHandler {
 
     private static final Logger logger = LoggerFactory.getLogger(ControllerExceptionHandler.class);
 
-    @ExceptionHandler(value = AuthenticationException.class)
+    /**
+     * 登录认证异常
+     */
+    @ExceptionHandler({ UnauthenticatedException.class, AuthenticationException.class })
     @ResponseBody
-    public Result error(Exception e) {
-        System.out.println("+++++++++++++++++++++++++++++++++++++");
-        System.out.println("+++++++++++++++授权异常+++++++++++++++");
-        System.out.println("+++++++++++++++++++++++++++++++++++++");
-        System.out.println(e.getMessage());
+    public Result authenticationException(Exception e) {
+        logger.info("登录认证异常【"+e.getMessage()+"】");
         return ResultUtil.error(ResultEnum.COMMENT_ERROR.getCode(),((AuthenticationException)e).getMessage());
     }
 
-    // 捕捉shiro的异常
-    @ExceptionHandler(ShiroException.class)
-    public Result handle401() {
+    /**
+     * 权限异常
+     */
+    @ExceptionHandler({ UnauthorizedException.class, AuthorizationException.class })
+    @ResponseBody
+    public Result authorizationException(Exception e) {
+        logger.info("权限不足【"+e.getMessage()+"】");
         return ResultUtil.error(ResultEnum.UNAUTHORIZED);
     }
 
+    /**
+     * 校验异常
+     */
     @ExceptionHandler(BindException.class)
     @ResponseBody
     public Result parameterTypeException(Exception e){
@@ -61,6 +72,7 @@ public class ControllerExceptionHandler {
         System.out.println(msg);
         return ResultUtil.error(ResultEnum.TYPE_TRANSFORM_ERROR.getCode(),msg);
     }
+
 
     @ExceptionHandler({Exception.class})
     @ResponseBody

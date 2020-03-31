@@ -46,6 +46,7 @@ public class CustomRealm extends AuthorizingRealm {
      * 先认证 -- 安全数据
      * 再授权 -- 根据安全数据获取用户具有的所有操作权限
      */
+    @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         //1.获取已认证的用户数据
         User user = (User) principalCollection.getPrimaryPrincipal();//得到唯一的安全数据
@@ -55,25 +56,12 @@ public class CustomRealm extends AuthorizingRealm {
         List<String> roles = roleService.findStringRolesByUserId(userId);
         //TODO 根据用户id获取菜单权限
         List<String> perms = permissionService.findStringPermsByUserId(userId);
-
         //2.根据用户数据获取用户的权限信息（所有角色，所有权限）
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-
         //TODO info.addRoles(角色集合)
         info.addRoles(roles);
         //TODO info.addStringPermissions(菜单权限集合)
         info.addStringPermissions(perms);
-        /*Set<String> roles = new HashSet<>();//所有角色
-        Set<String> perms = new HashSet<>();//所有权限
-        for (Role role : user.getRoles()) {
-            roles.add(role.getName());
-            for (Permission perm : role.getPermissions()) {
-//                perms.add(perm.getCode());
-                perms.add(perm.getUrl());
-            }
-        }
-        info.setStringPermissions(perms);
-        info.setRoles(roles);*/
         return info;
     }
 
@@ -82,6 +70,7 @@ public class CustomRealm extends AuthorizingRealm {
      * 认证方法
      * 参数：传递的用户名密码
      */
+    @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         //1.获取登录的用户名密码（token）
         UsernamePasswordToken upToken = (UsernamePasswordToken) authenticationToken;

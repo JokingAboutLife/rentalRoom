@@ -9,8 +9,11 @@ import com.gxust.edu.rental_room.response.Result;
 import com.gxust.edu.rental_room.response.ResultEnum;
 import com.gxust.edu.rental_room.service.UserService;
 import com.gxust.edu.rental_room.utils.ResultUtil;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.crypto.hash.Md5Hash;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -103,9 +106,12 @@ public class UserController {
         return ResultUtil.success(user);
     }
 
+//    @RequiresPermissions("user:find")
     @RequestMapping(value = "/findByQuery", method = RequestMethod.GET)
     @ResponseBody
     public Result findByQuery(UserQuery userQuery) {
+        Subject subject = SecurityUtils.getSubject();
+        boolean admin = subject.hasRole("admin");
         PageInfo<User> pageInfo = userService.findByQuery(userQuery);
         List<User> userList = pageInfo.getList();
         if (userList == null) {
