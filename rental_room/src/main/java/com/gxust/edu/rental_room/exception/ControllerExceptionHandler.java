@@ -77,9 +77,7 @@ public class ControllerExceptionHandler {
     @ExceptionHandler({Exception.class})
     @ResponseBody
     public Result exceptionHandler(Exception e) {
-        System.out.println("=====================================");
-        System.out.println("===============发生异常===============");
-        System.out.println("=====================================");
+        logger.info(e.getCause().getMessage());
         return ResultUtil.error(ResultEnum.UNKNOWN_ERROR);
     }
 
