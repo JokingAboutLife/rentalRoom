@@ -108,13 +108,13 @@ public class HouseController {
     @RequestMapping(value = "/yzhouse", method = RequestMethod.POST)
     @ResponseBody
     public Result yzhouse(YzInfo yzInfo) {
+        if (yzInfo.getYztime() == null) {
+            return ResultUtil.error(ResultEnum.HOUSE_YZ_TIME_IS_NULL);
+        }
+        if (yzInfo.getUserid() == yzInfo.getLessorid()) {
+            return ResultUtil.error(ResultEnum.HOUSE_NOT_RENT_SELF);
+        }
         try {
-            if(yzInfo.getYztime()==null){
-                return ResultUtil.error(ResultEnum.HOUSE_YZ_TIME_IS_NULL);
-            }
-            if(yzInfo.getUserid() == yzInfo.getLessorid()){
-                return ResultUtil.error(ResultEnum.HOUSE_NOT_RENT_SELF);
-            }
             boolean result = houseService.yzhouse(yzInfo);
             if (!result) {
                 return ResultUtil.error(ResultEnum.HOUSE_RENTAL_YZ_FAIL);
