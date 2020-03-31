@@ -105,4 +105,8 @@
     <delete id="cancelYzHouse">
       delete from t_yzinfo where userId = #{userId} and houseId = #{houseId}
     </delete>
+
+  <delete id="deleteByHouseid">
+    delete from t_yzinfo where houseId = #{houseId}
+  </delete>
 </mapper>

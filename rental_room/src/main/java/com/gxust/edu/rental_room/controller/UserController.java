@@ -110,8 +110,6 @@ public class UserController {
     @RequestMapping(value = "/findByQuery", method = RequestMethod.GET)
     @ResponseBody
     public Result findByQuery(UserQuery userQuery) {
-        Subject subject = SecurityUtils.getSubject();
-        boolean admin = subject.hasRole("admin");
         PageInfo<User> pageInfo = userService.findByQuery(userQuery);
         List<User> userList = pageInfo.getList();
         if (userList == null) {

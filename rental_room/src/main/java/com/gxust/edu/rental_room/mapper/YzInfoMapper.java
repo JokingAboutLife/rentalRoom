@@ -11,4 +11,6 @@ public interface YzInfoMapper extends BaseMapper<YzInfo, YzInfoQuery> {
     int updateByPrimaryKey(YzInfo record);
 
     int cancelYzHouse(@Param("userId") Integer userId,@Param("houseId") Integer houseId);
+
+    void deleteByHouseid(@Param("houseId") Integer houseId);
 }

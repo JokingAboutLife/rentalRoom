@@ -63,6 +63,7 @@ public enum ResultEnum {
     HOUSE_CANCEL_YZ_EXISTS(3009,"取消预租房屋失败"),
     HOUSE_NOT_RENT_SELF(3010,"您不能租赁自己的房屋"),
     HOUSE_YZ_TIME_IS_NULL(3011,"房屋预租日期不能为空"),
+    HOUSE_RENTAL_FAIL(3012,"房屋租赁失败"),
 
     //租赁信息模块
 

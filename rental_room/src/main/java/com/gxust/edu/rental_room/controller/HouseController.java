@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.management.relation.RelationSupport;
 import java.awt.geom.GeneralPath;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.text.SimpleDateFormat;
@@ -160,5 +161,16 @@ public class HouseController {
             return ResultUtil.error(ResultEnum.HOUSE_CANCEL_YZ_EXISTS);
         }
         return ResultUtil.success(list);
+    }
+
+    @RequestMapping(value = "/rentingToUser",method = RequestMethod.POST)
+    @ResponseBody
+    public Result rentingToUser(Integer userId,Integer houseId,Integer lessorId){
+        try {
+            houseService.rentingToUser(userId,houseId,lessorId);
+            return ResultUtil.success();
+        } catch (Exception e) {
+            return ResultUtil.error(ResultEnum.HOUSE_RENTAL_FAIL);
+        }
     }
 }

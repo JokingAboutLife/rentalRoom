@@ -22,4 +22,6 @@ public interface HouseService extends BaseService<House, HouseQuery> {
     List<House> findsuccessRentHouse(Integer userId);
 
     List<CheckedHouseVo> findCheckedHouse(Integer userId);
+
+    void rentingToUser(Integer userId, Integer houseId, Integer lessorId);
 }
