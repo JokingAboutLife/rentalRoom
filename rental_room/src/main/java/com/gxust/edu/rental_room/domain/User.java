@@ -45,7 +45,6 @@ public class User extends BaseDomain implements Serializable, AuthCachePrincipal
 
     private boolean status;     //激活状态
 
-//    private boolean rentToSelf;
 //    private Set<Role> roles = new HashSet<Role>();
 
     @Override

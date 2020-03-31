@@ -114,7 +114,8 @@ public class HouseServiceImpl extends BaseServiceImpl<House, HouseQuery> impleme
         order.setLessorid(lessorId);
         order.setTime(new Date());
         boolean addOrder = orderMapper.add(order) == 1;
-        if (addOrder) {
+        boolean updateRentalStatus = ((HouseMapper) baseMapper).updateRentalStatus(houseId, 0) == 1;
+        if (addOrder && updateRentalStatus) {
             yzInfoMapper.deleteByHouseid(houseId);
         }
     }

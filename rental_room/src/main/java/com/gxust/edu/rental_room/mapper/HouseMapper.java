@@ -13,6 +13,8 @@ public interface HouseMapper extends BaseMapper<House, HouseQuery> {
 
     int updateStatus(@Param("id") int id,@Param("status") int status);
 
+    int updateRentalStatus(@Param("id") int id,@Param("rentalStatus") int rentalStatus);
+
     List<House> findYzHouse(Integer userId);
 
     List<House> findsuccessRentHouse(Integer userId);

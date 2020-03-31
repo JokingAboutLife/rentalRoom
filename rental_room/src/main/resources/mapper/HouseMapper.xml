@@ -252,6 +252,11 @@
         update t_house set status = #{status} where id = #{id}
     </update>
 
+    <!--更新房屋出租状态-->
+    <update id="updateRentalStatus">
+        update t_house set rental_status = #{rentalStatus} where id = #{id}
+    </update>
+
     <!--查找预租的房源-->
     <select id="findYzHouse" resultMap="BaseResultMap">
         select h.* from t_house h,t_yzinfo y
