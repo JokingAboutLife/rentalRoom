@@ -11,14 +11,9 @@ import com.gxust.edu.rental_room.domain.House;
 import com.gxust.edu.rental_room.mapper.OrderMapper;
 import com.gxust.edu.rental_room.mapper.UserMapper;
 import com.gxust.edu.rental_room.mapper.YzInfoMapper;
-import com.gxust.edu.rental_room.query.BaseQuery;
 import com.gxust.edu.rental_room.query.HouseQuery;
-import com.gxust.edu.rental_room.response.ResultEnum;
 import com.gxust.edu.rental_room.service.HouseService;
-import com.gxust.edu.rental_room.utils.ResultUtil;
 import com.gxust.edu.rental_room.vo.CheckedHouseVo;
-import com.sun.imageio.plugins.common.ReaderUtil;
-import net.sf.jsqlparser.expression.operators.arithmetic.BitwiseOr;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -64,9 +59,8 @@ public class HouseServiceImpl extends BaseServiceImpl<House, HouseQuery> impleme
     }
 
     @Override
-    public boolean updateStatus(Integer id, Boolean status) {
-        int sta = status ? 1 : 0;
-        return ((HouseMapper) baseMapper).updateStatus(id, sta) == 1;
+    public boolean updateStatus(Integer id, Boolean status,Date releaseTime) {
+        return ((HouseMapper) baseMapper).updateStatus(id, status,releaseTime) == 1;
     }
 
     @Override

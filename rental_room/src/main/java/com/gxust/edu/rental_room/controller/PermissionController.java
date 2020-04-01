@@ -14,10 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.Arrays;
 import java.util.List;
-
-import static com.gxust.edu.rental_room.response.ResultEnum.ROLE_NOT_DELETE;
 
 @Controller
 @RequestMapping("/permission")

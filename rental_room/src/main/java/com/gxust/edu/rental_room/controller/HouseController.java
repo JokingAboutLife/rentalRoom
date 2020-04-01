@@ -3,24 +3,17 @@ package com.gxust.edu.rental_room.controller;
 import com.github.pagehelper.PageInfo;
 import com.gxust.edu.rental_room.domain.House;
 import com.gxust.edu.rental_room.domain.YzInfo;
-import com.gxust.edu.rental_room.exception.ExceptionKind;
-import com.gxust.edu.rental_room.exception.KPException;
-import com.gxust.edu.rental_room.query.BaseQuery;
 import com.gxust.edu.rental_room.query.HouseQuery;
 import com.gxust.edu.rental_room.response.Result;
 import com.gxust.edu.rental_room.response.ResultEnum;
 import com.gxust.edu.rental_room.service.HouseService;
-import com.gxust.edu.rental_room.service.impl.HouseServiceImpl;
 import com.gxust.edu.rental_room.utils.ResultUtil;
 import com.gxust.edu.rental_room.vo.CheckedHouseVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.management.relation.RelationSupport;
-import java.awt.geom.GeneralPath;
-import java.sql.SQLIntegrityConstraintViolationException;
-import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -99,7 +92,12 @@ public class HouseController {
     @RequestMapping(value = "/update/status", method = RequestMethod.POST)
     @ResponseBody
     public Result updateStatus(Integer id, Boolean status) {
-        boolean result = houseService.updateStatus(id, status);
+        boolean result;
+        if (status) {
+            result = houseService.updateStatus(id, true, new Date());
+        } else {
+            result = houseService.updateStatus(id, false, null);
+        }
         if (!result) {
             return ResultUtil.error(ResultEnum.HOUSE_UPDATE_STATUS_FAIL);
         }
@@ -163,11 +161,11 @@ public class HouseController {
         return ResultUtil.success(list);
     }
 
-    @RequestMapping(value = "/rentingToUser",method = RequestMethod.POST)
+    @RequestMapping(value = "/rentingToUser", method = RequestMethod.POST)
     @ResponseBody
-    public Result rentingToUser(Integer userId,Integer houseId,Integer lessorId){
+    public Result rentingToUser(Integer userId, Integer houseId, Integer lessorId) {
         try {
-            houseService.rentingToUser(userId,houseId,lessorId);
+            houseService.rentingToUser(userId, houseId, lessorId);
             return ResultUtil.success();
         } catch (Exception e) {
             return ResultUtil.error(ResultEnum.HOUSE_RENTAL_FAIL);

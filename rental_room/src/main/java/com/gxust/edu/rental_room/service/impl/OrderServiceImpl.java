@@ -1,11 +1,9 @@
 package com.gxust.edu.rental_room.service.impl;
 
-import com.gxust.edu.rental_room.mapper.PermissionMapper;
 import com.gxust.edu.rental_room.query.OrderQuery;
 import com.gxust.edu.rental_room.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
 import com.gxust.edu.rental_room.mapper.OrderMapper;
 import com.gxust.edu.rental_room.domain.Order;
 

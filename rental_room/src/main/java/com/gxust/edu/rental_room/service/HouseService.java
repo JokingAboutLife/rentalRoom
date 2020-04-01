@@ -6,12 +6,13 @@ import com.gxust.edu.rental_room.domain.YzInfo;
 import com.gxust.edu.rental_room.query.HouseQuery;
 import com.gxust.edu.rental_room.vo.CheckedHouseVo;
 
+import java.util.Date;
 import java.util.List;
 
 public interface HouseService extends BaseService<House, HouseQuery> {
     PageInfo<House> findAllRental(HouseQuery q);
 
-    boolean updateStatus(Integer id,Boolean status);
+    boolean updateStatus(Integer id, Boolean status, Date releaseTime);
 
     boolean yzhouse(YzInfo yzInfo);
 

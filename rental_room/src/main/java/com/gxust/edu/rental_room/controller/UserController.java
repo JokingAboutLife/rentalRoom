@@ -2,27 +2,19 @@ package com.gxust.edu.rental_room.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.util.StringUtil;
-import com.gxust.edu.rental_room.RentalRoomApplication;
 import com.gxust.edu.rental_room.domain.User;
 import com.gxust.edu.rental_room.query.UserQuery;
 import com.gxust.edu.rental_room.response.Result;
 import com.gxust.edu.rental_room.response.ResultEnum;
 import com.gxust.edu.rental_room.service.UserService;
 import com.gxust.edu.rental_room.utils.ResultUtil;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.apache.shiro.authz.annotation.RequiresRoles;
-import org.apache.shiro.crypto.hash.Md5Hash;
-import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 @RequestMapping("/user")

@@ -249,7 +249,16 @@
 
     <!--更新房屋审核状态-->
     <update id="updateStatus">
-        update t_house set status = #{status} where id = #{id}
+        update t_house
+        <set>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="releaseTime != null">
+                release_time = #{releaseTime}
+            </if>
+        </set>
+        where id = #{id}
     </update>
 
     <!--更新房屋出租状态-->

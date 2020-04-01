@@ -6,7 +6,6 @@ import com.gxust.edu.rental_room.query.RoleQuery;
 import com.gxust.edu.rental_room.response.Result;
 import com.gxust.edu.rental_room.response.ResultEnum;
 import com.gxust.edu.rental_room.service.RoleService;
-import com.gxust.edu.rental_room.service.impl.RoleServiceImpl;
 import com.gxust.edu.rental_room.utils.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

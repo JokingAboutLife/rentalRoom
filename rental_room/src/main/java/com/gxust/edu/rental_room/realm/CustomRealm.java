@@ -1,16 +1,10 @@
 package com.gxust.edu.rental_room.realm;
 
 
-import com.gxust.edu.rental_room.domain.Permission;
-import com.gxust.edu.rental_room.domain.Role;
 import com.gxust.edu.rental_room.domain.User;
-import com.gxust.edu.rental_room.exception.ExceptionKind;
-import com.gxust.edu.rental_room.exception.KPException;
-import com.gxust.edu.rental_room.response.ResultEnum;
 import com.gxust.edu.rental_room.service.PermissionService;
 import com.gxust.edu.rental_room.service.RoleService;
 import com.gxust.edu.rental_room.service.UserService;
-import com.gxust.edu.rental_room.utils.ResultUtil;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -19,9 +13,7 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * 自定义的realm
@@ -52,15 +44,15 @@ public class CustomRealm extends AuthorizingRealm {
         User user = (User) principalCollection.getPrimaryPrincipal();//得到唯一的安全数据
         Integer userId = user.getId();
 
-        //TODO 根据用户id获取角色
+        // 根据用户id获取角色
         List<String> roles = roleService.findStringRolesByUserId(userId);
-        //TODO 根据用户id获取菜单权限
+        // 根据用户id获取菜单权限
         List<String> perms = permissionService.findStringPermsByUserId(userId);
         //2.根据用户数据获取用户的权限信息（所有角色，所有权限）
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-        //TODO info.addRoles(角色集合)
+        // info.addRoles(角色集合)
         info.addRoles(roles);
-        //TODO info.addStringPermissions(菜单权限集合)
+        // info.addStringPermissions(菜单权限集合)
         info.addStringPermissions(perms);
         return info;
     }

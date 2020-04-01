@@ -1,17 +1,15 @@
 package com.gxust.edu.rental_room.controller;
 
+
 import com.gxust.edu.rental_room.domain.Permission;
 import com.gxust.edu.rental_room.domain.User;
 import com.gxust.edu.rental_room.response.Result;
 import com.gxust.edu.rental_room.response.ResultEnum;
 import com.gxust.edu.rental_room.service.PermissionService;
 import com.gxust.edu.rental_room.service.UserService;
-import com.gxust.edu.rental_room.service.impl.UserServiceImpl;
 import com.gxust.edu.rental_room.utils.ResultUtil;
 import com.gxust.edu.rental_room.utils.TreeUtil;
-import com.sun.org.apache.regexp.internal.REUtil;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.subject.Subject;
@@ -20,12 +18,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import sun.java2d.pipe.ValidatePipe;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

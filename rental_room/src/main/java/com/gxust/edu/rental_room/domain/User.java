@@ -1,14 +1,11 @@
 package com.gxust.edu.rental_room.domain;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.crazycake.shiro.AuthCachePrincipal;
 
 import javax.validation.constraints.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -44,8 +41,6 @@ public class User extends BaseDomain implements Serializable, AuthCachePrincipal
     private String email;       //邮箱
 
     private boolean status;     //激活状态
-
-//    private Set<Role> roles = new HashSet<Role>();
 
     @Override
     public String getAuthCacheKey() {
