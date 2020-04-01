@@ -4,6 +4,8 @@ import com.gxust.edu.rental_room.domain.SysDict;
 import com.gxust.edu.rental_room.query.SysDictQuery;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 @Mapper
 public interface SysDictMapper extends BaseMapper<SysDict, SysDictQuery> {
 
@@ -12,4 +14,6 @@ public interface SysDictMapper extends BaseMapper<SysDict, SysDictQuery> {
     SysDict selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKey(SysDict record);
+
+    List<SysDict> findSysDict();
 }

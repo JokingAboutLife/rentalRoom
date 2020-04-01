@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import com.gxust.edu.rental_room.mapper.SysDictMapper;
 import com.gxust.edu.rental_room.domain.SysDict;
 
+import java.util.List;
+
 @Service
 public class SysDictServiceImpl extends BaseServiceImpl<SysDict, SysDictQuery> implements SysDictService {
 
@@ -31,6 +33,11 @@ public class SysDictServiceImpl extends BaseServiceImpl<SysDict, SysDictQuery> i
     @Override
     public int updateByPrimaryKey(SysDict record) {
         return ((SysDictMapper)baseMapper).updateByPrimaryKey(record);
+    }
+
+    @Override
+    public List<SysDict> findSysDict() {
+        return ((SysDictMapper)baseMapper).findSysDict();
     }
 
 }

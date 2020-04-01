@@ -6,4 +6,6 @@ import lombok.Data;
 @Data
 public class SysDictQuery extends BaseQuery {
 
+    private String name;
+
 }

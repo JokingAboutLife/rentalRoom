@@ -91,4 +91,8 @@
       xy_bj = #{xyBj}
     where id = #{id}
   </update>
+
+    <select id="findSysDict" resultMap="BaseResultMap">
+      select type,typename from t_sys_dict group by type
+    </select>
 </mapper>
