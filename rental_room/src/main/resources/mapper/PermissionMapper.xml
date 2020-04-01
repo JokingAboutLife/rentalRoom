@@ -79,7 +79,7 @@
     </select>
 
     <!--添加-->
-    <insert id="add" parameterType="permission" keyColumn="id" keyProperty="id" useGeneratedKeys="true">
+    <!--<insert id="add" parameterType="permission" keyColumn="id" keyProperty="id" useGeneratedKeys="true">
         insert into t_permission
         <trim prefix="(" suffix=")" suffixOverrides=",">
             name,
@@ -102,6 +102,63 @@
             #{perms},
             #{componentPath},
             #{icon}
+        </trim>
+    </insert>-->
+    <insert id="add">
+        insert into t_permission
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null">
+                `name`,
+            </if>
+            <if test="parentId != null">
+                parent_id,
+            </if>
+            <if test="types != null">
+                `types`,
+            </if>
+            <if test="url != null">
+                url,
+            </if>
+            <if test="description != null">
+                description,
+            </if>
+            <if test="perms != null">
+                perms,
+            </if>
+            <if test="componentPath != null">
+                component_path,
+            </if>
+            <if test="icon != null">
+                icon,
+            </if>
+            sorts,
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null">
+                #{name},
+            </if>
+            <if test="parentId != null">
+                #{parentId},
+            </if>
+            <if test="types != null">
+                #{types},
+            </if>
+            <if test="url != null">
+                #{url},
+            </if>
+            <if test="description != null">
+                #{description},
+            </if>
+            <if test="perms != null">
+                #{perms},
+            </if>
+            <if test="componentPath != null">
+                #{componentPath},
+            </if>
+            <if test="icon != null">
+                #{icon},
+            </if>
+            ((SELECT temp.sorts FROM (SELECT  MAX(sorts)+1 sorts FROM t_permission WHERE types = #{types} GROUP BY types) temp )),
         </trim>
     </insert>
 
