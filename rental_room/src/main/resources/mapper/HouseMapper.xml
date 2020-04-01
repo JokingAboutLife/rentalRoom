@@ -286,5 +286,8 @@
         where h.id = y.houseId
         and lessorId = #{userId}
     </select>
+    <select id="findMyHouse" resultMap="BaseResultMap">
+        select * from t_house where userId = #{userId}
+    </select>
 
 </mapper>

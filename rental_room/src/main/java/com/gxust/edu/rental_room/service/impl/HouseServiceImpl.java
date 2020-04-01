@@ -116,4 +116,9 @@ public class HouseServiceImpl extends BaseServiceImpl<House, HouseQuery> impleme
         }
     }
 
+    @Override
+    public List<House> findMyHouse(Integer userId) {
+        return ((HouseMapper)baseMapper).findMyHouse(userId);
+    }
+
 }

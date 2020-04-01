@@ -21,4 +21,6 @@ public interface HouseMapper extends BaseMapper<House, HouseQuery> {
     List<House> findsuccessRentHouse(Integer userId);
 
     List<House> findCheckedHouse(Integer userId);
+
+    List<House> findMyHouse(Integer userId);
 }

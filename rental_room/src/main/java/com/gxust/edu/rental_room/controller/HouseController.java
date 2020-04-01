@@ -171,4 +171,18 @@ public class HouseController {
             return ResultUtil.error(ResultEnum.HOUSE_RENTAL_FAIL);
         }
     }
+
+    @RequestMapping(value = "/getMyHouse",method = RequestMethod.GET)
+    @ResponseBody
+    public Result getMyHouse(Integer userId){
+        List<House> myHouse = houseService.findMyHouse(userId);
+        return ResultUtil.success(myHouse);
+    }
+
+
+    //TODO 收藏模块
+    //TODO 房屋维护模块
+    //TODO 退住模块
+    //TODO 租金模块
+    //TODO 房屋举报模块
 }
