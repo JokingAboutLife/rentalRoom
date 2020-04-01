@@ -16,6 +16,7 @@ import com.gxust.edu.rental_room.service.HouseService;
 import com.gxust.edu.rental_room.vo.CheckedHouseVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -100,6 +101,7 @@ public class HouseServiceImpl extends BaseServiceImpl<House, HouseQuery> impleme
         return checkedHouse;
     }
 
+    @Transactional
     @Override
     public void rentingToUser(Integer userId, Integer houseId, Integer lessorId) {
         Order order = new Order();
