@@ -8,6 +8,9 @@ import com.gxust.edu.rental_room.response.Result;
 import com.gxust.edu.rental_room.response.ResultEnum;
 import com.gxust.edu.rental_room.service.UserService;
 import com.gxust.edu.rental_room.utils.ResultUtil;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.crypto.hash.Md5Hash;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,23 +26,16 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    /*@RequestMapping(value = "/login", method = RequestMethod.POST)
+    /**
+     * 从shiro中获取个人信息
+     * @return
+     */
+    @RequestMapping(value = "/profile", method = RequestMethod.POST)
     @ResponseBody
-    public Result login(String loginName, String password) {
-        User user = userService.findByLoginName(loginName);
-        password = new Md5Hash(password,loginName,3).toString();
-        if (user == null) {
-            return ResultUtil.error(ResultEnum.USER_NOT_EXIST.getCode(), ResultEnum.USER_NOT_EXIST.getMsg());
-        }
-        if (!password.equals(user.getPassword())) {
-            return ResultUtil.error(ResultEnum.PASSWORD_IS_ERRO.getCode(), ResultEnum.PASSWORD_IS_ERRO.getMsg());
-        }
-        boolean status = user.isStatus();
-        if (!status) {
-            return ResultUtil.error(ResultEnum.ACCOUNT_IS_FREEZE.getCode(), ResultEnum.ACCOUNT_IS_FREEZE.getMsg());
-        }
+    public Result profile() {
+        User user = (User) SecurityUtils.getSubject().getPrincipal();
         return ResultUtil.success(user);
-    }*/
+    }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
