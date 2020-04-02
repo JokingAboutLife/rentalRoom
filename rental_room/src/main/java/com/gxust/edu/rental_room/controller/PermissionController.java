@@ -4,7 +4,7 @@ import com.github.pagehelper.PageInfo;
 import com.gxust.edu.rental_room.domain.Permission;
 import com.gxust.edu.rental_room.query.PermissionQuery;
 import com.gxust.edu.rental_room.response.ResultEnum;
-import com.gxust.edu.rental_room.service.impl.PermissionServiceImpl;
+import com.gxust.edu.rental_room.service.PermissionService;
 import com.gxust.edu.rental_room.response.Result;
 import com.gxust.edu.rental_room.utils.ResultUtil;
 import com.gxust.edu.rental_room.utils.TreeUtil;
@@ -21,7 +21,7 @@ import java.util.List;
 public class PermissionController {
 
     @Autowired
-    PermissionServiceImpl permissionService;
+    PermissionService permissionService;
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody

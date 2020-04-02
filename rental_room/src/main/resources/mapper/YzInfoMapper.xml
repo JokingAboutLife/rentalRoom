@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gxust.edu.rental_room.mapper.YzInfoMapper">
-  <cache type="com.gxust.edu.rental_room.cache.MyRedisCache"/>
+  <cache />
 
   <resultMap id="BaseResultMap" type="com.gxust.edu.rental_room.domain.YzInfo">
     <!--@Table t_yzinfo-->

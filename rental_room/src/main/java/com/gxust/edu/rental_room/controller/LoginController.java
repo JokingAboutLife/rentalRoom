@@ -26,8 +26,10 @@ import java.util.Map;
 
 @Controller
 public class LoginController {
+
     @Autowired
     UserService userService;
+
     @Autowired
     PermissionService permissionService;
 
@@ -57,7 +59,7 @@ public class LoginController {
     public Result register(@Valid User user) {
         String loginName = user.getLoginName();
         String password = user.getPassword();
-        password = new Md5Hash(password,loginName,3).toString();
+        password = new Md5Hash(password, loginName, 3).toString();
         user.setPassword(password);
         boolean result = userService.addUser(user, 3);
         if (!result) {
@@ -66,7 +68,7 @@ public class LoginController {
         return ResultUtil.success();
     }
 
-    @RequestMapping(value = "/visitorLogin",method = RequestMethod.POST)
+    @RequestMapping(value = "/visitorLogin", method = RequestMethod.POST)
     @ResponseBody
     public Result visitorLogin() {
         return ResultUtil.success();
@@ -109,6 +111,6 @@ public class LoginController {
     @ResponseBody
     public Result unauth(int code) {
         System.out.println("未授权响应数据");
-        return code == 1? ResultUtil.error(ResultEnum.UNAUTHENTICATED):ResultUtil.error(ResultEnum.UNAUTHORIZED);
+        return code == 1 ? ResultUtil.error(ResultEnum.UNAUTHENTICATED) : ResultUtil.error(ResultEnum.UNAUTHORIZED);
     }
 }
