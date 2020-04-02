@@ -1,6 +1,7 @@
 package com.gxust.edu.rental_room.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.github.pagehelper.util.StringUtil;
 import com.gxust.edu.rental_room.domain.Permission;
 import com.gxust.edu.rental_room.query.PermissionQuery;
 import com.gxust.edu.rental_room.response.ResultEnum;
@@ -8,12 +9,14 @@ import com.gxust.edu.rental_room.service.PermissionService;
 import com.gxust.edu.rental_room.response.Result;
 import com.gxust.edu.rental_room.utils.ResultUtil;
 import com.gxust.edu.rental_room.utils.TreeUtil;
+import com.sun.deploy.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -25,7 +28,7 @@ public class PermissionController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public Result addPermission(Permission permission) {
+    public Result addPermission(@Valid Permission permission) {
         boolean result = permissionService.add(permission);
         if (!result) {
             return ResultUtil.error(ResultEnum.PERMISSION_ADD_ERRO);

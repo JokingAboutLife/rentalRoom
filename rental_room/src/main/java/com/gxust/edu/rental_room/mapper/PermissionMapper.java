@@ -14,14 +14,11 @@ public interface PermissionMapper extends BaseMapper<Permission, PermissionQuery
 
     /**
      * 根据用户id或角色id查询子类菜单
-     * @param
-     * @return
      */
     List<Permission> selectFirstMenuByUserIdOrRoleId(@Param("roleId") Integer roleId,@Param("userId") Integer userId);
 
     /**
      * 根据用户id或角色id查询除了一级菜单以外的菜单
-     * @return
      */
     List<Permission> selectLeafByUserIdOrRoleId(@Param("roleId") Integer roleId,@Param("userId") Integer userId);
 
@@ -30,4 +27,6 @@ public interface PermissionMapper extends BaseMapper<Permission, PermissionQuery
     List<Permission> findMenu();
 
     List<Permission> findByParentId(Integer parentId);
+
+    void deleteRolePermById(Integer permissionId);
 }

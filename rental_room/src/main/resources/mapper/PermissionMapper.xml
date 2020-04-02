@@ -95,32 +95,32 @@
     </select>
 
     <!--添加-->
-    <!--<insert id="add" parameterType="permission" keyColumn="id" keyProperty="id" useGeneratedKeys="true">
+    <insert id="add" parameterType="permission" keyColumn="id" keyProperty="id" useGeneratedKeys="true">
         insert into t_permission
         <trim prefix="(" suffix=")" suffixOverrides=",">
             name,
             parent_id,
             types,
             url,
-            sorts,
             description,
             perms,
             component_path,
             icon
+            sorts,
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             #{name},
             #{parentId},
             #{types},
             #{url},
-            #{sorts},
             #{description},
             #{perms},
             #{componentPath},
             #{icon}
+            ((SELECT temp.sorts FROM (SELECT  MAX(sorts)+1 sorts FROM t_permission WHERE types = #{types} GROUP BY types) temp ))
         </trim>
-    </insert>-->
-    <insert id="add">
+    </insert>
+    <!--<insert id="add">
         insert into t_permission
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="name != null">
@@ -176,11 +176,14 @@
             </if>
             ((SELECT temp.sorts FROM (SELECT  MAX(sorts)+1 sorts FROM t_permission WHERE types = #{types} GROUP BY types) temp )),
         </trim>
-    </insert>
+    </insert>-->
 
     <!--删除-->
     <delete id="deleteById" parameterType="int">
       delete from t_permission where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <delete id="deleteRolePermById">
+        delete from t_role_permission where perm_id = #{permissionId}
     </delete>
 
     <!-- 批量删除 -->

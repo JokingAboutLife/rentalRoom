@@ -7,9 +7,11 @@ import com.gxust.edu.rental_room.mapper.BaseMapper;
 import com.gxust.edu.rental_room.domain.BaseDomain;
 import com.gxust.edu.rental_room.exception.ExceptionKind;
 import com.gxust.edu.rental_room.exception.KPException;
+import com.gxust.edu.rental_room.mapper.PermissionMapper;
 import com.gxust.edu.rental_room.query.BaseQuery;
 import com.gxust.edu.rental_room.service.BaseService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -48,9 +50,12 @@ public class BaseServiceImpl<T extends BaseDomain, Q extends BaseQuery> implemen
         return baseMapper.update(t) == 1;
     }
 
+    @Transactional
     @Override
     public boolean deleteById(int id) {
-        return baseMapper.deleteById(id) == 1;
+        ((PermissionMapper)baseMapper).deleteRolePermById(id);
+        boolean result = baseMapper.deleteById(id) == 1;
+        return result;
     }
 
     @Override
