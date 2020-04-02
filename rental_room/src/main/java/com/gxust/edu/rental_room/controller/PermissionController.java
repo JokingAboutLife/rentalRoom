@@ -79,22 +79,20 @@ public class PermissionController {
         return ResultUtil.success(permissionList);
     }
 
-    /*@RequestMapping(value = "/findLevelMenu", method = RequestMethod.GET)
+    @RequestMapping(value = "/findMenu", method = RequestMethod.GET)
     @ResponseBody
-    public Result findLevelMenu(Integer userId) {
-        List<Permission> FirstMenus = permissionService.selectFirstMenuByUserIdOrRoleId(null, userId);
-        List<Permission> permissionList = permissionService.selectLeafByUserIdOrRoleId(null, userId);
-        List<Permission> levelMenuTree = TreeUtil.getMenuTree(FirstMenus, permissionList);
-        if (levelMenuTree == null && levelMenuTree.size() < 0) {
+    public Result findLevelMenu() {
+        List<Permission> menus = permissionService.findMenu();
+        if (menus == null && menus.size() < 0) {
             return ResultUtil.error(ResultEnum.MENU_FIND_IS_NULL.getCode(),ResultEnum.MENU_FIND_IS_NULL.getMsg());
         }
-        return ResultUtil.success(levelMenuTree);
-    }*/
+        return ResultUtil.success(menus);
+    }
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     @ResponseBody
     public Result findAllPermission(String type) {
-        //是否请求list结构的权限列表
+        //请求list结构的权限列表
         if ("list".equals(type)) {
             PermissionQuery qo = new PermissionQuery();
             qo.setPaging(false);
@@ -112,6 +110,7 @@ public class PermissionController {
         return ResultUtil.success(allPermission);
     }
 
+
     @RequestMapping(value = "/findByRole", method = RequestMethod.GET)
     @ResponseBody
     public Result findPermissionByRoleId(Integer roleId) {
@@ -122,5 +121,12 @@ public class PermissionController {
             return ResultUtil.error(ResultEnum.PERMISSION_NOT_FIND_BY_ROLE);
         }
         return ResultUtil.success(roleOfPermission);
+    }
+
+    @RequestMapping(value = "/findByParentId",method = RequestMethod.GET)
+    @ResponseBody
+    public Result findByParentId(Integer parentId){
+        List<Permission> list = permissionService.findByParentId(parentId);
+        return ResultUtil.success(list);
     }
 }

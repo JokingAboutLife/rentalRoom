@@ -15,6 +15,21 @@
         <result column="icon" jdbcType="VARCHAR" property="icon"/>
     </resultMap>
 
+    <resultMap id="BaseMenuResultMap" type="com.gxust.edu.rental_room.domain.Permission">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="parent_id" jdbcType="INTEGER" property="parentId"/>
+        <result column="types" jdbcType="INTEGER" property="types"/>
+        <result column="url" jdbcType="VARCHAR" property="url"/>
+        <result column="sorts" jdbcType="INTEGER" property="sorts"/>
+        <result column="description" jdbcType="VARCHAR" property="description"/>
+        <result column="perms" jdbcType="VARCHAR" property="perms"/>
+        <result column="component_path" jdbcType="VARCHAR" property="componentPath"/>
+        <result column="icon" jdbcType="VARCHAR" property="icon"/>
+        <collection property="children" ofType="com.gxust.edu.rental_room.domain.Permission" column="id"
+                    select="findSecondMenu"></collection>
+    </resultMap>
+
 
     <resultMap id="menuAndPermissionResultMap" type="permission">
         <id column="id" jdbcType="INTEGER" property="id"/>
@@ -30,6 +45,7 @@
         <collection property="children" ofType="com.gxust.edu.rental_room.domain.Permission" column="id"
                     select="findPermission"></collection>
     </resultMap>
+
     <!--查找菜单和权限-->
     <select id="findAllPermission" resultMap="menuAndPermissionResultMap">
         select * from t_permission where parent_id = 0
@@ -210,7 +226,7 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
 
-
+    <!--根据用户id或角色id查找所有权限和菜单-->
     <select id="selectFirstMenuByUserIdOrRoleId" resultMap="BaseResultMap">
         select p.* from t_permission p,t_role_permission rp
         where p.id = rp.perm_id
@@ -223,7 +239,6 @@
         </if>
         order by p.sorts;
     </select>
-
     <select id="selectLeafByUserIdOrRoleId" resultMap="BaseResultMap">
         select p.* from t_permission p,t_role_permission rp
         where p.id = rp.perm_id
@@ -246,6 +261,18 @@
         inner join t_user_role tur on rp.role_id = tur.role_id
         inner join t_user tu on tur.user_id = tu.id
         where tu.id = #{userId}
+    </select>
+
+    <!--查找菜单-->
+    <select id="findMenu" resultMap="com.gxust.edu.rental_room.mapper.PermissionMapper.BaseMenuResultMap">
+       select * from t_permission where parent_id = 0 and types = 0 order by sorts
+    </select>
+    <select id="findSecondMenu" resultMap="com.gxust.edu.rental_room.mapper.PermissionMapper.BaseResultMap">
+        select * from t_permission where parent_id = #{id} and types = 1 order by sorts
+    </select>
+
+    <select id="findByParentId" resultMap="BaseResultMap">
+        select * from t_permission where types = 2 and parent_id = #{parentId}
     </select>
 
 

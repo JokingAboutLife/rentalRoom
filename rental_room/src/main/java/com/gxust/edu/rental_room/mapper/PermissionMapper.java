@@ -26,4 +26,8 @@ public interface PermissionMapper extends BaseMapper<Permission, PermissionQuery
     List<Permission> selectLeafByUserIdOrRoleId(@Param("roleId") Integer roleId,@Param("userId") Integer userId);
 
     List<String> findStringPermsByUserId(@Param("userId") Integer userId);
+
+    List<Permission> findMenu();
+
+    List<Permission> findByParentId(Integer parentId);
 }

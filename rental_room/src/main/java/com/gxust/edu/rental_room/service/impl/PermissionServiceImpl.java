@@ -57,4 +57,11 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission, Permissio
         return perms;
     }
 
+    public List<Permission> findMenu() {
+        return ((PermissionMapper)baseMapper).findMenu();
+    }
+
+    public List<Permission> findByParentId(Integer parentId) {
+        return ((PermissionMapper)baseMapper).findByParentId(parentId);
+    }
 }
