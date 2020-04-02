@@ -46,6 +46,8 @@ spring:
 mybatis:
   type-aliases-package: com.gxust.edu.rental_room.domain,com.gxust.edu.rental_room.query
   mapper-locations: classpath:/mapper/*Mapper.xml
+  configuration:
+    cache-enabled: true
 
 #分页插件
 pagehelper:
