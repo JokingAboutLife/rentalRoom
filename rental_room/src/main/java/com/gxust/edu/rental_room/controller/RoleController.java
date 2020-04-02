@@ -35,16 +35,19 @@ public class RoleController {
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     @ResponseBody
-    public Result deleteRole(String id) {
-        String[] idsStr = id.split(",");
+    public Result deleteRole(Integer id) {
+        /*String[] idsStr = id.split(",");
         if(Arrays.asList(idsStr).contains("1") || Arrays.asList(idsStr).contains("2") || Arrays.asList(idsStr).contains("3")){
             return ResultUtil.error(ResultEnum.ROLE_NOT_DELETE);
         }
         int[] ids = new int[idsStr.length];
         for (int i = 0; i < idsStr.length; i++) {
             ids[i] = Integer.parseInt(idsStr[i]);
+        }*/
+        if(id == 1 || id == 2 || id == 3){
+            return ResultUtil.error(ResultEnum.ROLE_NOT_DELETE);
         }
-        boolean result = roleService.deleteByIds(ids);
+        boolean result = roleService.deleteById(id);
         if (!result) {
            return ResultUtil.error(ResultEnum.ROLE_DELETE_ERRO);
         }

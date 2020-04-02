@@ -51,13 +51,13 @@ public class UserController {
 //    @RequiresPermissions("user:delete")
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     @ResponseBody
-    public Result deleteUser(String id) {
-        String[] idsStr = id.split(",");
+    public Result deleteUser(Integer id) {
+        /*String[] idsStr = id.split(",");
         int[] ids = new int[idsStr.length];
         for (int i = 0; i < idsStr.length; i++) {
             ids[i] = Integer.parseInt(idsStr[i]);
-        }
-        boolean result = userService.deleteByIds(ids);
+        }*/
+        boolean result = userService.deleteById(id);
         if (!result) {
             return ResultUtil.error(ResultEnum.USER_DELETE_ERRO);
         }

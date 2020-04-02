@@ -45,13 +45,13 @@ public class HouseController {
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     @ResponseBody
-    public Result deleteHouse(String id) {
-        String[] idsStr = id.split(",");
+    public Result deleteHouse(Integer id) {
+        /*String[] idsStr = id.split(",");
         int[] ids = new int[idsStr.length];
         for (int i = 0; i < idsStr.length; i++) {
             ids[i] = Integer.parseInt(idsStr[i]);
-        }
-        boolean result = houseService.deleteByIds(ids);
+        }*/
+        boolean result = houseService.deleteById(id);
         if (!result) {
             return ResultUtil.error(ResultEnum.HOUSE_DELETE_ERRO);
         }

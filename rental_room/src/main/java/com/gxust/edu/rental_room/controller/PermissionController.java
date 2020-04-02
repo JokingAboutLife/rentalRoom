@@ -35,13 +35,13 @@ public class PermissionController {
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     @ResponseBody
-    public Result deletePermission(String id) {
-        String[] idsStr = id.split(",");
+    public Result deletePermission(Integer id) {
+        /*String[] idsStr = id.split(",");
         int[] ids = new int[idsStr.length];
         for (int i = 0; i < idsStr.length; i++) {
             ids[i] = Integer.parseInt(idsStr[i]);
-        }
-        boolean result = permissionService.deleteByIds(ids);
+        }*/
+        boolean result = permissionService.deleteById(id);
         if (!result) {
             return ResultUtil.error(ResultEnum.PERMISSION_DELETE_ERRO);
         }
@@ -129,4 +129,5 @@ public class PermissionController {
         List<Permission> list = permissionService.findByParentId(parentId);
         return ResultUtil.success(list);
     }
+
 }
