@@ -108,7 +108,7 @@ public class ShiroConfiguration {
     public RedisCacheManager cacheManager() {
         RedisCacheManager redisCacheManager = new RedisCacheManager();
         redisCacheManager.setRedisManager(redisManager());
-        redisCacheManager.setExpire(200000);
+        redisCacheManager.setExpire(200000);  //设置过期时间
         return redisCacheManager;
     }
 
