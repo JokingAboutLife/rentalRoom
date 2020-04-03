@@ -273,7 +273,7 @@
     <select id="findSecondMenu" resultMap="com.gxust.edu.rental_room.mapper.PermissionMapper.BaseResultMap">
         select * from t_permission where parent_id = #{id} and types = 1 order by sorts
     </select>
-
+    <!--查找菜单下的权限-->
     <select id="findByParentId" resultMap="BaseResultMap">
         select * from t_permission where types = 2 and parent_id = #{parentId}
     </select>

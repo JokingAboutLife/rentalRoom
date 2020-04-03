@@ -95,4 +95,8 @@
     <select id="findSysDict" resultMap="BaseResultMap">
       select type,typename from t_sys_dict group by type
     </select>
+
+    <select id="findByTypename" resultMap="BaseResultMap">
+      select * from t_sys_dict where type = #{type}
+    </select>
 </mapper>

@@ -9,8 +9,8 @@ public enum ResultEnum {
     UNAUTHENTICATED(-40,"您还未登录"),
     UNAUTHORIZED(-50,"权限不足"),
     PARAM_ERROR(-60,"参数错误"),
-    TYPE_TRANSFORM_ERROR(-60,"类型转换错误"),
-    DATA_IS_NULL(3,"数据为空"),
+    TYPE_TRANSFORM_ERROR(-70,"类型转换错误"),
+    DATA_IS_NULL(-80,"数据为空"),
     SUCCESS(2000,"成功"),
 
     //角色模块
@@ -65,10 +65,17 @@ public enum ResultEnum {
     HOUSE_YZ_TIME_IS_NULL(3011,"房屋预租日期不能为空"),
     HOUSE_RENTAL_FAIL(3012,"房屋租赁失败"),
 
-    //租赁信息模块
+
+    //字典模块
+    DICT_FIND_FAIL(4001,"查询字典失败"),
+    DICT_ADD_ERROR(4002,"字典添加失败"),
+    DICT_DELETE_FAIL(4003,"字典删除失败"),
+    DICT_UPDATE_FAIL(4004,"字典更新失败"),
 
 
     ;
+
+
     private Integer code;
     private String msg;
 

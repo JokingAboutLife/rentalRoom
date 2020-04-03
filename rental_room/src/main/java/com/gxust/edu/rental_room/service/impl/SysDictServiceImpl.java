@@ -40,4 +40,9 @@ public class SysDictServiceImpl extends BaseServiceImpl<SysDict, SysDictQuery> i
         return ((SysDictMapper)baseMapper).findSysDict();
     }
 
+    @Override
+    public List<SysDict> findByTypename(String type) {
+        return ((SysDictMapper)baseMapper).findByTypename(type);
+    }
+
 }

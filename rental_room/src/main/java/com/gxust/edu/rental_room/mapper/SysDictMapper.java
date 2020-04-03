@@ -16,4 +16,6 @@ public interface SysDictMapper extends BaseMapper<SysDict, SysDictQuery> {
     int updateByPrimaryKey(SysDict record);
 
     List<SysDict> findSysDict();
+
+    List<SysDict> findByTypename(String type);
 }
