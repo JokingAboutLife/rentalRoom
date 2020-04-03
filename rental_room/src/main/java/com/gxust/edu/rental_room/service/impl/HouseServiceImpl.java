@@ -55,11 +55,6 @@ public class HouseServiceImpl extends BaseServiceImpl<House, HouseQuery> impleme
     }
 
     @Override
-    public PageInfo<House> findByQuery(HouseQuery houseQuery) {
-        return super.findByQuery(houseQuery);
-    }
-
-    @Override
     public boolean updateStatus(Integer id, Boolean status,Date releaseTime) {
         return ((HouseMapper) baseMapper).updateStatus(id, status,releaseTime) == 1;
     }

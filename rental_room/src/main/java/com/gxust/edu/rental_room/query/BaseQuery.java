@@ -9,7 +9,7 @@ public class BaseQuery {
     //每页显示条数
     private Integer pageSize = 10;
     //排序方式
-    private Integer total;
+//    private Integer total;
     //是否分页
     private boolean paging = true;
 

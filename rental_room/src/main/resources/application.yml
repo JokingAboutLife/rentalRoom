@@ -34,7 +34,7 @@ spring:
   mvc:
     static-path-pattern: /static/**
   datasource:
-    url: jdbc:mysql://localhost:3306/rentalroom2?serverTimezone=GMT%2B8
+    url: jdbc:mysql://localhost:3306/rentalroom?serverTimezone=GMT%2B8
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver

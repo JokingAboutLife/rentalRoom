@@ -91,4 +91,10 @@
       `time` = #{time}
     where id = #{id}
   </update>
+
+  <select id="findMyOrder" resultMap="BaseResultMap">
+    select * from t_order where lessorId = #{lessorId}
+  </select>
+
+
 </mapper>

@@ -72,6 +72,9 @@ public enum ResultEnum {
     DICT_DELETE_FAIL(4003,"字典删除失败"),
     DICT_UPDATE_FAIL(4004,"字典更新失败"),
 
+    //订单模块
+    ORDER_FIND_FAIL(5001,"订单查找失败"),
+
 
     ;
 
